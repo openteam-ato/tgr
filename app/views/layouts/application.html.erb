@@ -4,11 +4,216 @@
   <title>Tgr</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= favicon_link_tag %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="top">
+    <div class="inner">
+      <ul class="languages">
+        <li><a href="#">РУ</a></li>
+        <li><a href="#">EN</a></li>
+        <li><a href="#">DE</a></li>
+      </ul>
+      <div class="impaired">
+        <a href="#">Версия для слабовидящих</a>
+      </div>
+      <a href="#" class="sitemap">Карта сайта</a>
+    </div>
+  </div>
 
-<%= yield %>
+  <div class="header">
+    <div class="inner">
+      <ul class='additional'>
+        <li><a href="#">Для населения</a></li>
+        <li><a href="#">Для бизнеса</a></li>
+      </ul>
+      <div class="logo">
+      	<a href="/" alt='Администрация Томской области' title='Администрация Томской области'>Администрация Томской области</a>
+      </div>
+      <div class="site_title">
+        Администрация Томской области
+        <span class="desc">официальный информационный интернет-портал</span>
+      </div>
+      <div class="search_block">
+        <form action="#">
+          <ul class='inputs'>
+            <li>
+              <input type="text" />
+            </li>
+          </ul>
+          <ul class='buttons'>
+            <li>
+              <input type="submit" value="искать" />
+            </li>
+          </ul>
+        </form>
+      </div>
+    </div>
+  </div>
 
+  <div class="main_menu">
+    <div class="inner">
+      <ul>
+        <li class='active'>
+          <a href="#">Органы власти</a>
+        </li>
+        <li>
+          <a href="#">Справка о регионе</a>
+          <div class="submenu_floated">
+            <div>
+              <ul>
+                <li><a href="#">География</a></li>
+                <li><a href="#">Символика</a></li>
+                <li><a href="#">История</a></li>
+                <li><a href="#">Культурное наследие</a></li>
+              </ul>
+              <ul>
+                <li><a href="#">Административное деление</a></li>
+                <li><a href="#">Внешние связи</a></li>
+                <li><a href="#">Население</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li>
+          <a href="#">Региональное развитие</a>
+        </li>
+        <li>
+          <a href="#">Документы</a>
+        </li>
+        <li>
+          <a href="#">Пресс-центр</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="submenu_opened">
+    <div class='inner'>
+      <ul>
+        <li><a href="#">Губернатор Томской области</a></li>
+        <li class='active'><a href="#">Администрация Томской области</a></li>
+        <li><a href="#">Законодательная Дума Томской области</a></li>
+        <li><a href="#">Избирательная комиссия Томской области</a></li>
+        <li><a href="#">Местное самоуправление Томской области</a></li>
+        <li><a href="#">Федеральные структуры</a></li>
+        <li><a href="#">Уполномоченный по правам человека в Томской области</a></li>
+        <li><a href="#">Уполномоченный по правам ребенка в Томской области</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <%= yield %>
+
+  <div class="banners_block">
+    <div class="inner">
+      <ul>
+        <li><a href="#"><img src="http://placekitten.com/g/128/128" alt="#" />Томская область на картах Google Maps</a></li>
+        <li><a href="#"><img src="http://placekitten.com/g/128/128" alt="#" />Томская область на картах Google Maps</a></li>
+        <li><a href="#"><img src="http://placekitten.com/g/128/128" alt="#" />Томская область на картах Google Maps</a></li>
+        <li><a href="#"><img src="http://placekitten.com/g/128/128" alt="#" />Томская область на картах Google Maps</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="bottom_navigation">
+    <div class="inner">
+      <div>
+        <h3>
+          <a href="#">Экономика</a>
+        </h3>
+        <ul>
+          <li><a href="#">Промышленность</a></li>
+          <li><a href="#">Строительный комплекс</a></li>
+          <li><a href="#">Топливно-энергетический комплекс</a></li>
+          <li><a href="#">Лесной комплекс</a></li>
+          <li><a href="#">Агропромышленный комплекс</a></li>
+          <li><a href="#">Потребительский рынок</a></li>
+          <li><a href="#">Транспорт и связь</a></li>
+          <li><a href="#">Туризм и гостеприимство</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>
+          <a href="#">Жилищно-коммунальное хозяйство</a>
+        </h3>
+        <ul>
+          <li><a href="#">Управление жилищным фондом</a></li>
+          <li><a href="#">Благоустройство территорий</a></li>
+          <li><a href="#">Коммунальные услуги</a></li>
+          <li><a href="#">Коммунальные платежи</a></li>
+          <li><a href="#">Энергосбережение</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>
+          <a href="#">Научно-образовательный комплекс</a>
+        </h3>
+        <ul>
+          <li><a href="#">Общее образование</a></li>
+          <li><a href="#">Начальное и среднее профессиональное образование</a></li>
+          <li><a href="#">Высшее образование</a></li>
+          <li><a href="#">Дополнительное образование</a></li>
+          <li><a href="#">Наука</a></li>
+          <li><a href="#">Иноовационная деятельность</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>
+          <a href="#">Социальная сфера</a>
+        </h3>
+        <ul>
+          <li><a href="#">Труд и занятость населения</a></li>
+          <li><a href="#">Здравоохранение</a></li>
+          <li><a href="#">Социальная защита</a></li>
+          <li><a href="#">Семья и дети</a></li>
+          <li><a href="#">Молодежная политика</a></li>
+          <li><a href="#">Спорт</a></li>
+        </ul>
+      </div>
+      <div class='last'>
+        <h3>
+          <a href="#">Гражданское общество</a>
+        </h3>
+        <ul>
+          <li><a href="#">Общественные организации</a></li>
+          <li><a href="#">Политическии партии</a></li>
+          <li><a href="#">Национальные объединения</a></li>
+          <li><a href="#">Конфессии</a></li>
+          <li><a href="#">Медиасфера</a></li>
+          <li><a href="#">Общественная палата</a></li>
+          <li><a href="#">Совет ветеранов</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="inner">
+      <div class="contacts">
+        <h5><a href='#'>Контакты</a></h5>
+        <p>Администрация Томской области</p>
+        <p>634050, г.Томск, пл. Ленина, 6</p>
+        <p>+7 (382-2) 510-505, +7 (382-2) 510-001</p>
+        <p>+7 (382-2) 510-323, <a href='mailto:ato@tomsk.gov.ru'>ato@tomsk.gov.ru</a></p>
+      </div>
+      <div class="social_links">
+        <ul>
+          <li><a href="#" class='rss' alt='RSS обновлений' title='RSS обновлений'>RSS</a></li>
+          <li><a href="#" class='vkontakte' alt='Наша группа ВКонтакте' title='Наша группа ВКонтакте'>ВКонтакте</a></li>
+          <li><a href="#" class='facebook' alt='Наша страница Facebook' title='Наша страница Facebook'>Facebook</a></li>
+          <li><a href="#" class='twitter' alt='Наш Twitter' title='Наш Twitter'>Twitter</a></li>
+          <li><a href="#" class='livejournal' alt='Блог в LiveJournal' title='Блог в LiveJournal'>LiveJournal</a></li>
+        </ul>
+      </div>
+      <div class="copyrights">
+        <ul>
+          <li>Разработка: <a href="http://openteam.ru">OpenTeam</a></li>
+          <li>Дизайн: <a href="http://kutanaga.ru">Kutanaga.ru</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
