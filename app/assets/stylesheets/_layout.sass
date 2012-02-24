@@ -64,18 +64,25 @@ body
       text-indent: -99999px
       position: absolute
       width: 120px
-      z-index: 3
+      z-index: 4
 
   .site_title
     float: left
     font-size: 25px
     margin: 19px 0 0 0
 
+    a
+      +clearfix
+      color: #000
+      display: block
+      text-decoration: none
+
     .desc
       display: block
       color: #808080
       font-size: 15px
       margin: 7px 0 0 0
+      text-transform: lowercase
 
   .search_block
     font-size: 14px
@@ -201,7 +208,9 @@ body
 
             li
               width: 140px
+
               &:hover
+                +single-box-shadow(none)
                 background: none
                 height: auto
 
@@ -217,7 +226,7 @@ body
                 text-transform: none
 
 .submenu_opened
-  background: #508450
+  background: #3e7541
   border: 1px solid #005504
   +linear-gradient(color-stops(#3e7541, #558754, #3e7541))
   display: block
@@ -246,6 +255,44 @@ body
 .banners_block
   +clearfix
   height: 272px
+
+  ul
+    +clearfix
+    border-top: 1px dotted #7f7f7f
+    padding: 27px 0 36px 16px
+    margin: 0 auto
+
+    li
+      +single-box-shadow(#dfdfdf, 0, 0, 15px, 3px)
+      border-top: 1px solid #dedede
+      border-left: 1px solid #d1d1d1
+      border-right: 1px solid  #c7c7c7
+      border-bottom: 1px solid #c7c7c7
+      float: left
+      margin: 0 20px 0 0
+
+      &:hover
+        +single-box-shadow(#d1d1d1 0 0 7px 3px)
+        a
+          +single-box-shadow(#dfdfdf, -10px, -10px, 40px, 10px, true)
+
+      a
+        +clearfix
+        +single-box-shadow(#dfdfdf, -5px, -11px, 30px, 2px, true)
+        color: #005fab
+        display: block
+        font-size: 13px
+        line-height: 20px
+        height: 208px
+        padding: 0 20px 10px
+        text-align: center
+        width: 178px
+
+        img
+          display: block
+          height: 100px
+          margin: 20px 39px 20px
+          width: 100px
 
 .bottom_navigation
   +clearfix

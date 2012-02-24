@@ -1,0 +1,22 @@
+ru:
+  administration_of_tomsk_region: Администрация Томской области
+  official_information_internet_portal: Официальный информационный интернет-портал
+
+  asserts: утверждает
+  cancels: отменяет
+  changes: изменяет
+
+  canceled: утратил силу
+
+  documents:
+    one: "%{count} документ"
+    few: "%{count} документа"
+    many: "%{count} документов"
+    other: "%{count} документы"
+
+  projects:
+    one: "%{count} проект"
+    few: "%{count} проекта"
+    many: "%{count} проектов"
+    other: "%{count} проекты"
+
