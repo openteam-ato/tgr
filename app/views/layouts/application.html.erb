@@ -56,24 +56,13 @@
 
   <%= render "regions/main_#{@main_navigation.type.underscore}", :object => @main_navigation.content if @main_navigation %>
 
-  <div class="submenu_opened">
-    <div class='inner'>
-      <ul>
-        <li><a href="#">Губернатор Томской области</a></li>
-        <li class='active'><a href="#">Администрация Томской области</a></li>
-        <li><a href="#">Законодательная Дума Томской области</a></li>
-        <li><a href="#">Избирательная комиссия Томской области</a></li>
-        <li><a href="#">Местное самоуправление Томской области</a></li>
-        <li><a href="#">Федеральные структуры</a></li>
-        <li><a href="#">Уполномоченный по правам человека в Томской области</a></li>
-        <li><a href="#">Уполномоченный по правам ребенка в Томской области</a></li>
-      </ul>
-    </div>
-  </div>
+  <%= render "regions/submenu_#{@main_navigation.type.underscore}", :object => @main_navigation.content if @main_navigation %>
 
   <%= render "regions/#{@breadcrumbs.type.underscore}", :object => @breadcrumbs.content if @breadcrumbs %>
 
-  <%= yield %>
+  <div class="content">
+    <%= yield(:content) %>
+  </div>
 
   <%= render("regions/#{@banners.type.underscore}", :object => @banners.content) if @banners %>
 

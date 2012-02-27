@@ -1,0 +1,5 @@
+<% content_for :content do %>
+  <%= render "regions/#{@content.type.underscore}", :object => @content.content if @content %>
+  <%= render "regions/#{@gallery.type.underscore}", :object => @gallery.content if @gallery %>
+<% end %>
+<%= render :template => 'layouts/application' %>

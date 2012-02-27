@@ -18,3 +18,4 @@
 /bin
 /config/settings.yml
 /public/assets
+*.swp
