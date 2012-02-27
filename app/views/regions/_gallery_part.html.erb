@@ -1,0 +1,8 @@
+<h3><%= object.title %></h3>
+
+<div id='galleria'>
+  <% object.gallery_pictures.each do |picture| %>
+    <%= image_tag prepare_picture_url(picture.picture_url), :title => picture.description, :alt => nil %>
+  <% end  %>
+</div>
+

@@ -135,6 +135,7 @@ body
     overflow: visible
 
   ul
+    +min-height(42px)
     background: image_url('main_menu_delimiter.png') no-repeat left
     margin: 0 0 0 18px
 
@@ -251,6 +252,17 @@ body
     a
       color: #fff
       font-size: 14px
+
+.breadcrumbs
+  border-bottom: 1px solid #ccc
+
+  .inner
+    font-size: 12px
+    padding: 12px 18px
+    width: 940px
+
+  a
+    color: #005fab
 
 .banners_block
   +clearfix

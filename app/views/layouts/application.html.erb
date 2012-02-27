@@ -11,9 +11,9 @@
   <div class="top">
     <div class="inner">
       <ul class="languages">
-        <li><a href="#">РУ</a></li>
-        <li><a href="#">EN</a></li>
-        <li><a href="#">DE</a></li>
+        <li><a href="/">РУ</a></li>
+        <li><a href="/en">EN</a></li>
+        <li><a href="/de">DE</a></li>
       </ul>
       <div class="impaired">
         <a href="#">Версия для слабовидящих</a>
@@ -61,7 +61,9 @@
   <%= render "regions/#{@breadcrumbs.type.underscore}", :object => @breadcrumbs.content if @breadcrumbs %>
 
   <div class="content">
-    <%= yield(:content) %>
+    <div class="inner">
+      <%= yield(:content) %>
+    </div>
   </div>
 
   <%= render("regions/#{@banners.type.underscore}", :object => @banners.content) if @banners %>
@@ -82,7 +84,7 @@
           <li><a href="#" class='rss' alt='RSS обновлений' title='RSS обновлений'>RSS</a></li>
           <li><a href="#" class='vkontakte' alt='Наша группа ВКонтакте' title='Наша группа ВКонтакте'>ВКонтакте</a></li>
           <li><a href="#" class='facebook' alt='Наша страница Facebook' title='Наша страница Facebook'>Facebook</a></li>
-          <li><a href="#" class='twitter' alt='Наш Twitter' title='Наш Twitter'>Twitter</a></li>
+          <li><a href="https://twitter.com/#!/TomskRegion" class='twitter' alt='Наш Twitter' title='Наш Twitter'>Twitter</a></li>
           <li><a href="#" class='livejournal' alt='Блог в LiveJournal' title='Блог в LiveJournal'>LiveJournal</a></li>
         </ul>
       </div>
