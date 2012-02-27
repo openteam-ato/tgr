@@ -3,6 +3,7 @@ source :rubygems
 gem 'configliere'
 gem 'curb'
 gem 'el_vfs_client'
+gem 'esp-commons'
 gem 'formtastic',           '~> 2.1.0.beta'
 gem 'hashie'
 gem 'jquery-rails'
