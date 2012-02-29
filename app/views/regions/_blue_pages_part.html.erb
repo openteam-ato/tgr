@@ -13,7 +13,11 @@
     <% end %>
 
     <div class="fio">
-      <%= link_to object['items'].first['person'].sub(/\s/, "<br />").html_safe, object['items'].first['link'] %>
+      <% if object['items'].first['link'] %>
+        <%= link_to object['items'].first['person'].sub(/\s/, "<br />").html_safe, object['items'].first['link'] %>
+      <% else %>
+          <%= object['items'].first['person'].sub(/\s/, "<br />").html_safe %>
+      <% end %>
       <span class="phones">
         <%= object['items'].first['phones'] %>
       </span>
@@ -73,7 +77,11 @@
   <ul class='employees'>
     <% object['items'].each do |item| %>
       <li>
-        <%= link_to item['person'], item['link'], :class => 'fio' %>
+        <% if item['link'] %>
+          <%= link_to item['person'], item['link'], :class => 'fio' %>
+        <% else %>
+          <span class="fio"><%= item['person'] %></span>
+        <% end %>
         <span class='title'><%= item['title'] %></span>
         <span class="phones"><%= item['phones'] %></span>
         <span class="emails"><%= item['emails'].map{|email| mail_to(email)}.join(', ').html_safe if item['emails'] %></span>
@@ -104,7 +112,11 @@
           <ul class='employees'>
             <% item['items'].each do |item| %>
               <li>
-                <%= link_to item['person'], item['link'], :class => 'fio' %>
+                <% if item['link'] %>
+                  <%= link_to item['person'], item['link'], :class => 'fio' %>
+                <% else %>
+                  <span class="fio"><%= item['person'] %></span>
+                <% end %>
                 <span class='title'><%= item['title'] %></span>
                 <span class='phones'><%= item['phones'] %></span>
                 <span class='emails'>
@@ -155,7 +167,11 @@
             <ul class='employees'>
               <% item['items'].each do |item| %>
                 <li>
-                  <%= link_to item['person'], item['link'], :class => 'fio' %>
+                  <% if item['link'] %>
+                    <%= link_to item['person'], item['link'], :class => 'fio' %>
+                  <% else %>
+                    <span class="fio"><%= item['person'] %></span>
+                  <% end %>
                   <span class='title'><%= item['title'] %></span>
                   <span class='phones'><%= item['phones'] %></span>
                   <span class='emails'>
