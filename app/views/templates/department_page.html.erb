@@ -1,11 +1,7 @@
 <% content_for :content do %>
   <%= content_tag :h1, @content_first.part_title if @content_first && @content_first.part_title %>
-
   <%= render_partial_for_region(@content_first)         if @content_first %>
-
-  <%= render_partial_for_region(@links)                 if @links %>
   <%= render_partial_for_region(@gallery)               if @gallery %>
-
 <% end %>
 <%= render :template => 'layouts/application' %>
 

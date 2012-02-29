@@ -21,8 +21,14 @@
         <%= object['items'].first['emails'].map{|email| mail_to(email)}.join(', ').html_safe if object['items'].first['emails'] %>
       </span>
     </div>
-
   </div>
+
+  <% if @links %>
+    <div class="links">
+      <h3>Ссылки</h3>
+      <%= raw @links.html_safe %>
+    </div>
+  <% end %>
 
   <div class="information">
     <% if @regulation %>
@@ -64,7 +70,6 @@
   </div>
 
   <h2>Сотрудники</h2>
-
   <ul class='employees'>
     <% object['items'].each do |item| %>
       <li>
@@ -77,7 +82,6 @@
   </ul>
 
   <h2>Подразделения</h2>
-
   <ul class='subdivisions'>
     <% object['subdivisions'].each do |item| %>
       <li>
@@ -128,42 +132,42 @@
   <% end %>
 
   <% if object['categories'] %>
-  <h2>Подведомственные организации</h2>
-  <ul class='subdivisions'>
-    <% object['categories'].first.subdivisions.each do |item| %>
-      <li>
-        <h3><a href="#" class='slider'><%= item['title'] %></h3></a>
+    <h2>Подведомственные организации</h2>
+    <ul class='subdivisions'>
+      <% object['categories'].first.subdivisions.each do |item| %>
+        <li>
+          <h3><a href="#" class='slider'><%= item['title'] %></h3></a>
 
-        <div class="subdivision_information slider_body">
-          <div class="contacts">
-            <span class='address'><%= item['address'] %></span>
-            <span class='phones'><%= item['phones'] %></span>
-            <span class='emails'>
-              <%= item['emails'].map{|email| mail_to(email)}.join(', ').html_safe if item['emails'] %>
-            </span>
-            <span class='site'>
-              <%= link_to item['site'], item['site'] if item['site'] %>
-            </span>
+          <div class="subdivision_information slider_body">
+            <div class="contacts">
+              <span class='address'><%= item['address'] %></span>
+              <span class='phones'><%= item['phones'] %></span>
+              <span class='emails'>
+                <%= item['emails'].map{|email| mail_to(email)}.join(', ').html_safe if item['emails'] %>
+              </span>
+              <span class='site'>
+                <%= link_to item['site'], item['site'] if item['site'] %>
+              </span>
+            </div>
+
+            <h4>Сотрудники</h4>
+
+            <ul class='employees'>
+              <% item['items'].each do |item| %>
+                <li>
+                  <%= link_to item['person'], item['link'], :class => 'fio' %>
+                  <span class='title'><%= item['title'] %></span>
+                  <span class='phones'><%= item['phones'] %></span>
+                  <span class='emails'>
+                    <%= item['emails'].map{|email| mail_to(email)}.join(', ').html_safe if item['emails'] %>
+                  </span>
+                </li>
+              <% end %>
+            </ul>
           </div>
-
-          <h4>Сотрудники</h4>
-
-          <ul class='employees'>
-            <% item['items'].each do |item| %>
-              <li>
-                <%= link_to item['person'], item['link'], :class => 'fio' %>
-                <span class='title'><%= item['title'] %></span>
-                <span class='phones'><%= item['phones'] %></span>
-                <span class='emails'>
-                  <%= item['emails'].map{|email| mail_to(email)}.join(', ').html_safe if item['emails'] %>
-                </span>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      </li>
-    <% end %>
-  </ul>
+        </li>
+      <% end %>
+    </ul>
   <% end %>
 
 </div>
