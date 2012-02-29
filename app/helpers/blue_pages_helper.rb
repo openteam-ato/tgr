@@ -1,8 +1,8 @@
 # encoding: utf-8
 
 module BluePagesHelper
-  def render_blue_pages(hash)
-      result = content_tag(:h1, content_tag(:span, hash['title']))
+  def render_blue_pages(hash, level = 1)
+      result = content_tag(:h1, content_tag(:span, hash['title']), :class=> "level#{level}")
       result << content_tag(:p, "Адрес: #{hash['address']}")
 
       if hash['phones']
@@ -36,7 +36,7 @@ module BluePagesHelper
       end
 
       hash['subdivisions'].each do |subdivision|
-        result << render_blue_pages(subdivision)
+        result << render_blue_pages(subdivision, 2)
       end if hash['subdivisions']
 
       result

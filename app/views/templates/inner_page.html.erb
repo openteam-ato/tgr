@@ -1,8 +1,10 @@
 <% content_for :content do %>
-  <%= content_tag :h1, @content_first.part_title if @content_first %>
-  <%= render "regions/#{@content_first.type.underscore}", :object => @content_first.content if @content_first %>
-  <%= render "regions/#{@content_second.type.underscore}", :object => @content_second.content if @content_second %>
-  <%= render "regions/#{@content_third.type.underscore}", :object => @content_third.content if @content_third %>
-  <%= render "regions/#{@gallery.type.underscore}", :object => @gallery.content if @gallery %>
+  <%= content_tag :h1, @content_first.part_title if @content_first && @content_first.part_title %>
+
+  <%= render_partial_for_region(@content_first)  if @content_first%>
+  <%= render_partial_for_region(@content_second) if @content_second%>
+  <%= render_partial_for_region(@content_third)  if @content_third%>
+  <%= render_partial_for_region(@gallery)        if @gallery %>
+
 <% end %>
 <%= render :template => 'layouts/application' %>

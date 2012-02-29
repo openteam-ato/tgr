@@ -16,18 +16,15 @@
         <li><a href="/de">DE</a></li>
       </ul>
       <div class="impaired">
-        <a href="#">Версия для слабовидящих</a>
+        <a href="#" class='invalid_link'>Версия для слабовидящих</a>
       </div>
-      <a href="#" class="sitemap">Карта сайта</a>
+      <a href="#" class="sitemap invalid_link">Карта сайта</a>
     </div>
   </div>
 
   <div class="header">
     <div class="inner">
-      <ul class='additional'>
-        <li><a href="#">Для населения</a></li>
-        <li><a href="#">Для бизнеса</a></li>
-      </ul>
+      <%= render "regions/additional_#{@main_bottom_navigation.type.underscore}", :object => @main_bottom_navigation.content if @main_bottom_navigation %>
       <div class="logo">
         <%= link_to t("administration_of_tomsk_region"), "/", :title => t('administration_of_tomsk_region') %>
       </div>
@@ -37,7 +34,7 @@
           <span class="desc"><%= t('official_information_internet_portal') %></span>
         </a>
       </div>
-      <div class="search_block">
+      <div class="search_block invalid_link">
         <form action="#">
           <ul class='inputs'>
             <li>
@@ -73,7 +70,7 @@
   <div class="footer">
     <div class="inner">
       <div class="contacts">
-        <h5><a href='#'>Контакты</a></h5>
+        <h5><a href='#' class='invalid_link'>Контакты</a></h5>
         <p>Администрация Томской области</p>
         <p>634050, г.Томск, пл. Ленина, 6</p>
         <p>+7 (382-2) 510-505, +7 (382-2) 510-001</p>
@@ -81,11 +78,11 @@
       </div>
       <div class="social_links">
         <ul>
-          <li><a href="#" class='rss' alt='RSS обновлений' title='RSS обновлений'>RSS</a></li>
-          <li><a href="#" class='vkontakte' alt='Наша группа ВКонтакте' title='Наша группа ВКонтакте'>ВКонтакте</a></li>
-          <li><a href="#" class='facebook' alt='Наша страница Facebook' title='Наша страница Facebook'>Facebook</a></li>
+          <li><a href="#" class='rss invalid_link' alt='RSS обновлений' title='RSS обновлений'>RSS</a></li>
+          <li><a href="#" class='vkontakte invalid_link' alt='Наша группа ВКонтакте' title='Наша группа ВКонтакте'>ВКонтакте</a></li>
+          <li><a href="#" class='facebook invalid_link' alt='Наша страница Facebook' title='Наша страница Facebook'>Facebook</a></li>
           <li><a href="https://twitter.com/#!/TomskRegion" class='twitter' alt='Наш Twitter' title='Наш Twitter'>Twitter</a></li>
-          <li><a href="#" class='livejournal' alt='Блог в LiveJournal' title='Блог в LiveJournal'>LiveJournal</a></li>
+          <li><a href="#" class='livejournal invalid_link' alt='Блог в LiveJournal' title='Блог в LiveJournal'>LiveJournal</a></li>
         </ul>
       </div>
       <div class="copyrights">

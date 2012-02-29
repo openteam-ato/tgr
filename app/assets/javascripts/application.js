@@ -27,6 +27,26 @@ function init_galleria() {
   };
 };
 
+function slide_opener(){
+  $('.slider').click(function(event){
+    var link = $(this);
+
+    if (link.hasClass('busy')) {
+      return false;
+    };
+
+    link.addClass('busy');
+
+    link.parent().siblings('.slider_body').slideToggle('slow',function(){
+      link.toggleClass('open');
+      link.removeClass('busy');
+    });
+
+    return false;
+  });
+};
+
 $(function() {
   init_galleria();
+  slide_opener();
 });
