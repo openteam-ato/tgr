@@ -12,7 +12,7 @@
         <h5><%= link_to item.title.truncate(90, :separator => ' '), item.link, :title => item.title %></h5>
         <div class="annotation">
           <p>
-            <%= sanitize(item.annotation.html_safe, :tags => []).truncate(200, :separator => ' ').html_safe %>
+            <%= sanitize(item.annotation.html_safe, :tags => []).truncate(200, :separator => ' ') %>
           </p>
         </div>
       </li>
