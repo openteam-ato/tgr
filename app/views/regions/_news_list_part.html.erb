@@ -1,0 +1,17 @@
+<div class="news_list">
+  <h2>
+    <%= link_to 'Новости', '#' %>
+    <%= link_to "RSS", object.rss_link, :class => 'rss' %>
+  </h2>
+
+
+  <ul>
+    <% object.items.each_with_index do |item, index| %>
+      <li <%= 'class=last' if (index+1)%3 == 0 %>>
+        <span class="date"><%= l Date.parse(item.since), :format => :long %></span>
+        <h5><%= link_to item.title, item.link %></h5>
+        <div class="annotation"><%= item.annotation.html_safe %></div>
+      </li>
+    <% end %>
+  </ul>
+</div>
