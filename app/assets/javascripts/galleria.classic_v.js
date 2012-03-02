@@ -24,7 +24,7 @@
 Galleria.addTheme({
     name: 'classic_v', /* hacked version of the classic theme that has a vertical carousel and a fullscreen button */
     author: 'Galleria',
-    css: 'galleria.classic_v.css',
+    css: false,
     defaults: {
         transition: 'slide',
         thumbCrop:  'height',
