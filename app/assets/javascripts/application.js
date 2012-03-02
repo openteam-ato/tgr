@@ -6,25 +6,24 @@
  *
  *= require jquery
  *= require jquery_ujs
- *= require galleria.js
- *= require galleria.classic.js
+ *= require galleria_v-1.2.2.1.js
+ *= require galleria.classic_v.js
  */
 
 function init_galleria() {
-  var $galleria = $('#galleria');
-  if ($galleria.length > 0) {
-    $galleria.galleria({
-      // galleria options
-      width: 698,
-      height: 400,
-      transition: 'fade',
-      showInfo: false,
-      // lightbox options
-      lightbox: true,
-      overlayBackground: '#fff',
-      overlayOpacity: 0.5
-    });
-  };
+  $("#galleria").galleria({
+    width: 940,
+    imageCrop: 'height',
+    thumbCrop: true,
+    transitionSpeed: 500,
+    preload: 3,
+    easing: "galleriaIn",
+    showCounter: false,
+    transition: "fade",
+    transitionInitial: "fade",
+    showInfo: true,
+    showFullscreen: true
+  });
 };
 
 function slide_opener(){
