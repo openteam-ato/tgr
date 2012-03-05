@@ -1,8 +1,9 @@
-<h3><%= object.title %></h3>
+<div class="galleria_wrapper">
+  <h3><%= object.title %></h3>
 
-<div id='galleria'>
-  <% object.gallery_pictures.each do |picture| %>
-    <%= link_to(image_tag(prepare_picture_url(picture.picture_url), :title => picture.description, :alt => nil), prepare_picture_url(picture.picture_url)) %>
-  <% end  %>
+  <div id='galleria'>
+    <% object.gallery_pictures.each do |picture| %>
+      <%= link_to(image_tag(prepare_picture_url(picture.picture_url), :title => picture.description, :alt => nil), prepare_picture_url(picture.picture_url)) %>
+    <% end  %>
+  </div>
 </div>
-

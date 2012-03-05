@@ -30,8 +30,31 @@
     line-height: 20px
     margin: 18px 0 0 0
 
-  .bold
+  .bold, strong
     font-weight: bold
+
+  .article
+    +clearfix
+
+    .chart
+      margin: 18px 0 0 0
+
+    ul
+      font-size: 13px
+      margin: 18px 0 0 0
+
+      li
+        +clearfix
+        line-height: 19px
+        padding: 0 0 12px 28px
+
+        &:before
+          content: "\2013"
+          float: left
+          left: -28px
+          padding: 0 0 0 0
+          position: relative
+          width: 0
 
   blockquote
     background: #ebebeb
