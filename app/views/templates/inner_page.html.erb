@@ -1,5 +1,8 @@
 <% content_for :content do %>
+
   <%= content_tag :h1, @content_first.part_title if @content_first && @content_first.part_title %>
+
+  <%= content_tag :div, render(:partial => 'regions/right_side'),:class => 'right_side' if @right_side_navigation || @right_side_links || @right_side_charts || @right_side_facts %>
 
   <%= render_partial_for_region(@content_first)  if @content_first%>
   <%= render_partial_for_region(@content_second) if @content_second%>
@@ -7,4 +10,5 @@
   <%= render_partial_for_region(@gallery)        if @gallery %>
 
 <% end %>
+
 <%= render :template => 'layouts/application' %>

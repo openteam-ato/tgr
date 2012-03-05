@@ -8,6 +8,7 @@
  *= require jquery_ujs
  *= require galleria_v-1.2.2.1.js
  *= require galleria.classic_v.js
+ *= require charts
  */
 
 function init_galleria() {
