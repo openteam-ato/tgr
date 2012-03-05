@@ -95,22 +95,23 @@ $.fn.get_properties = function(){
 
 function drawChart(){
   var charts = $('.chart');
+  var legend = 'none';
+
+  if (charts.hasClass('need_legend')) {
+    legend = { position: 'right', textStyle: { fontSize: '12' } };
+  };
 
   charts.each(function(index, chart) {
     var chart_properties = $(chart).get_properties();
 
     var options = {
       'title':  chart_properties.title || '',
-      //'width':  '680',
-      //'height': '500',
       'width':  '100%',
       'height': '100%',
       'fontName': 'Verdana',
-      //'backgroundColor': '#f7f7fa',
       'backgroundColor': 'transparent',
-      //'legend': { position: 'right', textStyle: { fontSize: '12' } },
-      'legend': 'none',
-      'chartArea': { width: '480' }
+      'legend': legend,
+      'chartArea': { width: '50%', left: '10%' }
     };
 
     var data = new google.visualization.DataTable();
