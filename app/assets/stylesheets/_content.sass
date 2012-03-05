@@ -39,6 +39,33 @@
     .chart
       margin: 18px 0 0 0
 
+    .facts
+      +single-box-shadow(#ccc, 0px, -3px, 10px, -1px)
+      @include background-image(linear-gradient(#f7f7f7, #ededed))
+      border: 1px solid #ccc
+      counter-reset: li
+      padding: 20px
+
+      li
+        +clearfix
+        color: #4D4D4D
+        font-family: Georgia, serif
+        font-size: 14px
+        line-height: 20px
+        margin: 0 0 10px 0
+        padding: 0 0 0 28px
+        position: relative
+
+        &:before
+          color: #4d4d4d
+          content: counter(li)"."
+          counter-increment: li
+          font-size: 22px
+          float: left
+          left: 0
+          position: absolute
+          width: 28px
+
     ul
       font-size: 13px
       margin: 18px 0 0 0
