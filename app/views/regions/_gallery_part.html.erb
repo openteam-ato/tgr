@@ -3,7 +3,7 @@
 
   <div id='galleria'>
     <% object.gallery_pictures.each do |picture| %>
-      <%= link_to(image_tag(prepare_picture_url(picture.picture_url), :title => picture.description, :alt => nil), prepare_picture_url(picture.picture_url)) %>
+      <%= galeria_link(picture) %>
     <% end  %>
   </div>
 </div>
