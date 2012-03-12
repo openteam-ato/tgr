@@ -7,7 +7,7 @@
     </div>
 
     <% if object.items.first.image_url %>
-        <%= thumbnail_tag object.items.first.image_url, :width => 217, :height => 290 %>
+      <%= thumbnail_tag object.items.first.image_url, :width => 217, :height => 290, :crop => true %>
     <% else %>
       <%= image_tag image_path('dummy.png'), :width => 217, :height => 290 %>
     <% end %>
