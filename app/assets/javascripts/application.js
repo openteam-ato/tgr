@@ -8,6 +8,7 @@
  *= require jquery_ujs
  *= require galleria_v-1.2.2.1.js
  *= require galleria.classic_v.js
+ *= require jquery.jcarousel.js
  *= require charts
  */
 
@@ -46,7 +47,28 @@ function slide_opener(){
   });
 };
 
+function banner_carousel() {
+  if ($(".banners_block ul").length) {
+    if ($(".banners_block ul li").length > 4) {
+      if ($.fn.jcarousel) {
+        $(".banners_block ul")
+          .addClass("reset")
+          .jcarousel({
+            auto: 20,
+            wrap: "circular",
+            scroll: 1,
+            setupCallback: function() {
+              var prev = $(".banners_block .jcarousel-container .jcarousel-prev");
+              var next = $(".banners_block .jcarousel-container .jcarousel-next");
+            }
+          });
+      };
+    };
+  };
+};
+
 $(function() {
   init_galleria();
   slide_opener();
+  banner_carousel();
 });

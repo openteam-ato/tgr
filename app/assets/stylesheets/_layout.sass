@@ -278,21 +278,49 @@ body
   +clearfix
   height: 272px
 
+  .inner
+    border-top: 1px dotted #7f7f7f
+    padding: 14px 0 36px
+    width: 990px
+
+  .jcarousel-container
+    +clearfix
+    padding: 0 16px
+
+    .jcarousel-clip
+      +clearfix
+
+    .jcarousel-prev
+      background: image_url('banner-prev.png') no-repeat
+      height: 24px
+      left: -16px
+      position: relative
+      top: -135px !important
+      width: 12px
+
+    .jcarousel-next
+      background: image_url('banner-next.png') no-repeat
+      height: 24px
+      position: relative
+      right: -961px
+      top: -159px !important
+      width: 12px
+
   ul
     +clearfix
-    border-top: 1px dotted #7f7f7f
-    padding: 27px 0 36px 16px
     margin: 0 auto
+    padding: 15px 0 !important
     text-align: center
 
     li
       +single-box-shadow(#dfdfdf, 0, 0, 15px, 3px)
       +inline-block
+      +clearfix
       border-top: 1px solid #dedede
       border-left: 1px solid #d1d1d1
       border-right: 1px solid  #c7c7c7
       border-bottom: 1px solid #c7c7c7
-      margin: 0 20px 0 0
+      margin: 0 10px
 
       &:hover
         +single-box-shadow(#d1d1d1 0 0 7px 3px)
@@ -304,7 +332,7 @@ body
         +single-box-shadow(#dfdfdf, -5px, -11px, 30px, 2px, true)
         color: #005fab
         display: block
-        font-size: 13px
+        font-size: 10px
         line-height: 20px
         height: 208px
         padding: 0 20px 10px
