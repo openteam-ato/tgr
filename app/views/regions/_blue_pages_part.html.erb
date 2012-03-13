@@ -136,18 +136,7 @@
     </ul>
   <% end %>
 
-  <% if @reports %>
-    <div class="reports">
-      <h2><%= @reports.content.title %></h2>
-      <ul>
-        <% @reports.content.gallery_pictures.each do |item| %>
-          <li>
-            <%= link_to content_tag(:span, '&nbsp;'.html_safe, :class=>'icon')+item.description, item.picture_url, :class => item.picture_url.match(/\.(\w+)$/).try(:[], 1) %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render :partial => 'regions/reports_part', :locals => { :reports => @reports } if @reports %>
 
   <% if object.categories %>
     <h2>Подведомственные организации</h2>
