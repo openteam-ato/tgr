@@ -1,6 +1,6 @@
 <% if @right_side_navigation %>
   <div class="right_side_navigation">
-    <%= render_navigation(@right_side_navigation.content) %>
+    <%= render_navigation(@right_side_navigation.content.values.first['children']) %>
   </div>
 <% end %>
 
