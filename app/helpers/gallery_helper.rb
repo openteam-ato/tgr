@@ -2,7 +2,7 @@
 
 module GalleryHelper
 
-  def galeria_link(picture)
+  def galleria_link(picture)
     image = EspCommons::Image.new(:url => picture.picture_url).parse_url
     return unless image.image?
     thumbnail_url = image.create_thumbnail(:width => 200, :height => 128, :crop => true).url

@@ -1,7 +1,24 @@
 <% content_for :content do %>
-  <%= content_tag :h1, @content_first.part_title if @content_first && @content_first.part_title %>
-  <%= render_partial_for_region(@content_first)         if @content_first %>
-  <%= render_partial_for_region(@gallery)               if @gallery %>
+  <div class="blue_pages">
+    <%= render :partial => 'commons/chief', :locals => { :object => @content_first.content } %>
+
+    <% if @links %>
+      <div class="links">
+        <h3>Ссылки</h3>
+        <%= raw @links.html_safe %>
+      </div>
+    <% end %>
+
+    <%= render :partial => 'commons/department_info', :locals => { :object => @content_first.content } %>
+    <%= render :partial => 'commons/department_employees', :locals => { :object => @content_first.content } if @content_first.content.items %>
+    <% if @content_first.content.subdivisions %>
+      <h2>Подразделения</h2>
+      <%= render :partial => 'commons/subdivisions', :locals => { :object => @content_first.content } %>
+    <% end %>
+    <%= render :partial => 'regions/reports_part', :locals => { :reports => @reports } if @reports %>
+    <%= render :partial => 'commons/department_suborganizations', :locals => { :object => @content_first.content } if @content_first.content.categories %>
+  </div>
 <% end %>
+
 <%= render :template => 'layouts/application' %>
 

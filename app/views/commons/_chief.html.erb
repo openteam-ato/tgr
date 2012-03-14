@@ -1,0 +1,26 @@
+<div class="chief">
+  <div class='title'>
+    <%= object.items.first.title %>
+  </div>
+
+  <% if object.items.first.image_url %>
+    <%= thumbnail_tag object.items.first.image_url, :width => 217, :height => 290, :crop => true %>
+  <% else %>
+    <%= image_tag image_path('dummy.png'), :width => 217, :height => 290 %>
+  <% end %>
+
+  <div class="fio">
+    <% if object.items.first.link %>
+      <%= link_to object.items.first.person.sub(/\s/, "<br />").html_safe, object.items.first.link %>
+    <% else %>
+      <%= object.items.first.person.sub(/\s/, "<br />").html_safe %>
+    <% end %>
+    <span class="phones">
+      <%= object.items.first.phones %>
+    </span>
+    <span class="emails">
+      <%= object.items.first.emails.map{|email| mail_to(email)}.join(', ').html_safe if object.items.first.emails %>
+    </span>
+  </div>
+</div>
+
