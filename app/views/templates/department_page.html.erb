@@ -1,6 +1,6 @@
 <% content_for :content do %>
   <div class="blue_pages">
-    <%= render :partial => 'commons/chief', :locals => { :object => @content_first.content } %>
+    <%= render :partial => 'commons/chief', :locals => { :object => @content_first.content.items.first } %>
 
     <% if @links %>
       <div class="links">

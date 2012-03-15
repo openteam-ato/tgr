@@ -61,7 +61,10 @@
     <div class="inner">
       <% if @content_first %>
         <% if @content_first.part_title.present? %>
-          <%= content_tag :h1, @content_first.part_title %>
+          <%= content_tag :h1 do %>
+            <%= @content_first.part_title %>
+            <%= yield(:item_title) %>
+          <% end %>
         <% else %>
           <%= content_tag :h1, @page_title %>
         <% end %>
