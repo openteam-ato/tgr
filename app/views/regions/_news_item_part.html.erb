@@ -1,12 +1,18 @@
+<div class="date">
+  <%= l object.since.to_date, :format => :long %>
+</div>
+
 <%= raw object.annotation %>
-<%= raw object.author %>
+
+<%= image_tag object.image.url, :alt => object.image.description, :width => object.image.width, :height => object.image.height, :class => 'floatl' %>
 <%= raw object.body %>
-<%= raw object.since %>
-<%= raw object.slug %>
-<%= raw object.source %>
-<%= raw object.source_link %>
-<%= raw object.title %>
-<%= raw object.type %>
-<%= raw object.more_like_this %>
-<%= raw object.image %>
-<%= raw object.thumbnail %>
+
+<div class="source">
+  Источник: <%= link_to object.source, object.source_link %>
+</div>
+
+<div class="more_like_this">
+  <% object.more_like_this.each do |item| %>
+    <%= item %>
+  <% end if object.more_like_this %>
+</div>
