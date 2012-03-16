@@ -291,20 +291,32 @@ body
       +clearfix
 
     .jcarousel-prev
-      background: image_url('banner-prev.png') no-repeat
+      background: image_url('banners-btn.png') no-repeat 0 0
       height: 24px
       left: -16px
       position: relative
       top: -135px !important
       width: 12px
 
+      &:hover
+        background-position: 0 -28px
+
+      &:active
+        background-position: 0 -55px
+
     .jcarousel-next
-      background: image_url('banner-next.png') no-repeat
+      background: image_url('banners-btn.png') no-repeat -36px 0
       height: 24px
       position: relative
       right: -961px
       top: -159px !important
       width: 12px
+
+      &:hover
+        background-position: -36px -28px
+
+      &:active
+        background-position: -36px -55px
 
   ul
     +clearfix
