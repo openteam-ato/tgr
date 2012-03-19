@@ -1,3 +1,6 @@
+<% content_for :extend_javascripts do %>
+<% end %>
+
 <% content_for :content do %>
   <%= render_partial_for_region(@content) if @content %>
 <% end %>
