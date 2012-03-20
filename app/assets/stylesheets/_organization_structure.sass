@@ -1,0 +1,106 @@
+#organization_structure
+  position: relative
+
+  ul, li, div
+    font-size: 11px
+    margin: 0
+    overflow: visible
+    padding: 0
+    position: relative
+
+  li
+    &:before
+      border-top: 1px solid #808080
+      content: ''
+      left: -40px
+      padding: 0
+      position: relative
+      top: 8px
+      width: 40px
+
+  .first
+    border-left: 1px solid #808080
+    left: 90px
+
+    .first_item
+      left: -90px
+
+  .second
+    border-left: 1px solid #808080
+    left: 218px
+    top: -200px
+    padding: 0 0 0 40px
+
+    .second_item
+      &:last-child
+        height: 9px
+
+  .third
+    clear: both
+    border-left: 1px solid #808080
+    left: 218px
+    top: -254px
+
+    .third_item
+      left: 40px
+      margin: 0 0 20px 0
+      top: 38px
+
+  .superior
+    +single-box-shadow(#ccc, 0px, -3px, 10px, -1px)
+    background: #ededed
+    border: 1px solid #ccc
+    clear: both
+    width: 178px
+
+    .title
+      display: table-cell
+      float: left
+      padding: 5px
+      text-align: center
+      vertical-align: middle
+      width: 168px
+
+    img
+      display: block
+      height: 158px
+
+    .fio
+      display: table-cell
+      height: 50px
+      padding: 0 5px
+      text-align: center
+      vertical-align: middle
+
+    &:before
+      border-top: 1px solid #808080
+      border-right: 1px solid #808080
+      content: ''
+      float: right
+      left: 40px
+      position: relative
+      margin-bottom: -80px
+      top: 19px
+      height: 80px
+      width: 38px
+
+  .subdivision
+    +clearfix
+    clear: both
+    width: 400px
+
+    &:before
+      border-left: 1px solid #808080
+      content: ''
+      float: left
+      height: 16px
+      left: -1px
+      margin: 0 12px 30px 0
+
+  .no_need_links
+    &:before
+      border: none
+
+
+
+
