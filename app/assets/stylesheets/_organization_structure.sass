@@ -3,15 +3,19 @@
 
   ul, li, div
     font-size: 11px
+    line-height: 14px
     margin: 0
     overflow: visible
     padding: 0
     position: relative
 
   li
+    margin: 0 0 20px 0
+
     &:before
       border-top: 1px solid #808080
       content: ''
+      float: left
       left: -40px
       padding: 0
       position: relative
@@ -25,6 +29,9 @@
     .first_item
       left: -90px
 
+      &:before
+        border: none
+
   .second
     border-left: 1px solid #808080
     left: 218px
@@ -34,12 +41,13 @@
     .second_item
       &:last-child
         height: 9px
+        margin-bottom: 125px
 
   .third
     clear: both
     border-left: 1px solid #808080
     left: 218px
-    top: -254px
+    top: -234px
 
     .third_item
       left: 40px
@@ -62,8 +70,8 @@
       width: 168px
 
     img
+      +min-height(158px)
       display: block
-      height: 158px
 
     .fio
       display: table-cell
@@ -71,6 +79,7 @@
       padding: 0 5px
       text-align: center
       vertical-align: middle
+      width: 168px
 
     &:before
       border-top: 1px solid #808080
@@ -79,9 +88,9 @@
       float: right
       left: 40px
       position: relative
-      margin-bottom: -80px
+      margin-bottom: -120px
       top: 19px
-      height: 80px
+      height: 120px
       width: 38px
 
   .subdivision
@@ -98,6 +107,9 @@
       margin: 0 12px 30px 0
 
   .no_need_links
+    border: none
+
+  .no_need_links_before
     &:before
       border: none
 
