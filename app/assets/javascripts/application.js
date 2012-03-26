@@ -10,6 +10,10 @@
  *= require galleria.classic_v.js
  *= require jquery.jcarousel.js
  *= require charts
+ *= require raphael-min.js
+ *= require scale.raphael.js
+ *= require regions.js
+ *= require init_map.js
  */
 
 function init_galleria() {
