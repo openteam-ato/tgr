@@ -6,7 +6,7 @@
 <% end %>
 
 <% content_for :map_region do %>
-  <%= raw @map_region.content.body if @map %>
+  <%= raw @map_region.content.body if @map_region %>
 <% end %>
 
 <%= render :template => 'layouts/application' %>
