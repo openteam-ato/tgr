@@ -11,7 +11,7 @@
             <%= item.emails.map{|email| mail_to(email)}.join(', ').html_safe if item.emails %>
           </span>
           <span class='site'>
-            <%= link_to item.site, item.site if item.site %>
+            <%= link_to item.url, item.url if item.url? %>
           </span>
         </div>
 

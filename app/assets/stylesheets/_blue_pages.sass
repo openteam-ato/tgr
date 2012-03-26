@@ -160,35 +160,6 @@
     h3
       margin: 0
 
-      a
-        +inline-block
-        border-bottom: 1px dashed #005fab
-        text-decoration: none
-
-        &:after
-          border: none
-          color: #558754
-          content: '\2B'
-          display: inline-block
-          float: right
-          font-size: 12px
-          font-weight: bold
-          line-height: 16px
-          margin: 0 0 0 0
-          text-align: right
-          text-decoration: none
-          position: absolute
-          height: 15px
-          width: 16px
-
-        &.open
-          border-color: #000
-          color: #000
-
-          &:after
-            color: #000
-            content: '\2013'
-
     .subdivision_information
       display: none
       padding: 15px 0 0 20px
@@ -210,6 +181,35 @@
 
     .employees
       border: none
+
+.slider
+  +inline-block
+  border-bottom: 1px dashed #005fab
+  text-decoration: none
+
+  &:after
+    border: none
+    color: #558754
+    content: '\2B'
+    display: inline-block
+    float: right
+    font-size: 12px
+    font-weight: bold
+    line-height: 16px
+    margin: 0 0 0 0
+    text-align: right
+    text-decoration: none
+    position: absolute
+    height: 15px
+    width: 16px
+
+  &.open
+    border-color: #000
+    color: #000
+
+    &:after
+      color: #000
+      content: '\2013'
 
 .content
   .reports, .documents
