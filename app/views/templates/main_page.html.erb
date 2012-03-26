@@ -5,4 +5,8 @@
   <%= render_partial_for_region(@content) if @content %>
 <% end %>
 
+<% content_for :map_region do %>
+  <%= raw @map_region.content.body if @map %>
+<% end %>
+
 <%= render :template => 'layouts/application' %>
