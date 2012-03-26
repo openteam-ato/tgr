@@ -91,6 +91,7 @@ function init_collapser() {
     $this.parent().attr('id', id);
 
     if ($this.hasClass('slider')){
+      $('.slider').not($this).removeClass('open').parent().next('.collapse_item').slideUp('slow');
       $this.addClass('busy').parent().next('.collapse_item').css('margin-top', '10px').slideToggle('slow', function(){
         $this.toggleClass('open');
         $this.removeClass('busy');
