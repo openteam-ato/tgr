@@ -11,5 +11,6 @@
  * = require galleria
  * = require map
  * = require collapser
+ * = require tabs
  * = require main
  */
