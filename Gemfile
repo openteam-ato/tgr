@@ -12,6 +12,7 @@ gem 'rails'
 gem 'russian'
 
 group :assets do
+  gem 'coffee-rails'
   gem 'compass-rails'
   gem 'sass-rails'
   gem 'therubyracer'                                unless RUBY_PLATFORM =~ /freebsd/

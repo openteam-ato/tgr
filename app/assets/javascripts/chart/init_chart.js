@@ -129,13 +129,10 @@ function drawChart(){
   });
 };
 
-$(function(){
-  var chart = $('.chart');
-  if (chart.length > 0) {
-    $.getScript('https://www.google.com/jsapi', function(script, textStatus, jqxhr){
-      if (jqxhr.status == '200') {
-        google.load('visualization', '1.0', {'packages':['corechart'], 'callback': 'drawChart'});
-      };
-    });
-  };
-});
+function init_chart() {
+  $.getScript('https://www.google.com/jsapi', function(script, textStatus, jqxhr){
+    if (jqxhr.status == '200') {
+      google.load('visualization', '1.0', {'packages':['corechart'], 'callback': 'drawChart'});
+    };
+  });
+};

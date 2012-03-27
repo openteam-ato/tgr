@@ -1,11 +1,11 @@
 <% object.categories.each do |category| %>
   <h2><%= category.title %></h2>
-  <ul class='subdivisions'>
+  <ul class='subdivisions need_collapser'>
     <% category.subdivisions.each do |item| %>
       <li>
         <h3><a href="#" class='slider'><%= item.title %></a></h3>
 
-        <div class="subdivision_information slider_body">
+        <div class="subdivision_information collapse_item">
           <div class="contacts">
             <span class='address'><%= item.address %></span>
             <span class='phones'><%= item.phones %></span>
