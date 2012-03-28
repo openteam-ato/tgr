@@ -20,4 +20,11 @@ module ApplicationHelper
     end
   end
 
+  def get_link(navigation, object)
+    link = navigation.to_hash.to_s.match(/#{object.title}\", \"path\"=>\"(.*?)\"/).try(:[], 1)
+
+    return link_to(object.title, link) if link
+
+    return object.title
+  end
 end

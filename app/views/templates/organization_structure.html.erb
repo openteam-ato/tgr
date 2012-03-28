@@ -6,15 +6,19 @@
         <ul class="second">
           <% @content_first.content.subdivisions.each do |subdivision| %>
             <li class="second_item">
-              <%= render :partial => 'organization_structure/superior', :locals => { :object => subdivision.items.first, :need_links => subdivision.has_key?(:subdivisions) } %>
-              <% if subdivision.has_key?(:subdivisions) %>
-                <ul class="third">
-                  <% subdivision.subdivisions.each do |subdivision| %>
-                    <li class="third_item">
-                      <%= render :partial => 'organization_structure/subdivision', :locals => { :object => subdivision } %>
-                    </li>
-                  <% end %>
-                </ul>
+              <% if subdivision.title.match(/губернатор|заместитель/i) %>
+                <%= render :partial => 'organization_structure/superior', :locals => { :object => subdivision.items.first, :need_links => subdivision.has_key?(:subdivisions) } %>
+                <% if subdivision.has_key?(:subdivisions) %>
+                  <ul class="third">
+                    <% subdivision.subdivisions.each do |subdivision| %>
+                      <li class="third_item">
+                        <%= render :partial => 'organization_structure/subdivision', :locals => { :object => subdivision } %>
+                      </li>
+                    <% end %>
+                  </ul>
+                <% end %>
+              <% else %>
+                <%= render :partial => 'organization_structure/subdivision', :locals => { :object => subdivision } %>
               <% end %>
             </li>
           <% end %>
