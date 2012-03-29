@@ -1,64 +1,82 @@
 #organization_structure
-  position: relative
-
   ul, li, div
     font-size: 11px
     line-height: 14px
-    margin: 0
-    overflow: visible
-    padding: 0
     position: relative
 
-  li
-    margin: 0 0 20px 0
+    &:after
+      content: "."
+      display: block
+      height: 0
+      clear: both
+      visibility: hidden
 
-    &:before
-      border-top: 1px solid #808080
-      content: ''
-      float: left
-      left: -40px
-      padding: 0
-      position: relative
-      top: 8px
-      width: 40px
+  li
 
   .first
-    border-left: 1px solid #808080
-    left: 90px
-
+    margin: 0 0 40px 0
     .first_item
-      left: -90px
-
       &:before
-        border: none
 
   .second
     border-left: 1px solid #808080
-    left: 218px
-    top: -200px
-    padding: 0 0 0 40px
+    margin: 0 0 0 218px
+    padding: 20px 0 0 0
+    top: 20px
+
+    .no_margin
+      margin: 0 0 15px 0 !important
+      top: 37px
+
+      .subdivision
+        &:before
+          margin-bottom: 15px
 
     .second_item
-      &:last-child
-        height: 9px
-        margin-bottom: 125px
+      margin: 0 0 40px 0
+
+      &:before
+        border-top: 1px solid #808080
+        content: ''
+        float: left
+        padding: 0
+        position: relative
+        top: 8px
+        width: 40px
 
   .third
-    clear: both
+    +inline-block
     border-left: 1px solid #808080
-    left: 218px
-    top: -234px
+    margin: 0 0 0 38px
+    padding: 0 0 0 40px
+    top: 20px
+    width: 400px
 
     .third_item
-      left: 40px
-      margin: 0 0 20px 0
+      +inline-block
+      margin: 0 0 0 0
       top: 38px
+
+      &:before
+        border-top: 1px solid #808080
+        content: ''
+        float: left
+        left: -40px
+        padding: 0
+        position: relative
+        top: 8px
+        width: 40px
+
+      &:after
+        clear: none
+
+  .node
+    float: left
 
   .superior
     +single-box-shadow(#ccc, 0px, -3px, 10px, -1px)
     background: #ededed
     border: 1px solid #ccc
-    clear: both
     width: 178px
 
     .title
@@ -88,14 +106,12 @@
       float: right
       left: 40px
       position: relative
-      margin-bottom: -120px
+      margin-bottom: -40px
       top: 19px
-      height: 120px
+      height: 40px
       width: 38px
 
   .subdivision
-    +clearfix
-    clear: both
     width: 400px
 
     &:before
@@ -112,7 +128,3 @@
   .no_need_links_before
     &:before
       border: none
-
-
-
-
