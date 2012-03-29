@@ -8,9 +8,10 @@
   tabs_wrapper.click (event) ->
     $this = $(event.target)
     return false if $this.hasClass('active')
-    tabs_items.removeClass('active')
+    $this.siblings().removeClass('active');
     $this.toggleClass('active')
-    $('.tab_item').slideUp()
-    $('.'+$this.attr('id')).slideDown()
+    $this.parent().siblings('.tab_item').slideUp()
+    $this.parent().siblings('.'+$this.attr('id')).slideDown()
 
-  tabs_items.first().click()
+  tabs_wrapper.each (index, item) ->
+    $(item).children('li').first().click()
