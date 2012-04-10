@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module ApplicationHelper
 
   def render_navigation(hash)
@@ -21,7 +23,7 @@ module ApplicationHelper
   end
 
   def get_link(navigation, object)
-    link = navigation.to_hash.to_s.match(/#{object.title}\", \"path\"=>\"(.*?)\"/).try(:[], 1)
+    link = navigation.to_hash.to_s.match(/#{object.title.gsub(/[[:space:]]/, ' ')}\", \"path\"=>\"(.*?)\"/).try(:[], 1)
 
     return link_to(object.title, link) if link
 
