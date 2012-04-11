@@ -1,15 +1,15 @@
 <div>
   <%= form_tag object.action, :method => :get do %>
-    <%= text_field_tag 'parts_params[documents][keywords]', object.keywords %>
+    <%= text_field_tag 'parts_params[documents][keywords]', object.keywords, :class => 'documents_query' %>
     <%= hidden_field_tag 'parts_params[documents][context_id]', object.context_id  %>
-    <%= submit_tag 'Поиск' %>
+    <%= submit_tag t('find') %>
   <% end %>
 </div>
 
 <ul class="documents">
   <% object.papers.each do |paper| %>
     <li>
-      <%= link_to content_tag(:span, '&nbsp;'.html_safe, :class => 'icon') + paper.title, paper.file_url, :class => extension(paper.file_url) %>
+      <%= render :partial => 'regions/paper', :object => paper %>
     </li>
   <% end %>
 </ul>

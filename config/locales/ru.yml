@@ -8,6 +8,11 @@ ru:
 
   canceled: утратил силу
 
+  paper_of: от
+  published_on: опубликовано
+
+  find: Найти
+
   documents:
     one: "%{count} документ"
     few: "%{count} документа"
@@ -19,4 +24,9 @@ ru:
     few: "%{count} проекта"
     many: "%{count} проектов"
     other: "%{count} проекты"
+
+  views:
+    pagination:
+      next: '&rarr;'
+      previous: '&larr;'
 
