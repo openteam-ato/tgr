@@ -1,7 +1,6 @@
 # encoding: utf-8
 
 module ApplicationHelper
-
   def render_navigation(hash)
     return '' if hash.nil? || hash.empty?
     content_tag :ul do
@@ -28,5 +27,9 @@ module ApplicationHelper
     return link_to(object.title, link) if link
 
     return object.title
+  end
+
+  def extension(filename)
+    filename.match(/\.(\w+)$/).try(:[], 1)
   end
 end
