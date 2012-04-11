@@ -77,7 +77,7 @@ function draw_map(){
 
     paper_item.stored_attr.name = region.name;
     paper_item.stored_attr.title = region.title;
-    paper_item.stored_attr.url = region.url;
+    paper_item.stored_attr.url = $('.map_desc li#'+region.name+'_item a').attr('href');
     paper_item.tooltip();
 
     set_id_to_links(region.name, paper_item.id);

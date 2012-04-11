@@ -8,7 +8,7 @@
     <% if @links %>
       <div class="links">
         <h3>Ссылки</h3>
-        <%= raw @links.html_safe %>
+        <%= raw @links.content.body.html_safe %>
       </div>
     <% end %>
 
