@@ -3,6 +3,11 @@
   margin: 19px 0 0 22px
   width: 220px
 
+  .right_side_bottom
+    background: #3e7a3d
+    border-top: 1px solid #ccc
+    height: 8px
+
   .right_side_navigation
     +single-box-shadow(#ccc, 0px, -3px, 10px, -1px)
     @include background-image(linear-gradient(#f7f7f7, #ededed))
@@ -10,14 +15,20 @@
     font-size: 13px
     margin: 0 0 26px 0
 
+    h4
+      border-bottom: 2px solid #808080
+      font-size: 17px
+      line-height: 20px
+      margin: 0 18px
+      padding: 11px 0 10px 0
+
     ul
-      border-bottom: 7px solid #699769
-      padding: 12px 18px 0 18px
+      padding: 14px 18px 0 18px
 
       li
         border-bottom: 1px solid #ccc
-        padding: 0 0 13px 0
-        line-height: 14px
+        padding: 0 0 10px 0
+        line-height: 20px
         margin: 0 0 11px 0
 
         a
@@ -54,9 +65,17 @@
     border: 1px solid #ccc
     margin: 0 0 26px 0
 
+    h4
+      background: #3e7a3d image_url('right_side_head_bottom.png') no-repeat bottom center
+      color: #fff
+      font-size: 17px
+      margin: 0
+      padding: 9px 0 19px 19px
+
     ul
+      +clearfix
       counter-reset: li
-      padding: 22px 18px 0 10px
+      padding: 14px 18px 0 11px
 
       li
         +clearfix
