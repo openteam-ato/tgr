@@ -1,0 +1,16 @@
+<p class='floatr'><%= link_to "<span class='icon'>&nbsp;</span>Скачать #{object.kind.mb_chars.downcase}".html_safe, object.file_url, :class => extension(object.file_url) %></p>
+<p>Выпускающий орган: <strong><%= object.authority %></strong></p>
+<p>Опубликован: <%= l object.published_on.to_date %></p>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'tomsk-gov-ru';
+
+  (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+   })();
+</script>
+
+<noscript>Включите JavaScrip для отображения комментариев</noscript>
