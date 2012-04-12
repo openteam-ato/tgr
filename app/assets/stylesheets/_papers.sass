@@ -7,11 +7,16 @@ input
 
 ul
   &.documents
+    li:last-of-type
+      border: none
+
     li
+      border-bottom: 1px solid #ccc
+
       p
         color: #808080
         font-style: italic
-        margin: 0 0 7px 0
+        margin: 0 0 5px 0
 
         .kind
           text-transform: lowercase
