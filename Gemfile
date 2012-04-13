@@ -10,6 +10,7 @@ gem 'kaminari'
 gem 'openteam-commons'
 gem 'rails'
 gem 'russian'
+gem 'uuid'
 
 group :assets do
   gem 'coffee-rails'

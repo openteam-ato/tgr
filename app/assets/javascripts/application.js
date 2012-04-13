@@ -12,5 +12,6 @@
  * = require map
  * = require collapser
  * = require tabs
+ * = require upload_files
  * = require main
  */
