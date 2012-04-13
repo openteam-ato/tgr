@@ -1,5 +1,5 @@
 <% collection = object.to_a %>
-<% current = collection.pop.first %>
+<% current = collection.pop.first.gsub(/\s\|.*$/, '') %>
 <% if collection.count > 1 %>
   <div class="breadcrumbs">
     <div class="inner">
