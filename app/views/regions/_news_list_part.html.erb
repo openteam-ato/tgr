@@ -1,9 +1,8 @@
 <div class="news_list">
   <h2>
-    <%= link_to object.title, object.collection_link %>
+    <%= link_to object.title, object.collection_link if /\/$/ === request.fullpath %>
     <%= link_to "RSS", object.rss_link, :class => 'rss' %>
   </h2>
-
 
   <ul>
     <% object.items.each_with_index do |item, index| %>
