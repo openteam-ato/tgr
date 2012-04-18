@@ -31,4 +31,5 @@ ru:
     pagination:
       next: '&rarr;'
       previous: '&larr;'
+      truncate: ...
 
