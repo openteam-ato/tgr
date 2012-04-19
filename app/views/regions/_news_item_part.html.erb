@@ -4,7 +4,7 @@
 
 <%= raw object.annotation %>
 
-<%= image_tag object.images.first.url, :alt => object.images.first.description, :width => object.images.first.width, :height => object.images.first.height, :class => 'floatl' if object.images.any? %>
+<%= image_tag object.images.first.thumbnail.url, :alt => object.images.first.description, :width => object.images.first.thumbnail.width, :height => object.images.first.thumbnail.height, :class => 'floatl' if object.images.any? %>
 <%= raw object.body %>
 
 <% if object.source.present? %>

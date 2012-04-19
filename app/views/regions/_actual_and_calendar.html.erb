@@ -1,10 +1,14 @@
-<div class="actual">
-  <ul id='slider'>
-    <% @actual.content['items'].each do |item| %>
-      <%= image_tag item.images.first.thumbnail.url, :title => "<a href='#{item.link}'>#{item.title}</a>", :alt => item.images.first.thumbnail.description %>
-    <% end %>
-  </ul>
-</div>
+<div class="actual_and_calendar">
+  <div class="inner">
+    <div class="actual">
+      <ul id='slider'>
+        <% @actual.content['items'].each do |item| %>
+          <%= image_tag item.images.first.thumbnail.url, :title => "<a href='#{item.link}'>#{item.title}</a>", :alt => item.images.first.thumbnail.description %>
+        <% end %>
+      </ul>
+    </div>
 
-<div class="calendar">
+    <div class="calendar">
+    </div>
+  </div>
 </div>
