@@ -1,7 +1,7 @@
 <div class="actual">
-  <ul>
+  <ul id='slider'>
     <% @actual.content['items'].each do |item| %>
-      <%= image_tag item.images.first.thumbnail.url, :title => item.title, :alt => item.images.first.thumbnail.description %>
+      <%= image_tag item.images.first.thumbnail.url, :title => "<a href='#{item.link}'>#{item.title}</a>", :alt => item.images.first.thumbnail.description %>
     <% end %>
   </ul>
 </div>
