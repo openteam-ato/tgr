@@ -21,13 +21,18 @@
       margin: 0 60px 20px 0
       width: 265px
 
+      img
+        +border-radius
+        border: 1px solid #ccc
+        float: left
+        margin: 10px 10px 0 0
+
       h5
         font-size: 14px
         line-height: 18px
         margin: 10px 0 0 0
 
       .annotation
-        +clearfix
         margin: 10px 0 0 0
 
         p
@@ -41,11 +46,19 @@
 
     ul
       li
+        +clearfix
         +min-height(0)
+        border-bottom: 1px solid #e6e6e6
         float: left
         height: auto
         padding-left: 0
         width: 100%
+
+        img
+          +border-radius
+          border: 1px solid #ccc
+          float: left
+          margin: 10px 10px 10px 0
 
         &:before
           display: none
