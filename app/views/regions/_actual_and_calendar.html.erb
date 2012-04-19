@@ -1,0 +1,10 @@
+<div class="actual">
+  <ul>
+    <% @actual.content['items'].each do |item| %>
+      <%= image_tag item.images.first.thumbnail.url, :title => item.title, :alt => item.images.first.thumbnail.description %>
+    <% end %>
+  </ul>
+</div>
+
+<div class="calendar">
+</div>

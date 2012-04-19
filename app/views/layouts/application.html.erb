@@ -58,6 +58,12 @@
 
   <%= render "regions/#{@breadcrumbs.type.underscore}", :object => @breadcrumbs.content if @breadcrumbs %>
 
+  <div class="actual_and_calendar">
+    <div class="inner">
+      <%= yield(:actual_and_calendar) %>
+    </div>
+  </div>
+
   <div class="content">
     <div class="inner">
       <% if @content_first %>

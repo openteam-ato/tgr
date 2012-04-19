@@ -1,0 +1,27 @@
+.actual_and_calendar
+  +clearfix
+  background: #558754
+  @include background-image(linear-gradient(#3d7541, #558754, #3e7541))
+  border-top: 1px solid #005504
+  border-bottom: 1px solid #005504
+  height: 378px
+
+  .inner
+    padding: 16px 10px
+    width: 940px
+
+  .actual
+    +clearfix
+    +single-box-shadow(#345e36, 0, 0, 3px, 1px)
+    border: 1px solid #135417
+    float: left
+    height: 348px
+    margin: 0 9px 0 0
+    width: 618px
+
+  .calendar
+    +clearfix
+    background: image_url('calendar_STUB.png') no-repeat
+    border: 1px solid #135417
+    height: 348px
+    width: 308px
