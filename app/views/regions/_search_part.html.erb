@@ -1,0 +1,10 @@
+<div class="search_results">
+  <ul>
+    <% object.items.each do |item| %>
+      <li>
+        <h4><%= link_to item.title, item.url %></h4>
+        <p><%= raw item.excerpt %></p>
+      </li>
+    <% end %>
+  </ul>
+</div>
