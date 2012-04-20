@@ -15,7 +15,7 @@
 
 @init_slider = ->
   $('#slider').galleria({
-    autoplay: 2000,
+    autoplay: 10000,
     easing: "galleriaIn",
     height: 348,
     imageCrop: true,
