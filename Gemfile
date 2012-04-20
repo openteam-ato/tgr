@@ -1,5 +1,6 @@
 source :rubygems
 
+gem 'compass-rails'
 gem 'curb'
 gem 'el_vfs_client'
 gem 'esp-commons'
