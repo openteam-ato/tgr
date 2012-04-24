@@ -56,7 +56,7 @@ draw_dot_navigation = (galleria) ->
       galleria.show(target_index)
       galleria.playToggle()
 
-  $('.dots, .active').removeClass('active')
+  $('.active','.dots').removeClass('active')
   $("#dot"+galleria.getIndex()).addClass('active')
 
 

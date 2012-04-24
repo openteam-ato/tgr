@@ -1,0 +1,11 @@
+<li>
+  <% item.event_entry_properties.each do |event| %>
+    <div class='calendar_item_date'>
+      <%= l event.since.to_date, :format => '%d %B' %> &mdash; <%= l event.until.to_date, :format => '%d %B' %>
+    </div>
+    <div class="calendar_item_placement"><%= event.location %></div>
+  <% end %>
+  <div class="calendar_item_title">
+    <%= link_to item.title, item.link %>
+  </div>
+</li>
