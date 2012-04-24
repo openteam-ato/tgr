@@ -24,8 +24,12 @@
         <div class="current">
           <div class="viewport">
             <ul class="overview">
-              <% @calendar_current.content.items.each do |item| %>
-                <%= render :partial => 'commons/calendar_item', :locals => { :item => item} %>
+              <% if @calendar_current.content.items.any? %>
+                <% @calendar_current.content.items.each do |item| %>
+                  <%= render :partial => 'commons/calendar_item', :locals => { :item => item} %>
+                <% end %>
+              <% else %>
+                <li class="empty">Нет текущих событий</li>
               <% end %>
             </ul>
           </div>
@@ -34,8 +38,12 @@
         <div class="nearest">
           <div class="viewport">
             <ul class="overview">
-              <% @calendar_nearest.content.items.each do |item| %>
-                <%= render :partial => 'commons/calendar_item', :locals => { :item => item} %>
+              <% if @calendar_nearest.content.items.any? %>
+                <% @calendar_nearest.content.items.each do |item| %>
+                  <%= render :partial => 'commons/calendar_item', :locals => { :item => item} %>
+                <% end %>
+              <% else %>
+                <li class="empty">Нет ближайших событий</li>
               <% end %>
             </ul>
           </div>
@@ -44,8 +52,12 @@
         <div class="gone">
           <div class="viewport">
             <ul class="overview">
-              <% @calendar_gone.content.items.each do |item| %>
-                <%= render :partial => 'commons/calendar_item', :locals => { :item => item} %>
+              <% if @calendar_gone.content.items.any? %>
+                <% @calendar_gone.content.items.each do |item| %>
+                  <%= render :partial => 'commons/calendar_item', :locals => { :item => item} %>
+                <% end %>
+              <% else %>
+                <li class="empty">Нет прошедших событий</li>
               <% end %>
             </ul>
           </div>
