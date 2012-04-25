@@ -41,6 +41,21 @@
           margin: 0
 
 .article
+  .date
+    margin: 0 0 10px 0
+
+  .event_properties
+    margin: 11px 0 0 0
+
+    .event_date
+      font-size: 15px
+      font-weight: bold
+
+    .event_location
+      color: #777
+      font-size: 12px
+      margin: 20px 0 13px
+
   .news_list
     border: none
 
@@ -68,3 +83,32 @@
   display: block
   font-size: 11px
   margin: 0 0 5px 0
+
+.event_list
+
+  li
+    border-bottom: 1px dotted #aaa
+    margin: 0 0 17px 0
+    padding: 0 0 9px 0 !important
+
+    h5
+      +clearfix
+      font-size: 20px
+      line-height: 30px
+      margin: 0 0 10px 0
+
+    .annotation
+      +clearfix
+      margin: 0 0 0 170px
+
+    &:before
+      display: none
+
+  .event_properties
+    float: left
+    margin: 3px 0 0 0
+    padding: 0 20px 0 13px
+    width: 137px
+
+    .event_date
+      line-height: 26px
