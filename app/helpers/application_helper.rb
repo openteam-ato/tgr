@@ -67,6 +67,35 @@ module ApplicationHelper
     (since_arr.reverse + until_arr.reverse).join(' ').html_safe
   end
 
+  def archive_links(current_events, nearest_events, gone_events, base_path)
+    @events = [current_events, nearest_events, gone_events].map(&:border_dates)
+
+    result = '<ul>'
+
+    monthes_by_year.each do |year, dates|
+      result += '<li>'
+      result += link_to(year, '#', :class => 'year')
+      result += '<ul>'
+      result += dates.map{ |date| content_tag(:li, link_to(t('date.month_names')[date.month], "#{base_path}/monthly/?parts_params[news_list][interval_year]=#{year}&parts_params[news_list][interval_month]=#{date.month}")) }.join('')
+      result += '</ul></li>'
+    end
+    result += '</ul>'
+
+    result.html_safe
+  end
+
+  def monthes_by_year
+    (early_date...lately_date).select{|m| m.day == 1 }.group_by(&:year)
+  end
+
+  def early_date
+    @events.map(&:min_date).map(&:to_date).min.strftime('01-%B-%Y').to_date
+  end
+
+  def lately_date
+    @events.map(&:max_date).map(&:to_date).max
+  end
+
   def get_link(navigation, object)
     link = navigation.to_hash.to_s.match(/#{object.title.gsub(/[[:space:]]/, ' ')}\", \"path\"=>\"(.*?)\"/).try(:[], 1)
 

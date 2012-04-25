@@ -15,5 +15,6 @@
  * = require collapser
  * = require tabs
  * = require upload_files
+ * = require archive_collapser
  * = require main
  */
