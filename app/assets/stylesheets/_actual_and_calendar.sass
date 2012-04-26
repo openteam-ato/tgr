@@ -1,7 +1,7 @@
 .actual_and_calendar
   +clearfix
   background: #558754
-  @include background-image(linear-gradient(#3d7541, #558754, #3e7541))
+  +background-image(linear-gradient(#3d7541, #558754, #3e7541))
   border-top: 1px solid #005504
   border-bottom: 1px solid #005504
   height: 378px
@@ -86,7 +86,8 @@
 
   .calendar
     +clearfix
-    @include background-image(linear-gradient(#f4f4f4, #fff, #fff))
+    background-color: #fff
+    +background-image(linear-gradient(#f4f4f4, #fff, #fff))
     border: 1px solid #135417
     float: left
     height: 348px
@@ -96,7 +97,7 @@
     .calendar_head
       +single-box-shadow(#bdbdbd, 0, 0, 3px)
       background: #d79712
-      @include background-image(linear-gradient(#e1a72d, #d79712, #d79712))
+      +background-image(linear-gradient(#e1a72d, #d79712, #d79712))
       height: 20px
       padding: 12px 18px
 

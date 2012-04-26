@@ -156,7 +156,7 @@
 
   #appeal_submit_action input, #appeal_cancel_action a
     +border-radius
-    @include background-image(linear-gradient(#fefefe, #e1e1e1))
+    +background-image(linear-gradient(#fefefe, #e1e1e1))
     border: 1px solid #ccc
     color: #444
     display: block
@@ -168,10 +168,10 @@
     text-decoration: none
 
     &:hover
-      @include background-image(linear-gradient(#fefefe, #d0d0d0))
+      +background-image(linear-gradient(#fefefe, #d0d0d0))
 
     &:active
-      @include background-image(linear-gradient(#d0d0d0, #fefefe))
+      +background-image(linear-gradient(#d0d0d0, #fefefe))
 
   .appeal_file_wrapper
     +clearfix
