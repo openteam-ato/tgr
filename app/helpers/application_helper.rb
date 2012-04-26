@@ -76,16 +76,17 @@ module ApplicationHelper
       result += '<li>'
       result += link_to(year, '#', :class => 'year')
       result += '<ul>'
-      result += dates.map{ |date| content_tag(:li, link_to(t('date.month_names')[date.month], "#{base_path}/monthly/?parts_params[news_list][interval_year]=#{year}&parts_params[news_list][interval_month]=#{date.month}")) }.join('')
+      result += dates.reverse.map{ |date| content_tag(:li, link_to(t('date.month_names')[date.month], "#{base_path}/monthly/?parts_params[news_list][interval_year]=#{year}&parts_params[news_list][interval_month]=#{date.month}")) }.join('')
       result += '</ul></li>'
     end
+
     result += '</ul>'
 
     result.html_safe
   end
 
   def monthes_by_year
-    (early_date...lately_date).select{|m| m.day == 1 }.group_by(&:year)
+    (early_date..lately_date).select{|m| m.day == 1 }.group_by(&:year)
   end
 
   def early_date
