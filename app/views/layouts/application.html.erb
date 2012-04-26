@@ -56,6 +56,8 @@
 
   <%= render "regions/submenu_#{@main_navigation.type.underscore}", :object => @main_navigation.content if @main_navigation %>
 
+  <%= render "regions/main_subnavigation_part", :object => @main_subnavigation.content if @main_subnavigation %>
+
   <%= render "regions/#{@breadcrumbs.type.underscore}", :object => @breadcrumbs.content if @breadcrumbs %>
 
   <%= yield(:actual_and_calendar) %>
