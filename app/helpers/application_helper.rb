@@ -62,8 +62,8 @@ module ApplicationHelper
         until_arr << "&mdash;"
       end
     end
-
     until_arr.delete('23:59')
+    until_arr.delete('&mdash;') if until_time == '23:59' && since_time != '00:00'
     (since_arr.reverse + until_arr.reverse).join(' ').html_safe
   end
 

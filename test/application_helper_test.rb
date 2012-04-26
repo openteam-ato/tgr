@@ -26,6 +26,12 @@ class ApplicationHelperTest < ActionView::TestCase
     assert_equal interval_for(@event), "08:00 &mdash; 12:00 22 марта 2012"
   end
 
+  test "interval helper: 08:00 22 марта, 2012 (without end time)" do
+    @event.since = "2012-03-22T08:00:00+07:00"
+    @event.until = "2012-03-22T23:59:00+07:00"
+    assert_equal interval_for(@event), "08:00 22 марта 2012"
+  end
+
   test "interval helper: 08:00 22 марта - 08:00 23 марта, 2012" do
     @event.since = "2012-03-22T08:00:00+07:00"
     @event.until = "2012-03-23T08:00:00+07:00"
