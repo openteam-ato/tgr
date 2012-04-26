@@ -11,12 +11,12 @@ gem 'kaminari'
 gem 'openteam-commons'
 gem 'rails'
 gem 'russian'
+gem 'sass-rails'
 gem 'uuid'
 
 group :assets do
   gem 'coffee-rails'
   gem 'compass-rails'
-  gem 'sass-rails'
   gem 'therubyracer'                                unless RUBY_PLATFORM =~ /freebsd/
   gem 'uglifier'
 end
