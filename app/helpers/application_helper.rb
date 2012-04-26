@@ -22,8 +22,8 @@ module ApplicationHelper
   end
 
   def interval_for(event)
-    since_day, since_month, since_year, since_time = l(event.since.to_date, :format => '%d %B %Y %H:%M').split(' ')
-    until_day, until_month, until_year, until_time = l(event.until.to_date, :format => '%d %B %Y %H:%M').split(' ')
+    since_day, since_month, since_year, since_time = l(event.since.to_datetime, :format => '%d %B %Y %H:%M').split(' ')
+    until_day, until_month, until_year, until_time = l(event.until.to_datetime, :format => '%d %B %Y %H:%M').split(' ')
 
     since_arr = []
     until_arr = []
