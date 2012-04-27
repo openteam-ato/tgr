@@ -105,21 +105,21 @@ function draw_map(){
 };
 
 function municipal_documents_manipulate(identifier) {
-  if ($.fn.scrollTo) {
-    alert("tru");
-  };
   var block = $('.' + identifier + '_links');
   if (block.is(':visible')) {
     return false;
   } else {
+    var bottom_position = $('.municipal_documents_links').position().top + $(block).outerHeight(true),
+        window_offset = window.innerHeight + window.scrollY,
+        offset = bottom_position - window_offset + 50;
     var visible = $('div:visible', block.parent());
     if (visible.length) {
-      $(visible).slideUp(200, function() {
-        block.slideDown(200);
-      });
-    } else {
-      block.slideDown(200);
+      $(visible).slideUp(200);
     };
+    block.slideDown(200);
+    if ($.fn.scrollTo && offset > 0) {
+      $(window).scrollTo( { top: '+=' + offset + 'px'}, 200 );
+    }
   };
 };
 
