@@ -35,7 +35,7 @@
 
 <% if object.source.present? %>
   <div class="source">
-    Источник: <%= link_to object.source, object.source_link %>
+    Источник: <%= link_to object.source, object.source_link, :target => :_blank, :rel => :nofollow %>
   </div>
 <% end %>
 
