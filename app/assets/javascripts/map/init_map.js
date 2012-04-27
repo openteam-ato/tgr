@@ -1,6 +1,6 @@
 function get_center(box) {
   var x = box.x + box.width/2;
-  var y = box.y + box.height/2 + 30;
+  var y = box.y + box.height/2;
   return {'x': x, 'y': y};
 };
 
@@ -87,11 +87,15 @@ function draw_map(){
         function(){ var object = this; object.animate(selected_attr, 200); $('#'+object.stored_attr.name+'_item a').addClass('hover'); },
         function(){ var object = this; object.animate(object.stored_attr, 200); $('#'+object.stored_attr.name+'_item a').removeClass('hover'); }
       )
-      .click(function(){
+      .click(function() {
         var object = this;
-        if (object.stored_attr.url){
+        if ($('.map_wrapper').hasClass('municipal_documents')) {
+          municipal_documents_manipulate(object.stored_attr.name + '_item');
+          return false;
+        };
+        if (object.stored_attr.url) {
           document.location = object.stored_attr.url;
-        }else{
+        } else {
           return false;
         };
       });
@@ -100,10 +104,34 @@ function draw_map(){
   return paper;
 };
 
+function municipal_documents_manipulate(identifier) {
+  if ($.fn.scrollTo) {
+    alert("tru");
+  };
+  var block = $('.' + identifier + '_links');
+  if (block.is(':visible')) {
+    return false;
+  } else {
+    var visible = $('div:visible', block.parent());
+    if (visible.length) {
+      $(visible).slideUp(200, function() {
+        block.slideDown(200);
+      });
+    } else {
+      block.slideDown(200);
+    };
+  };
+};
+
 function init_map() {
   var paper = draw_map();
   $('.map_desc li a').hover(
     function(){ paper.getById($(this).attr('id')).animate({'fill': '#8cc88c', 'stroke':'#378437'}, 200); },
     function(){ var object = paper.getById($(this).attr('id')); object.animate(object.stored_attr, 200); }
-  );
+  ).click(function() {
+    if ($('.map_wrapper').hasClass('municipal_documents')) {
+      municipal_documents_manipulate($(this).closest('li').attr('id'));
+      return false;
+    };
+  });
 };
