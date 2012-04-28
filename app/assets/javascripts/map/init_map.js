@@ -84,8 +84,22 @@ function draw_map(){
 
     paper_item
       .hover(
-        function(){ var object = this; object.animate(selected_attr, 200); $('#'+object.stored_attr.name+'_item a').addClass('hover'); },
-        function(){ var object = this; object.animate(object.stored_attr, 200); $('#'+object.stored_attr.name+'_item a').removeClass('hover'); }
+        function() {
+          var object = this;
+          var reset_hover = $('a.hover', $('#'+object.stored_attr.name+'_item').closest('.map_desc_wrapper'));
+          reset_hover.removeClass('hover');
+          if (reset_hover.length) {
+            var object_hover = paper.getById(reset_hover.attr('id'));
+            object_hover.attr(object_hover.stored_attr);
+          };
+          object.animate(selected_attr, 200);
+          $('#'+object.stored_attr.name+'_item a').addClass('hover');
+        },
+        function() {
+          var object = this;
+          object.animate(object.stored_attr, 200);
+          $('#'+object.stored_attr.name+'_item a').removeClass('hover');
+        }
       )
       .click(function() {
         var object = this;
@@ -126,15 +140,36 @@ function municipal_documents_manipulate(identifier) {
   };
 };
 
+function check_hash_exist(paper) {
+  var hash = window.location.hash;
+  if (!hash) {
+    return false;
+  };
+  var link = $('.municipal_documents .map_desc ' + hash + '_item a');
+  link.addClass('hover').click();
+  paper.getById(link.attr('id')).attr({'fill': '#8cc88c', 'stroke':'#378437'});
+};
+
 function init_map() {
   var paper = draw_map();
   $('.map_desc li a').hover(
-    function(){ paper.getById($(this).attr('id')).animate({'fill': '#8cc88c', 'stroke':'#378437'}, 200); },
-    function(){ var object = paper.getById($(this).attr('id')); object.animate(object.stored_attr, 200); }
+    function() {
+      var reset_hover = $('a.hover', $(this).closest('.map_desc_wrapper'));
+      reset_hover.removeClass('hover');
+      if (reset_hover.length) {
+        var object_hover = paper.getById(reset_hover.attr('id'));
+        object_hover.attr(object_hover.stored_attr);
+      };
+      paper.getById($(this).attr('id')).animate({'fill': '#8cc88c', 'stroke':'#378437'}, 200);
+    },
+    function() {
+      var object = paper.getById($(this).attr('id')); object.animate(object.stored_attr, 200);
+    }
   ).click(function() {
     if ($('.map_wrapper').hasClass('municipal_documents')) {
       municipal_documents_manipulate($(this).closest('li').attr('id'));
       return false;
     };
   });
+  check_hash_exist(paper);
 };
