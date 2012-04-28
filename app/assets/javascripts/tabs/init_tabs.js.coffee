@@ -25,5 +25,7 @@
         $item.css('width', width)
       $this.parent().parent().siblings('.item_list').children('.'+$this.attr('id')).slideDown().tinyscrollbar({ axis: 'x', wheel: '9' })
 
-  tabs_wrapper.each (index, item) ->
-    $(item).children('li').first().click()
+  tabs_wrapper.children('li').each (index, item) ->
+    unless $('.calendar_items .'+$(item).attr('id')+' li:first').hasClass('empty')
+      $(item).click()
+      return false
