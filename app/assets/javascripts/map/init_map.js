@@ -104,6 +104,10 @@ function draw_map(){
   return paper;
 };
 
+function change_location(identifier) {
+  window.location.hash = identifier.replace('_item', '');
+};
+
 function municipal_documents_manipulate(identifier) {
   var block = $('.' + identifier + '_links');
   if (block.is(':visible')) {
@@ -113,13 +117,12 @@ function municipal_documents_manipulate(identifier) {
         window_offset = window.innerHeight + window.scrollY,
         offset = bottom_position - window_offset + 50;
     var visible = $('div:visible', block.parent());
-    if (visible.length) {
-      $(visible).slideUp(200);
-    };
+    $(visible).slideUp(200);
     block.slideDown(200);
     if ($.fn.scrollTo && offset > 0) {
       $(window).scrollTo( { top: '+=' + offset + 'px'}, 200 );
-    }
+    };
+    change_location(identifier);
   };
 };
 
