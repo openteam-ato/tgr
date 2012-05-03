@@ -21,6 +21,8 @@
     <% end %>
     <%= render :partial => 'regions/reports_part', :locals => { :reports => @reports } if @reports %>
     <%= render :partial => 'commons/department_suborganizations', :locals => { :object => @content_first.content } if @content_first.content.categories %>
+
+    <%= render 'commons/social_links' %>
   </div>
 <% end %>
 
