@@ -3,7 +3,6 @@
 <div>
   <%= form_tag object.action, :method => :get do %>
     <%= text_field_tag 'parts_params[documents][keywords]', object.keywords, :class => 'documents_query' %>
-
     <%= submit_tag t('find') %>
   <% end %>
 </div>
