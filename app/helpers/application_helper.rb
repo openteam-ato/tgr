@@ -69,7 +69,7 @@ module ApplicationHelper
   end
 
   def archive_links(current_events, nearest_events, gone_events, base_path)
-    @events = [current_events, nearest_events, gone_events].map(&:border_dates)
+    @events = [current_events, nearest_events, gone_events].map(&:archive_dates)
 
     result = '<ul>'
 
