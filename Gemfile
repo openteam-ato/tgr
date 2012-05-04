@@ -12,6 +12,7 @@ gem 'openteam-commons'
 gem 'rails'
 gem 'russian'
 gem 'sass-rails'
+gem 'stop_ie'
 gem 'uuid'
 
 group :assets do
