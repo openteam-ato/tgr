@@ -9,6 +9,7 @@
     <%= render_partial_for_region(@content_second) if @content_second %>
     <%= render_partial_for_region(@content_third)  if @content_third %>
     <%= render :partial => 'regions/reports_part', :locals => { :reports => @reports } if @reports %>
+    <%= yield :social_links %>
   </div>
 <% end %>
 
