@@ -68,16 +68,25 @@ module ApplicationHelper
 
   end
 
-  def archive_links(current_events, nearest_events, gone_events, base_path)
-    @events = [current_events, nearest_events, gone_events].map(&:archive_dates)
+  def archive_links(parts_array)
+    parts_array.select! { |part| part.content.items.any? }
+    return "" if parts_array.empty?
+    @events = parts_array.map(&:archive_dates)
+
+    base_path = parts_array.first.content.collection_link
+
+    list_type = parts_array.first.type.underscore.gsub!('_part', '')
 
     result = '<ul>'
 
+    current_year = params[:parts_params].try(:[], list_type).try(:[], "interval_year")
+    current_month = params[:parts_params].try(:[], list_type).try(:[], "interval_month")
+
     monthes_by_year.each do |year, dates|
       result += '<li>'
-      result += link_to(year, '#', :class => 'year')
+      result += link_to(year, '#', :class => "year#{current_year == year.to_s ? ' active' : nil}")
       result += '<ul>'
-      result += dates.reverse.map{ |date| content_tag(:li, link_to(t('date.month_names')[date.month], "#{base_path}/monthly/?parts_params[news_list][interval_year]=#{year}&parts_params[news_list][interval_month]=#{date.month}")) }.join('')
+      result += dates.reverse.map{ |date| content_tag(:li, link_to(t('date.month_names')[date.month], "#{base_path}/monthly/?parts_params[#{list_type}][interval_year]=#{year}&parts_params[#{list_type}][interval_month]=#{date.month}", :class => current_month == date.month.to_s ? 'active' : nil)) }.join('')
       result += '</ul></li>'
     end
 

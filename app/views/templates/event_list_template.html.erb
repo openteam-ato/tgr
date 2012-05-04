@@ -6,7 +6,7 @@
 
   <div class="right_side">
     <div class="events_archive archive">
-      <%= archive_links(@current_events, @nearest_events, @gone_events, @current_events.content.collection_link) %>
+      <%= archive_links([@current_events, @nearest_events, @gone_events]) %>
     </div>
   </div>
 
