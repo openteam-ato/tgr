@@ -68,8 +68,14 @@ module ApplicationHelper
 
   end
 
+  def entries_rss_link(parts_array)
+    part = parts_array.compact.select { |part| part.content.rss_link }.first
+    part.content.rss_link
+  end
+
   def archive_links(parts_array)
-    parts_array.select! { |part| part.content.items.any? }
+    parts_array = parts_array.compact.select { |part| part.content.items }
+
     return "" if parts_array.empty?
     @events = parts_array.map(&:archive_dates)
 

@@ -1,0 +1,24 @@
+<% content_for :custom_page_title do %>
+  <%= content_tag :h1 do %>
+    <%= @page_title %>
+    <%= link_to "RSS", entries_rss_link([@content_first, @content_second, @content_third]), :class => 'rss' %>
+  <% end %>
+<% end %>
+
+<% content_for :content do %>
+
+  <div class="right_side">
+    <div class="events_archive archive">
+      <%= archive_links([@content_first, @content_second, @content_third]) %>
+    </div>
+  </div>
+
+  <div class="article">
+    <%= render_partial_for_region(@content_first) %>
+    <%= render_partial_for_region(@content_second) %>
+    <%= render_partial_for_region(@content_third) %>
+  </div>
+
+<% end %>
+
+<%= render :template => 'layouts/application' %>
