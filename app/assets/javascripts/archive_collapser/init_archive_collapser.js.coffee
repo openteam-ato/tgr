@@ -5,9 +5,7 @@
   $('.year', '.archive').click ->
     $this = $(this)
 
-    return false if $this.hasClass('busy')
-
-    $this.addClass('busy').toggleClass('active').next('ul').slideToggle 'slow', ->
+    $this.toggleClass('active').next('ul').stop(true, true).slideToggle 'slow', ->
       $this.removeClass('busy')
 
     false

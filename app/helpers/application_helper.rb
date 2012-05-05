@@ -92,7 +92,7 @@ module ApplicationHelper
       result += '<li>'
       result += link_to(year, '#', :class => "year#{current_year == year.to_s ? ' active' : nil}")
       result += '<ul>'
-      result += dates.reverse.map{ |date| content_tag(:li, link_to(t('date.month_names')[date.month], "#{base_path}/monthly/?parts_params[#{list_type}][interval_year]=#{year}&parts_params[#{list_type}][interval_month]=#{date.month}", :class => current_month == date.month.to_s ? 'active' : nil)) }.join('')
+      result += dates.map{ |date| content_tag(:li, link_to(t('date.month_names')[date.month], "#{base_path}/?parts_params[#{list_type}][interval_year]=#{year}&parts_params[#{list_type}][interval_month]=#{date.month}", :class => current_month == date.month.to_s && current_year == year.to_s ? 'active' : nil)) }.join('')
       result += '</ul></li>'
     end
 
@@ -102,7 +102,7 @@ module ApplicationHelper
   end
 
   def monthes_by_year
-    (early_date..lately_date).select{|m| m.day == 1 }.group_by(&:year)
+    (early_date..lately_date).select{|m| m.day == 1 }.reverse.group_by(&:year)
   end
 
   def early_date
