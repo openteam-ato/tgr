@@ -7,11 +7,15 @@
 
 <% content_for :content do %>
 
-  <div class="right_side">
-    <div class="events_archive archive">
-      <%= archive_links([@content_first, @content_second, @content_third]) %>
+  <% archive_html = archive_links([@content_first, @content_second, @content_third]) %>
+  <% if @right_side_navigation || @right_side_links || @right_side_charts || @right_side_facts || !archive_html.blank? %>
+    <div class="right_side">
+      <%= render(:partial => 'regions/right_side') %>
+      <% unless archive_html.blank? %>
+        <%= content_tag :div, archive_html, :class => "events_archive archive" %>
+      <% end %>
     </div>
-  </div>
+  <% end %>
 
   <div class="article">
     <%= render_partial_for_region(@content_first) %>

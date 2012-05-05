@@ -74,7 +74,7 @@ module ApplicationHelper
   end
 
   def archive_links(parts_array)
-    parts_array = parts_array.compact.select { |part| part.content.items }
+    parts_array = parts_array.compact.select { |part| part.content.items && part.content.items.any? }
 
     return "" if parts_array.empty?
     @events = parts_array.map(&:archive_dates)
@@ -87,6 +87,8 @@ module ApplicationHelper
 
     current_year = params[:parts_params].try(:[], list_type).try(:[], "interval_year")
     current_month = params[:parts_params].try(:[], list_type).try(:[], "interval_month")
+
+    return "" if archive_monthes.size < 2
 
     monthes_by_year.each do |year, dates|
       result += '<li>'
@@ -101,8 +103,12 @@ module ApplicationHelper
     result.html_safe
   end
 
+  def archive_monthes
+    (early_date..lately_date).select{|m| m.day == 1 }
+  end
+
   def monthes_by_year
-    (early_date..lately_date).select{|m| m.day == 1 }.reverse.group_by(&:year)
+    archive_monthes.reverse.group_by(&:year)
   end
 
   def early_date
