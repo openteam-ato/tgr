@@ -250,6 +250,8 @@ body
 .submenu_opened
   background: #3e7541
   border: 1px solid #005504
+    left: none
+    right: none
   +background-image(linear-gradient(#3e7541, #558754, #3e7541))
   display: block
 
@@ -258,9 +260,14 @@ body
     padding: 0 20px 18px
     width: 936px
 
-  .active
-    font-weight: bold
+  h3
+    color: #fff
+    font-size: 18px
+    margin-bottom: 15px
+    a
+      color: #fff
 
+  .active
     a
       text-decoration: none
 
@@ -275,7 +282,7 @@ body
       font-size: 13px
 
     &.subnavigation_title
-      color: #d0d0d0
+      color: #eee
       font-weight: bold
       border-right: none
       padding-right: 0
@@ -284,6 +291,20 @@ body
       border-right: none
       padding-right: 0
       margin-right: 0
+  &.bottom_subnavigation
+    background: #d8d8d8
+    border-top: 1px solid #d8d8d8
+    border-bottom: 1px solid #c0c0c0
+    +background-image(linear-gradient(#d8d8d8, #efefef, #d8d8d8))
+    h3
+      color: #4d4d4d
+    li
+      border-color: #aaa
+    a
+      color: #4d4d4d
+    .active
+      a
+        color: #5d5d5d
 
 .breadcrumbs
   border-bottom: 1px solid #ccc
