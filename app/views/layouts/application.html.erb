@@ -44,7 +44,7 @@
         <form action="/ru/search">
           <ul class='inputs'>
             <li>
-              <input type="text" name='parts_params[search][q]' />
+              <input type="text" name='parts_params[search][q]' value='<%= params[:parts_params].try(:[], "search").try(:[], "q") %>' />
             </li>
           </ul>
           <ul class='buttons'>
