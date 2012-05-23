@@ -21,6 +21,7 @@
     <%= render_partial_for_region(@content_first) %>
     <%= render_partial_for_region(@content_second) %>
     <%= render_partial_for_region(@content_third) %>
+    <%= render_empty_message([@content_first, @content_second, @content_third]) %>
   </div>
 
 <% end %>

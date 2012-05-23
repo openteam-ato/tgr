@@ -73,8 +73,15 @@ module ApplicationHelper
     part.content.rss_link
   end
 
-  def archive_links(parts_array)
+  def render_empty_message(parts_array)
     parts_array = parts_array.compact.select { |part| part.content.items && part.content.items.any? }
+    return "" if parts_array.any?
+    content_tag :p, "Нет актуальной информации"
+  end
+
+
+  def archive_links(parts_array)
+    parts_array = parts_array.compact.select { |part| part.content.items }
 
     return "" if parts_array.empty?
     @events = parts_array.map(&:archive_dates)
