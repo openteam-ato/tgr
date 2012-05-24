@@ -53,4 +53,4 @@ auto_change = ->
   change_slide(next_li)
 
 timer = ->
-  @timeout_interval = setTimeout(auto_change, 3000)
+  @timeout_interval = setTimeout(auto_change, 15000)
