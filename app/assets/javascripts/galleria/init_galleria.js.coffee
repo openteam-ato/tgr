@@ -15,7 +15,7 @@
 
 @init_slider = ->
   actual = $(".actual")
-  slider = $(".slider", actual)
+  slider = $(".switcher", actual)
   info_wrapper = $("<div />", { class: "info_wrapper" }).appendTo(actual)
   info = $("<div />", { class: "info" }).appendTo(info_wrapper)
   text = $("<div />", { class: "text" }).appendTo(info)
@@ -37,7 +37,7 @@
 
 change_slide = (target) ->
   clearInterval(@timeout_interval)
-  slider = target.closest(".slider")
+  slider = target.closest(".switcher")
   img = $("img", target)
   text = $(".text", target.closest(".actual"))
   dots = $(".dots", target.closest(".actual"))
@@ -49,7 +49,7 @@ change_slide = (target) ->
 auto_change = ->
   current_dot = $(".actual .info .dots .active")
   next_dot = if current_dot.next().length then current_dot.next() else $(".actual .info .dots span:first")
-  next_li = $(".actual .slider li.#{next_dot.attr('id')}")
+  next_li = $(".actual .switcher li.#{next_dot.attr('id')}")
   change_slide(next_li)
 
 timer = ->
