@@ -3,7 +3,7 @@
     <div class="actual">
       <ul id='slider'>
         <% @actual.content['items'].each do |item| %>
-          <%= image_tag item.images.first.thumbnail.url, :title => "<a href='#{item.link}'>#{item.title}</a>", :alt => item.images.first.thumbnail.description %>
+          <li><%= image_tag item.images.first.thumbnail.url, :title => "<a href='#{item.link}'>#{item.title}</a>", :alt => item.images.first.thumbnail.description, :size => "618x348" %></li>
         <% end if @actual %>
       </ul>
     </div>

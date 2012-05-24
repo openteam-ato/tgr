@@ -29,7 +29,7 @@
     transition: "fade",
     transitionInitial: "fade",
     transitionSpeed: 500,
-    width: 618
+    width: 618,
     extend: (e) ->
       galleria_instance = this
       @bind "loadfinish", (e) ->

@@ -6,7 +6,6 @@
  *
  * = require jquery
  * = require jquery-ui
- * = require jquery_ujs
  * = require scroller
  * = require chart
  * = require jcarousel
