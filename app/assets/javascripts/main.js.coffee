@@ -1,7 +1,7 @@
 $ ->
   init_chart()             if $(".chart").length
   init_galleria()          if $("#galleria").length
-  init_slider()            if $('#slider').length
+  init_slider()            if $('.actual .slider li').length
   init_jcarousel()         if $(".banners_block").length
   init_map()               if $("#map").length
   init_tabs()              if $('.tabs').length

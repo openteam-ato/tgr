@@ -14,49 +14,43 @@
   })
 
 @init_slider = ->
-  $('#slider').galleria({
-    autoplay: 10000,
-    easing: "galleriaIn",
-    height: 348,
-    imageCrop: true,
-    preload: 3,
-    showCounter: false,
-    showImagenav: false,
-    showFullscreen: false,
-    showInfo: true,
-    thumbCrop: false,
-    thumbnails: false,
-    transition: "fade",
-    transitionInitial: "fade",
-    transitionSpeed: 500,
-    width: 618,
-    extend: (e) ->
-      galleria_instance = this
-      @bind "loadfinish", (e) ->
-        draw_dot_navigation(galleria_instance)
-  })
+  actual = $(".actual")
+  slider = $(".slider", actual)
+  info_wrapper = $("<div />", { class: "info_wrapper" }).appendTo(actual)
+  info = $("<div />", { class: "info" }).appendTo(info_wrapper)
+  text = $("<div />", { class: "text" }).appendTo(info)
+  dots = $("<div />", { class: "dots" }).appendTo(info)
+  li_index = 0
+  $("li", slider).each (index, element) ->
+    $(element).addClass("dot#{li_index}").prependTo slider
+    li_index += 1
+    $("<span />", { id: "dot#{index}" }).appendTo dots
+  text.html($("li:last img", slider).attr("data-title"))
+  $("span:first", dots).addClass("active")
+  slider.show()
+  $("span", dots).click ->
+    return false if $(this).hasClass("active")
+    klass = $(this).attr("id")
+    target = $("li.#{klass}", slider)
+    change_slide(target)
+  timer()
 
-draw_dot_navigation = (galleria) ->
-  info_block = $('.galleria-info')
-  unless $('.dots').length
-    info_block.append('<div class="dots"></div>')
-    dots_block = $('.dots')
-    image_count = galleria.getDataLength()
-    i = 0
-    while i < image_count
-      dots_block.append('<span id="dot'+i+'"></span>')
-      i++
-    $('.dots').click (event) ->
-      $this = $(event.target)
-      return false if $this.hasClass('active') || !$this.is('span')
-      galleria.playToggle()
-      $('.dots, .active').removeClass('active')
-      $this.addClass('active')
-      target_index = $this.attr('id').replace('dot','')
-      galleria.show(target_index)
-      galleria.playToggle()
+change_slide = (target) ->
+  clearInterval(@timeout_interval)
+  slider = target.closest(".slider")
+  img = $("img", target)
+  text = $(".text", target.closest(".actual"))
+  dots = $(".dots", target.closest(".actual"))
+  text.html(img.attr("data-title"))
+  $("##{target.attr('class')}", dots).addClass("active").siblings("span").removeClass("active")
+  target.hide().appendTo(slider).stop(true,true).fadeIn 500, ->
+    timer()
 
-  $('.active','.dots').removeClass('active')
-  $("#dot"+galleria.getIndex()).addClass('active')
+auto_change = ->
+  current_dot = $(".actual .info .dots .active")
+  next_dot = if current_dot.next().length then current_dot.next() else $(".actual .info .dots span:first")
+  next_li = $(".actual .slider li.#{next_dot.attr('id')}")
+  change_slide(next_li)
 
-
+timer = ->
+  @timeout_interval = setTimeout(auto_change, 3000)

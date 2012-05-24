@@ -12,6 +12,7 @@
 
   .actual
     +clearfix
+    position: relative
     +single-box-shadow(#345e36, 0, 0, 3px, 1px)
     border: 1px solid #135417
     float: left
@@ -19,70 +20,48 @@
     margin: 0 9px 0 0
     width: 618px
 
-  #slider
-    +clearfix
-    .galleria-container
-      .galleria-stage
-        height: 348px
-        width: 618px
+    .slider
+      +clearfix
+      display: none
+      li
+        position: absolute
+        top: 0
+        left: 0
+    .info_wrapper
+      position: absolute
+      left: 0
+      bottom: 0
+      width: 100%
+      background: transparent image_url('slider_title_bg.png')
+    .info
+      color: #fff
+      font-size: 18px
+      line-height: 24px
+      padding: 11px 14px
 
-        .galleria-images
-          .galleria-image
-            img
-              height: 348px !important
-              width: 618px !important
-
-        .galleria-loader
-          display: none
-        .galleria-counter
-          display: none
-        .galleria-image-nav
-          display: none
-
-      .galleria-thumbnails-container
-        display: none
-
-      .galleria-info
-        background: image_url('slider_title_bg.png') repeat-x
-        color: #fff
-        font-size: 18px
-        height: 72px
-        line-height: 24px
-        padding: 11px 14px
-        position: relative
-        top: -94px
-        z-index: 1
+      .text
+        +clearfix
 
         a
           color: #f7f7f7
 
-        .galleria-info-text
-          +clearfix
-          height: 54px
+      .dots
+        +clearfix
+        margin: 15px 0 0 0
 
-        .dots
-          +clearfix
-          margin: 4px 0 0 0
+        span
+          background: image_url('dots.png') no-repeat right
+          display: block
+          float: left
+          height: 20px
+          margin: 0 3px 0 0
+          width: 20px
 
-          span
-            background: image_url('dots.png') no-repeat right
-            display: block
-            float: left
-            height: 20px
-            margin: 0 3px 0 0
-            width: 20px
+          &.active
+            background-position: left
 
-            &.active
-              background-position: left
-
-            &:hover
-              cursor: pointer
-
-      .galleria-tooltip
-        display: none
-
-      .galleria-fullscreen
-        display: none
+          &:hover
+            cursor: pointer
 
   .calendar
     +clearfix
