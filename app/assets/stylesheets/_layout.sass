@@ -170,20 +170,9 @@ body
       float: left
 
       &.active
-        +clearfix
         background: image_url('main_menu_active.png') no-repeat center bottom
         height: 49px
         position: relative
-
-        &:hover
-          +box-shadow(none)
-          background: image_url('main_menu_active.png') no-repeat center bottom
-          height: 49px
-
-          a
-            background: image_url('main_menu_delimiter.png') no-repeat right
-            position: static
-            z-index: 2
 
       a
         background: image_url('main_menu_delimiter.png') no-repeat right
