@@ -20,14 +20,11 @@
   info = $("<div />", { class: "info" }).appendTo(info_wrapper)
   text = $("<div />", { class: "text" }).appendTo(info)
   dots = $("<div />", { class: "dots" }).appendTo(info)
-  li_index = 0
   $("li", slider).each (index, element) ->
-    $(element).addClass("dot#{li_index}").prependTo slider
-    li_index += 1
-    $("<span />", { id: "dot#{index}" }).appendTo dots
+    $(element).addClass("dot#{index}")
+    $("<span />", { id: "dot#{index}" }).prependTo dots
   text.html($("li:last img", slider).attr("data-title"))
   $("span:first", dots).addClass("active")
-  slider.show()
   $("span", dots).click ->
     return false if $(this).hasClass("active")
     klass = $(this).attr("id")

@@ -22,7 +22,6 @@
 
     .switcher
       +clearfix
-      display: none
       li
         position: absolute
         top: 0
@@ -70,7 +69,6 @@
     border: 1px solid #135417
     float: left
     height: 348px
-    //position: relative
     width: 308px
 
     .calendar_head
@@ -120,19 +118,21 @@
         .last
           margin: 0
 
+    $calendar_height: 256px
     .calendar_items
       +clearfix
-      height: 206px
+      height: $calendar_height
       padding: 24px 15px
+
 
       .disable
         display: none
 
       .viewport
         +clearfix
-        height: 209px
+        width: 260px
+        height: $calendar_height
         position: relative
-        width: 279px
 
       .empty
         color: #999
@@ -140,17 +140,21 @@
         padding: 100px 0 0 0
         text-align: center
         height: 109px
-        //279 209
 
       ul
-        +clearfix
-        height: 209px
-        position: relative
+        position: absolute
+        left: 0
+        top: 0
 
         li
-          float: left
-          height: 209px
-          width: 279px
+          border-bottom: 1px dashed #ccc
+          padding-bottom: 15px
+          margin-bottom: 15px
+
+          &:last-child
+            border-bottom: none
+            padding-bottom: 0
+            margin-bottom: 0
 
           .calendar_item_date
             font-size: 18px
@@ -173,21 +177,17 @@
     .scrollbar
       +border-radius(3px)
       background: #655537
-      bottom: 13px
-      float: left
-      height: 7px
-      left: 18px
+      float: right
       padding: 0
-      width: 272px
+      width: 7px
+      position: relative
 
       .thumb
         +border-radius(3px)
         background: #d79712
         border: 1px solid #9f6b00
-        top: -1px
-        bottom: 0
-        display: block
-        height: 7px
+        width: 7px
+        left: -1px
         margin: 0
         outline: none
         position: relative
