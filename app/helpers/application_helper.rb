@@ -25,14 +25,17 @@ module ApplicationHelper
     since_date, since_time = l(event.since.to_datetime, :format => '%d.%B.%Y %H:%M').split(' ')
     until_date, until_time = l(event.until.to_datetime, :format => '%d.%B.%Y %H:%M').split(' ')
 
-    since_date.gsub!('.', ' ')
+    since_date.gsub!(".", " ")
+    since_date.gsub!(" #{Date.today.year}", "")
     until_date.gsub!('.', ' ')
+    until_date.gsub!(" #{Date.today.year}", "")
 
     since_arr = []
     until_arr = []
 
     since_arr << content_tag(:span, since_date, :class => 'nobr')
     until_arr << content_tag(:span, until_date, :class => 'nobr') if since_date != until_date
+
 
     if since_time != '00:00'
       since_arr << ", #{since_time}"
