@@ -1,4 +1,5 @@
 <%= content_for :content do %>
+  <%= @description.content.body.html_safe if @description %>
   <div id="organization_structure">
     <ul class="first no_need_links">
       <li class="first_item">
