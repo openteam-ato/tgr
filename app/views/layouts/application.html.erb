@@ -12,6 +12,15 @@
   <%= javascript_include_tag 'stop_ie/application' %>
   <![endif]-->
   <%= csrf_meta_tags %>
+
+  <!-- Gosmonitor widget -->
+  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+  <script type="text/javascript" src="http://gosmonitor.ru/widget.php?id=113&clr1=8aa865"></script>
+  <link rel="stylesheet" type="text/css" href="http://dev.monitor.mer.gosbook.ru/widget/widget.css" />
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/base/jquery-ui.css" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="/assets/widget.css" />
+  <!-- / Gosmonitor widget -->
+
 </head>
 <body>
   <div class="top">
@@ -118,7 +127,6 @@
       </div>
     </div>
   </div>
-  <%= render :partial => 'commons/reformal' %>
 
   <% if Rails.env.production? && request.host.eql?("tomsk.gov.ru") %>
     <!-- Yandex.Metrika counter -->
