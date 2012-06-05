@@ -12,7 +12,7 @@
             <% end %>
           </div>
 
-          <h5><%= link_to item.title.truncate(90, :separator => ' '), item.link, :title => item.title %></h5>
+          <h5><%= link_to item.title, item.link, :title => item.title %></h5>
 
           <% if item.images.any? && item.images.first  %>
             <% image = item.images.first.thumbnail ? item.images.first.thumbnail : item.images.first %>
@@ -21,9 +21,7 @@
 
           <% if item.annotation %>
             <div class="annotation">
-              <p>
-                <%= sanitize(item.annotation.html_safe, :tags => []).truncate(200, :separator => ' ').html_safe %>
-              </p>
+              <%= item.annotation.html_safe %>
             </div>
           <% end %>
 

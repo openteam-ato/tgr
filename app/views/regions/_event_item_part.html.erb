@@ -1,5 +1,5 @@
 <div class="right_side" style='overflow: hidden'>
-  <%  if object.images.any? %>
+  <% unless object.images.blank? %>
     <div class="entry_image">
       <%= image_tag object.images.first.thumbnail.url, :alt => object.images.first.description, :width => object.images.first.thumbnail.width, :height => object.images.first.thumbnail.height %>
       <div class="description">
@@ -9,12 +9,14 @@
   <% end %>
 </div>
 
-<div class="event_properties">
-  <% object.event_entry_properties.each do |event| %>
-    <div class='event_date'><%= interval_for(event) %></div>
-    <div class='event_location'><%= event.location %></div>
-  <% end %>
-</div>
+<% if object.event_entry_properties %>
+  <div class="event_properties">
+    <% object.event_entry_properties.each do |event| %>
+      <div class='event_date'><%= interval_for(event) %></div>
+      <div class='event_location'><%= event.location %></div>
+    <% end %>
+  </div>
+<% end %>
 
 <%= raw object.annotation %>
 
@@ -26,7 +28,7 @@
   </div>
 <% end %>
 
-<% if object.images.any? && object.images.count > 1 %>
+<% if !object.images.blank? && object.images.count > 1 %>
   <div class="galleria_wrapper">
     <div id="galleria">
       <% object.images.each do |image| %>
