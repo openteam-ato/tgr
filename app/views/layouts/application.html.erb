@@ -18,12 +18,12 @@
     <div class="inner">
       <ul class="languages">
         <li><a href="/">РУ</a></li>
-        <li><a href="http://tomsk.gov.ru/en/">EN</a></li>
+        <li><a target="_blank" href="http://old.tomsk.gov.ru/en/">EN</a></li>
       </ul>
-      <div class="information">
-        Сайт функционирует в тестовом режиме. <a target="_blank" href="http://tomsk.gov.ru/">Перейти на действующий сайт</a>
-      </div>
       <a href="/ru/sitemap/" class='sitemap'>Карта сайта</a>
+      <div class="information">
+        <a target="_blank" href="http://old.tomsk.gov.ru/">Старая версия сайта</a>
+      </div>
     </div>
   </div>
 
@@ -120,13 +120,13 @@
   </div>
   <%= render :partial => 'commons/reformal' %>
 
-  <% if Rails.env.production? && request.host.eql?("tgr.esp.tomsk.gov.ru") %>
+  <% if Rails.env.production? && request.host.eql?("tomsk.gov.ru") %>
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
     (function (d, w, c) {
       (w[c] = w[c] || []).push(function() {
         try {
-          w.yaCounter14928832 = new Ya.Metrika({id:14928832, enableAll: true, webvisor:true});
+          w.yaCounter14998279 = new Ya.Metrika({id:14998279, enableAll: true, webvisor:true});
         } catch(e) {}
       });
 
@@ -142,7 +142,7 @@
       } else { f(); }
     })(document, window, "yandex_metrika_callbacks");
     </script>
-    <noscript><div><img src="//mc.yandex.ru/watch/14928832" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <noscript><div><img src="//mc.yandex.ru/watch/14998279" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
   <% end %>
 
