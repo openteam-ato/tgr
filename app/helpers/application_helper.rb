@@ -73,7 +73,7 @@ module ApplicationHelper
 
   def entries_rss_link(parts_array)
     part = parts_array.compact.select { |part| part.content.rss_link }.first
-    part.content.rss_link
+    part.content.rss_link if part
   end
 
   def render_empty_message(parts_array)
