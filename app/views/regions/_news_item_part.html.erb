@@ -30,7 +30,9 @@
     <%= l object.since.to_date, :format => :long %>
   </div>
 
-  <%= raw object.annotation %>
+  <div class="annotation_on_show">
+    <%= raw object.annotation %>
+  </div>
 
   <%= raw object.body %>
 
