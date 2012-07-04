@@ -6,7 +6,7 @@
         <%= render :partial => 'organization_structure/superior', :locals => { :object => @content_first.content.items.first, :need_links => true } %>
         <ul class="second">
           <% @content_first.content.subdivisions.each do |subdivision| %>
-            <% if subdivision.title.match(/губернатор\b|заместитель|управляющий/i) %>
+            <% if subdivision.title.match(/губернатор\b|заместител|управляющ/i) %>
               <li class="second_item">
                 <% if subdivision.items.try(:any?) %>
                   <%= render :partial => 'organization_structure/superior', :locals => { :object => subdivision.items.first, :need_links => subdivision.has_key?(:subdivisions) } %>
