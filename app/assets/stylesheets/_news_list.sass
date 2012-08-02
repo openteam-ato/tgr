@@ -78,6 +78,77 @@
         &:before
           display: none
 
+  .fire_news_list
+    border-top: 1px dotted #aaa
+    padding-top: 10px
+    margin-top: 30px
+    h2
+      font-size: 23px
+    ul
+      +clearfix
+
+      li
+        float: left
+        width: 206px
+        padding: 0
+        margin: 0 40px 0 0
+        &:before
+          display: none
+
+      .last
+        margin-right: 0
+
+      .date
+        margin-bottom: 5px
+
+      h5
+        font-size: 14px
+        line-height: 18px
+        margin: 5px 0 0 0
+
+      .annotation
+        margin: 10px 0 0 0
+
+        p
+          font-size: 12px
+          line-height: 16px
+          margin: 0
+
+  .fire_comments_list
+    border-top: 1px dotted #aaa
+    padding-top: 10px
+    margin-top: 30px
+    h2
+      font-size: 23px
+    ul
+      li
+        +clearfix
+        padding: 0
+        margin-bottom: 20px
+        &:before
+          display: none
+        .image
+          float: left
+          margin: 3px 20px 0 3px
+          img
+            border: 1px solid #ccc
+            +border-radius(5px)
+        .description
+          +clearfix
+          .date
+            margin-bottom: 5px
+          h5
+            font-size: 14px
+            line-height: 18px
+            margin: 5px 0 0 0
+
+          .annotation
+            margin: 10px 0 0 0
+            p
+              font-size: 12px
+              line-height: 16px
+              margin: 0
+
 .date
   color: #808080
   display: block
