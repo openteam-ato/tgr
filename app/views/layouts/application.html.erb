@@ -8,8 +8,8 @@
   <%= javascript_include_tag "application" %>
   <%= yield(:extend_javascripts) %>
   <!--[if lte IE 7]>
-  <%= stylesheet_link_tag    'stop_ie/application' %>
-  <%= javascript_include_tag 'stop_ie/application' %>
+  <%= stylesheet_link_tag    "stop_ie/application" %>
+  <%= javascript_include_tag "stop_ie/application" %>
   <![endif]-->
   <%= csrf_meta_tags %>
   <% if entry_date %>

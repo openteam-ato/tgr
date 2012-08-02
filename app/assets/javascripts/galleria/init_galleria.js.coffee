@@ -30,6 +30,7 @@
     klass = $(this).attr("id")
     target = $("li.#{klass}", slider)
     change_slide(target)
+  return false if $("li", slider).length < 2
   timer()
 
 change_slide = (target) ->
