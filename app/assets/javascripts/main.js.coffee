@@ -9,7 +9,7 @@ $ ->
   init_archive_collapser() if $(".archive").length
   init_reports_list()      if $("div.reports").length
   init_colorbox()          if $(".right_side .entry_image img").length
-  #init_netognya()          if $(".content .inner .article h3 a[href='http://twitter.com/netognya']").length
+  init_fire_situation()
 
   if $(".need_collapser").length
     init_collapser()

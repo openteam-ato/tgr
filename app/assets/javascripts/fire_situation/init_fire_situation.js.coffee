@@ -1,4 +1,4 @@
-@init_netognya = ->
+@init_fire_situation = ->
   #news_block = $(".content .inner .article")
   #right_block = $(".right_side", news_block)
   #twitter_link = $("h3 a[href='http://twitter.com/netognya']", news_block)
