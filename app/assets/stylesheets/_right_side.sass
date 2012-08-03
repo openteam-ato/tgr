@@ -191,10 +191,10 @@
         ul
           display: block
 
-  .twitter
+  .right_side_twitter
     margin-bottom: 26px
     div#twtr-widget-1.twtr-widget
-      +single-box-shadow(#ccc, 0px, -3px, 10px, -1px)
+      +single-box-shadow(#ccc, 0, -3px, 10px, -1px)
       div.twtr-doc
         +border-radius(0)
       div.twtr-bd div.twtr-timeline
@@ -203,3 +203,37 @@
         display: none
       div.twtr-ft
         height: 1px
+
+  .right_side_smi_publications
+    +single-box-shadow(#ccc, 0px, -3px, 10px, -1px)
+    +background-image(linear-gradient(#f7f7f7, #ededed))
+    border: 1px solid #ccc
+    margin: 0 0 26px 0
+
+    h4
+      background: #3e7a3d image_url('right_side_head_bottom.png') no-repeat bottom center
+      color: #fff
+      font-size: 17px
+      margin: 0
+      padding: 9px 0 19px 19px
+    ul
+      margin: 14px 18px 0
+      li
+        border-bottom: 1px solid #ccc
+        margin-bottom: 10px
+        padding-bottom: 10px
+        &:last-child
+          border: none
+          padding: 0
+          margin-bottom: 14px
+        p
+          margin-bottom: 0
+        .date
+          font-size: 11px
+        .title
+          font-size: 14px
+          margin-bottom: 5px
+        .annotation
+          line-height: 16px
+        .source
+          margin-top: 5px
