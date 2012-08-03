@@ -5,7 +5,7 @@
         <% @actual.content['items'].reverse.each do |item| %>
           <li><%= image_tag item.images.first.thumbnail.url, :"data-title" => "<a href='#{item.link}'>#{item.title}</a>", :alt => item.images.first.thumbnail.description, :size => "618x348" %></li>
         <% end if @actual %>
-        <li><%= image_tag 'http://storage.esp.tomsk.gov.ru/files/12047/618-348/_D127523c.JPG', :'data-title' => "<a href='/ru/fire_situation/'>Ситуация с лесными пожарами в Томской области</a>", :size => "618x348" %></li>
+        <li><%= image_tag 'http://storage.esp.tomsk.gov.ru/files/12173/618-348/gorim.jpg', :'data-title' => "<a href='/ru/fire_situation/'>Ситуация с лесными пожарами в Томской области</a>", :size => "618x348" %></li>
       </ul>
     </div>
 
