@@ -27,7 +27,13 @@
   </div>
 <% end %>
 
-<% if @twitter %>
+<% if @right_side_twitter %>
+  <div class="twitter">
+    <%= @right_side_twitter.content.body.html_safe %>
+  </div>
+<% end %>
+
+<% if @right_side_smi_publication %>
   <div class="twitter">
     <%= @twitter.content.body.html_safe %>
   </div>
