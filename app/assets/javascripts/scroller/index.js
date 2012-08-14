@@ -1,3 +1,4 @@
 /*
- * = require_tree .
+ * = require ./jquery.tinyscrollbar.min
+ * = require ./init_scroller
  */
