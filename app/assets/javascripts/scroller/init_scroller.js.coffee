@@ -1,2 +1,3 @@
-@init_scroller = ->
-  $(".calendar .calendar_items").tinyscrollbar({ wheel: '20' })
+@init_scroller = () ->
+  $(".calendar .calendar_items").tinyscrollbar
+    wheel: '20'

@@ -6,7 +6,7 @@
  *
  * = require jquery
  * = require jquery-ui
- * = require scroller
+ * = require ./scroller
  * = require chart
  * = require jcarousel
  * = require galleria
