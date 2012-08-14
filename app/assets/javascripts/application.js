@@ -13,7 +13,6 @@
  * = require map
  * = require reports
  * = require collapser
- * = require tabs
  * = require upload_files
  * = require archive_collapser
  * = require scroll_to
