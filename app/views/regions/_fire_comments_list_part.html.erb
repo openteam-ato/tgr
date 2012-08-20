@@ -1,8 +1,10 @@
 <div class="fire_comments_list">
-  <h2>
-    <%= link_to object.title, object.collection_link %>
-    <%= link_to "RSS", object.rss_link, :class => 'rss' %>
-  </h2>
+  <% unless object.title.blank? %>
+    <h2>
+      <%= link_to object.title, object.collection_link %>
+      <%= link_to "RSS", object.rss_link, :class => 'rss' %>
+    </h2>
+  <% end %>
 
   <ul>
     <% object.items.each_with_index do |item, index| %>
@@ -15,7 +17,11 @@
         <% end %>
         <div class="description">
           <span class="date"><%= l Date.parse(item.since), :format => :long %></span>
-          <h5><%= link_to item.title, item.link, :title => item.title %></h5>
+          <% unless item.source_link.blank? %>
+            <h5><%= link_to item.title, item.source_link, :rel => "nofollow", :target => "_blank" %></h5>
+          <% else %>
+            <h5><%= link_to item.title, item.link %></h5>
+          <% end %>
           <% if item.annotation %>
             <div class="annotation">
               <p><%= sanitize(item.annotation.html_safe, :tags => []) %></p>
