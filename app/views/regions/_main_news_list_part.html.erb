@@ -12,7 +12,7 @@
 
         <% if item.images.any? && item.images.first  %>
           <% image = item.images.first.thumbnail ? item.images.first.thumbnail : item.images.first %>
-          <%= image_tag image.url, :title => image.description, :width => image.width, :height => image.height %>
+          <%= image_tag image.url, :title => image.description, :width => image.width, :height => image.height if image %>
         <% end %>
 
         <% if item.annotation %>
