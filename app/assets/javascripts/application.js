@@ -6,13 +6,14 @@
  *
  * = require jquery
  * = require jquery-ui
- * = require ./scroller
+ * = require scroller
  * = require chart
  * = require jcarousel
  * = require galleria
  * = require map
  * = require reports
  * = require collapser
+ * = require tabs
  * = require upload_files
  * = require archive_collapser
  * = require scroll_to
