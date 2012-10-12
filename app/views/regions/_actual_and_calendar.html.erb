@@ -2,7 +2,6 @@
   <div class="inner">
     <div class="actual">
       <ul class="switcher">
-        <li><%= image_tag 'http://storage.esp.tomsk.gov.ru/files/12558/618-348/18122012.jpg', :'data-title' => "<a href='/ru/tomichi-geroi-voyny-1812-g/'>Томичи – герои войны 1812 года</a>", :size => "618x348" %></li>
         <% @actual.content['items'].reverse.each do |item| %>
           <li><%= image_tag item.images.first.thumbnail.url, :"data-title" => "<a href='#{item.link}'>#{item.title}</a>", :alt => item.images.first.thumbnail.description, :size => "618x348" %></li>
         <% end if @actual %>
