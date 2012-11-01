@@ -10,6 +10,11 @@
 
   ul
     +clearfix
+    width: 380px
+    float: left
+    margin-right: 20px
+    &.even
+      margin-right: 0
 
     li
       margin: 0 0 20px 0
@@ -29,30 +34,11 @@
     +single-box-shadow(#bfbfbf, 0, 0, 3px)
     border: 1px solid #bfbfbf
     float: left
-    margin: 20px 21px 0 2px
+    margin: 0 0 0 2px
 
   .governor_message
-    +border-radius
-    +single-box-shadow(#bfbfbf, 0, 0, 3px)
-    border: 1px solid #bfbfbf
-    float: left
-    width: 458px
+    display: none
 
-    div
-      background: image_url('governor_message_lbg.png') no-repeat left center
-      padding: 18px 0 0 36px
-      position: relative
-      left: -17px
-
-      h6
-        font-size: 13px
-        margin: 0 0 4px 0
-
-      p
-        line-height: 20px
-
-      b
-        font-weight: bold
 .article
   .governor_comments
     border: none
