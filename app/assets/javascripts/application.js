@@ -18,6 +18,6 @@
  * = require archive_collapser
  * = require scroll_to
  * = require colorbox
- * = require fire_situation
+ * = require uppod
  * = require main
  */
