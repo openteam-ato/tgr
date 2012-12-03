@@ -3,7 +3,6 @@
 
 <% content_for :content do %>
   <div class="blue_pages">
-    <%= render :partial => 'commons/chief', :locals => { :object => @content_first.content.items.first } if @content_first.content.items %>
 
     <% if @links %>
       <div class="links">
@@ -13,8 +12,7 @@
       </div>
     <% end %>
 
-    <%= render :partial => 'commons/department_info', :locals => { :object => @content_first.content } %>
-    <%= render :partial => 'commons/department_employees', :locals => { :object => @content_first.content } if @content_first.content.items %>
+    <%= render :partial => 'commons/experts_council_employees', :locals => { :object => @content_first.content } if @content_first.content.items %>
     <% if @content_first.content.subdivisions %>
       <h2>Подразделения</h2>
       <%= render :partial => 'commons/subdivisions', :locals => { :object => @content_first.content } %>
