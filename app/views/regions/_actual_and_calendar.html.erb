@@ -7,6 +7,7 @@
         <% end if @actual %>
         <li><%= image_tag 'fatherland.jpg', :'data-title' => "<a href='/ru/s-chego-nachinaetsya-rodina'>С чего начинается Родина</a>", :size => "618x348" %></li>
         <li><%= image_tag 'http://storage.esp.tomsk.gov.ru/files/16253/618-348/fire_situation_banner_4.jpg', :'data-title' => "<a href='/ru/likvidatsiya-posledstviy-chrezvychaynogo-proisshestviya-v-tomske'>Ликвидация последствий чрезвычайного происшествия в&nbsp;Томске</a>", :size => "618x348" %></li>
+        <li><%= image_tag 'emergency_numbers.jpg', :'data-title' => "<a href='/ru/s-nastupayuschim-novym-2013-godom/dezhurnye-ekstrennyy-sluzhby-v-novogodnie-kanikuly/'>Телефоны экстренных служб Томской области</a>", :size => "618x348" %></li>
         <li><%= image_tag 'new_year.jpg', :'data-title' => "<a href='/ru/s-nastupayuschim-novym-2013-godom'>С наступающим Новым 2013 годом!</a>", :size => "618x348" %></li>
       </ul>
     </div>
@@ -22,7 +23,7 @@
           <ul class="overview">
             <% if @calendar_current.content.items.any? %>
               <% @calendar_current.content.items.each do |item| %>
-                <%= render :partial => 'commons/calendar_item', :locals => { :item => item} %>
+                <%= render :partial => 'commons/calendar_item', :locals => { :item => item } %>
               <% end %>
             <% else %>
               <li class="empty">Нет актуальной информации</li>
