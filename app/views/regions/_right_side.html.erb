@@ -35,7 +35,7 @@
 
 <% if @right_side_smi_publications && @right_side_smi_publications.content.items.any? %>
   <div class="right_side_smi_publications">
-    <h4>Публикации в СМИ</h4>
+    <h4><%= @right_side_smi_publications.content.title ? @right_side_smi_publications.content.title : 'Публикации в СМИ' %></h4>
     <ul>
       <% @right_side_smi_publications.content.items.each do |publication| %>
         <li>
