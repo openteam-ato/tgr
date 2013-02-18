@@ -33,7 +33,7 @@
   </div>
 <% end %>
 
-<% if @right_side_smi_publications && @right_side_smi_publications.content.items.any? %>
+<% if @right_side_smi_publications && @right_side_smi_publications.content && @right_side_smi_publications.content.items.present? %>
   <div class="right_side_smi_publications">
     <h4><%= @right_side_smi_publications.content.title ? @right_side_smi_publications.content.title : 'Публикации в СМИ' %></h4>
     <ul>
