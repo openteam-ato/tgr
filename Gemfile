@@ -2,12 +2,12 @@ source :rubygems
 
 group :assets do
   gem 'coffee-rails'
-  gem 'therubyracer'                                unless RUBY_PLATFORM =~ /freebsd/
+  gem 'compass-rails'
+  gem 'sass-rails'
   gem 'uglifier'
 end
 
 group :default do
-  gem 'compass-rails'
   gem 'curb'
   gem 'el_vfs_client'
   gem 'esp-commons'
@@ -18,7 +18,6 @@ group :default do
   gem 'openteam-commons'
   gem 'rails',                  '~>3.2.12'
   gem 'russian'
-  gem 'sass-rails'
   gem 'stop_ie'
   gem 'uuid'
 end
@@ -26,5 +25,7 @@ end
 group :development do
   gem 'brakeman'
   gem 'quiet_assets'
+  gem 'rvm-capistrano'
+  gem 'therubyracer'
   gem 'thin'
 end
