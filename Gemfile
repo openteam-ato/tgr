@@ -26,6 +26,5 @@ group :development do
   gem 'brakeman'
   gem 'quiet_assets'
   gem 'rvm-capistrano'
-  gem 'therubyracer'
   gem 'thin'
 end

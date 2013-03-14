@@ -118,7 +118,6 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     kgio (2.7.4)
-    libv8 (3.3.10.4)
     macaddr (1.6.1)
       systemu (~> 2.5.0)
     mail (2.4.4)
@@ -199,8 +198,6 @@ GEM
     systemu (2.5.2)
     temple (0.5.5)
     terminal-table (1.4.5)
-    therubyracer (0.10.2)
-      libv8 (~> 3.3.10)
     thin (1.5.0)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -245,7 +242,6 @@ DEPENDENCIES
   rvm-capistrano
   sass-rails
   stop_ie
-  therubyracer
   thin
   uglifier
   uuid
