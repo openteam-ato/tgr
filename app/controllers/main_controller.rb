@@ -54,8 +54,10 @@ class MainController < ApplicationController
     end
 
     def request_json
-      raise ActionController::RoutingError.new('Not Found') unless is_json?(request_body)
-      @request_body ||= ActiveSupport::JSON.decode(request_body)
+      @request_json ||= begin
+                          raise ActionController::RoutingError.new('Not Found') unless is_json?(request_body)
+                          ActiveSupport::JSON.decode(request_body)
+                        end
     end
 
     def page_regions

@@ -25,6 +25,7 @@ end
 
 group :development do
   gem 'brakeman'
+  gem 'debugger'
   gem 'quiet_assets'
   gem 'rvm-capistrano'
   gem 'thin'
