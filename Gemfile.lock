@@ -1,10 +1,4 @@
 GIT
-  remote: git://github.com/openteam/capistrano-db-tasks
-  revision: b6b81df2d6965c456e8ca4cf3aa325c95a542b36
-  specs:
-    capistrano-db-tasks (0.2)
-
-GIT
   remote: git://github.com/sosedoff/capistrano-unicorn
   revision: dc49187df68e92bc04b7b0fa42da1e24f70d69f5
   specs:
@@ -155,8 +149,7 @@ GEM
     net-ssh (2.6.6)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
-    openteam-capistrano (0.0.7)
-      capistrano-db-tasks
+    openteam-capistrano (0.0.8)
       capistrano-ext
       capistrano-unicorn
       rvm-capistrano
@@ -256,7 +249,6 @@ PLATFORMS
 
 DEPENDENCIES
   brakeman
-  capistrano-db-tasks!
   capistrano-unicorn!
   coffee-rails
   compass-rails
