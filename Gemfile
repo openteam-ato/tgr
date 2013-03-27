@@ -27,6 +27,8 @@ group :development do
   gem 'brakeman'
   gem 'debugger'
   gem 'quiet_assets'
-  gem 'rvm-capistrano'
+  gem 'openteam-capistrano'
+  gem 'capistrano-db-tasks', :git => 'git://github.com/openteam/capistrano-db-tasks'
+  gem 'capistrano-unicorn',  :git => 'git://github.com/sosedoff/capistrano-unicorn'
   gem 'thin'
 end
