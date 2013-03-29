@@ -9,6 +9,7 @@
         <% @actual.content['items'].reverse.each do |item| %>
           <li><%= image_tag item.images.first.thumbnail.url, :"data-title" => "<a href='#{item.link}'>#{item.title}</a>", :alt => item.images.first.thumbnail.description, :size => "618x348" %></li>
         <% end if @actual %>
+        <li><%= image_tag 'blasting-operations.jpg', :'data-title' => "<a href='/ru/blasting-operations'>Паводок-2013: ледовзрывные работы</a>", :size => "618x348" %></li>
       </ul>
     </div>
 
