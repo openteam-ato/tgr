@@ -37,7 +37,7 @@ function set_id_to_links(name, id) {
   $('#'+name+'_item a').attr('id', id);
 };
 
-function draw_map(){
+function draw_map_main_page(){
   var paper = ScaleRaphael('map', 490, 350);
 
   var region_attr = {
@@ -61,7 +61,7 @@ function draw_map(){
     'stroke': '#378437'
   };
 
-  $(regions).each(function (index, region) {
+  $(map_regions).each(function (index, region) {
     var paper_item = paper.path(region.path);
     var temp = {};
 
@@ -150,8 +150,8 @@ function check_hash_exist(paper) {
   paper.getById(link.attr('id')).attr({'fill': '#8cc88c', 'stroke':'#378437'});
 };
 
-function init_map() {
-  var paper = draw_map();
+function init_map_main_page() {
+  var paper = draw_map_main_page();
   $('.map_desc li a').hover(
     function() {
       var reset_hover = $('a.hover', $(this).closest('.map_desc_wrapper'));

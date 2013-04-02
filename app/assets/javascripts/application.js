@@ -11,7 +11,7 @@
  * = require chart
  * = require jcarousel
  * = require galleria
- * = require map
+ * = require map_main_page
  * = require map_municipal_readiness
  * = require reports
  * = require collapser

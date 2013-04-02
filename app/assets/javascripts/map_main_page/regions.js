@@ -1,4 +1,4 @@
-var regions = [
+var map_regions = [
   {
     name : 'aleksandrovskiy',
     title: 'Александровский район',

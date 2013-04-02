@@ -3,7 +3,7 @@ $ ->
   init_galleria()                 if $("#galleria").length
   init_slider()                   if $(".actual .switcher li").length
   init_jcarousel()                if $(".banners_block").length
-  init_map()                      if $(".map_wrapper.about_of_region").length
+  init_map_main_page()            if $(".map_wrapper.about_of_region").length
   init_map_municipal_readiness()  if $(".map_wrapper.municipal_readiness").length
   init_tabs()                     if $('.tabs').length
   init_scroller()                 if $(".calendar .calendar_items").length
