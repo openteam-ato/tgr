@@ -133,8 +133,8 @@ function municipal_readiness_manipulate(identifier) {
     var visible = $('div:visible', block.parent());
     $(visible).slideUp(200);
     block.slideDown(200);
-    if ($.fn.scrollTo && offset > 0) {
-      $(window).scrollTo( { top: '+=' + offset + 'px'}, 200 );
+    if ($.fn.scrollTo) {
+      $.scrollTo('330px', 300);
     };
     change_location(identifier);
   };
