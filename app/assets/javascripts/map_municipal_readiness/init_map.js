@@ -44,6 +44,8 @@ function draw_map(){
     'cursor': 'pointer',
     'fill': '#fffac8',
     'stroke': '#847e6c',
+    'fill': '#d9ecff',
+    'stroke': '#6c7884',
     'stroke-width': 1,
     'stroke-linejoin': 'round'
   };
