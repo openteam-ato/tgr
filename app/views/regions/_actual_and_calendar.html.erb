@@ -7,7 +7,7 @@
         <li><%= image_tag 'elections.jpg', :'data-title' => "<a href='/ru/sergey-zhvachkin-vybirayte-teh-kto-prineset-polzu-/'>Сергей Жвачкин: «Выбирайте тех, кто принесет пользу»</a>", :size => "618x348" %></li>
         <% @actual.content['items'].reverse.each do |item| %>
           <li><%= image_tag item.images.first.thumbnail.url, :"data-title" => "<a href='#{item.link}'>#{item.title}</a>", :alt => item.images.first.thumbnail.description, :size => "618x348" %></li>
-        <% end if @actual %>
+        <% end if @actual.content['items'].present? %>
         <li><%= image_tag 'inotomsk.jpg', :'data-title' => "<a href='http://inotomsk.ru/' target='_blank'>Перепись инновационных компаний, проектов, продуктов</a>", :size => "618x348" %></li>
         <li><%= image_tag 'municipal_readiness.jpg', :'data-title' => "<a href='/ru/pavodok-2013-gotovnost-resursy-rezervy/'>Паводок-2013: готовность, ресурсы, резервы</a>", :size => "618x348" %></li>
       </ul>
@@ -22,7 +22,7 @@
         <div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
         <div class="viewport">
           <ul class="overview">
-            <% if @calendar_current.content.items.any? %>
+            <% if @calendar_current.content.items.present? %>
               <% @calendar_current.content.items.each do |item| %>
                 <%= render :partial => 'commons/calendar_item', :locals => { :item => item } %>
               <% end %>
