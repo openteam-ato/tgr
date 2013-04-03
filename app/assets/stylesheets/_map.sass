@@ -67,5 +67,20 @@
   div
     display: none
 
-.map_wrapper.municipal_readiness #map
-  background: transparent image_url('map_bg_without_city.png') no-repeat 0 -1px
+.map_wrapper.municipal_readiness
+  #map
+    background: transparent image_url('map_bg_without_city.png') no-repeat 0 -1px
+
+
+.content .article .municipal_readiness_legend
+  li
+    background-color: transparent
+    background-position: left 2px
+    background-repeat: no-repeat
+    &:before
+      content: ''
+      float: none
+    &.kindly
+      background-image: image_url('municipal_readiness_kindly.png')
+    &.adverse
+      background-image: image_url('municipal_readiness_adverse.png')
