@@ -28,6 +28,6 @@ group :development do
   gem 'debugger'
   gem 'quiet_assets'
   gem 'openteam-capistrano'
-  gem 'capistrano-unicorn',  :git => 'git://github.com/sosedoff/capistrano-unicorn'
+  gem 'capistrano-unicorn'
   gem 'thin'
 end
