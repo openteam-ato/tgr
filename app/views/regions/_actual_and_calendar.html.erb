@@ -1,15 +1,10 @@
 <div class="actual_and_calendar">
   <div class="inner">
     <div class="actual">
-      <ul class="switcher">
-        <li><%= image_tag 'construction_team.jpg', :'data-title' => "<a href='/ru/studencheskie-stroitelnye-otryady-50-let/'>50 лет томским студенческим отрядам</a>", :size => "618x348" %></li>
-        <% @actual.content['items'].reverse.each do |item| %>
-          <li><%= image_tag item.images.first.thumbnail.url, :"data-title" => "<a href='#{item.link}'>#{item.title}</a>", :alt => item.images.first.thumbnail.description, :size => "618x348" %></li>
-        <% end if @actual.content['items'].present? %>
-        <li><%= image_tag 'inotomsk.jpg', :'data-title' => "<a href='http://inotomsk.ru/' target='_blank'>Перепись инновационных компаний, проектов, продуктов</a>", :size => "618x348" %></li>
-        <li><%= image_tag 'innovus.jpg', :'data-title' => "<a href='http://tomskforum.ru/' target='_blank'>XV Томский инновационный форум INNOVUS</a>", :size => "618x348" %></li>
-        <li><%= image_tag 'stream_drifting.jpg', :'data-title' => "<a href='/ru/pavodok-2013-pryamaya-translyatsiya-ledohoda/'>Паводок-2013: прямая трансляция ледохода</a>", :size => "618x348" %></li>
-      </ul>
+      <h2><a href="/ru/pavodok-2013-pryamaya-translyatsiya-ledohoda/">Паводок-2013: прямая трансляция ледохода</a></h2>
+      <div class="river" id="river3">
+        <video height="348" poster="http://stream.cam.tom.ru/img/river3.jpg" src="http://stream.cam.tom.ru/hls/hls-360/river3.m3u8" width="618"></video>
+      </div>
     </div>
 
     <div class="calendar">
