@@ -22,5 +22,6 @@
  * = require colorbox
  * = require uppod
  * = require flowplayer
+ * = require stream_drifting
  * = require main
  */
