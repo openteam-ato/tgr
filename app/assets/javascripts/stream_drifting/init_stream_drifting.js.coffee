@@ -5,8 +5,8 @@
 
     jwplayer(id).setup
       playlist: [
-        image: "http://stream.cam.tom.ru/img/#{id}.jpg"
-        file: "http://stream.cam.tom.ru/hls/#{id}.m3u8"
+        image: "http://62.76.185.224/img/#{id}.jpg"
+        file: "http://62.76.185.224/hls/#{id}.m3u8"
       ]
       logo:
         file: "http://stream.cam.tom.ru/img/logo.png"
@@ -25,8 +25,8 @@
 
   jwplayer('river3').setup
     playlist: [
-      image: "http://stream.cam.tom.ru/img/river3.jpg"
-      file: "http://stream.cam.tom.ru/hls/river3.m3u8"
+      image: "http://62.76.185.224/img/river3.jpg"
+      file: "http://62.76.185.224/hls/river3.m3u8"
     ]
     logo:
       file: "http://stream.cam.tom.ru/img/logo.png"
