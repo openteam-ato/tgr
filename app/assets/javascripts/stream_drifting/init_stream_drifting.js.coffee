@@ -5,8 +5,8 @@
 
     jwplayer(id).setup
       playlist: [
-        image: "http://62.76.185.224/img/#{id}.jpg"
-        file: "http://62.76.185.224/hls/#{id}.m3u8"
+        image: "http://62.76.185.151/img/#{id}.jpg"
+        file: "http://62.76.185.151/hls/#{id}.m3u8"
       ]
       logo:
         file: "http://stream.cam.tom.ru/img/logo.png"
