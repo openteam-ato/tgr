@@ -12,6 +12,7 @@ group :default do
   gem 'el_vfs_client'
   gem 'esp-commons'
   gem 'formtastic'
+  gem 'gilenson'
   gem 'hashie'
   gem 'jquery-rails'
   gem 'kaminari'

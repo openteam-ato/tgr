@@ -10,7 +10,7 @@
         <% @actual.content['items'].reverse.each do |item| %>
           <li>
             <%= image_tag item.images.first.thumbnail.url,
-              :"data-title" => "<a href='#{item.link}'>#{item.title}</a>",
+              :"data-title" => "<a href='#{item.link}'>#{item.title.gsub('–', '-').gilensize}</a>",
               :alt => item.images.first.thumbnail.description,
               :size => "618x348" %>
           </li>

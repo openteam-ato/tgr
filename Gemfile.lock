@@ -115,6 +115,7 @@ GEM
     formtastic (2.2.1)
       actionpack (>= 3.0)
     fssm (0.2.10)
+    gilenson (1.2.2)
     haml (4.0.1)
       tilt
     hashie (1.2.0)
@@ -254,6 +255,7 @@ DEPENDENCIES
   el_vfs_client
   esp-commons
   formtastic
+  gilenson
   hashie
   jquery-rails
   kaminari
