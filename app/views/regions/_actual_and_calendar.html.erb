@@ -2,6 +2,11 @@
   <div class="inner">
     <div class="actual">
       <ul class="switcher">
+        <li>
+          <%= image_tag 'inotomsk.jpg',
+            :'data-title' => "<a href='http://inotomsk.ru/' target='_blank'>Инновационный портал Томской области<br />&laquo;ИНО ТОМСК: инновации, наука, образование&raquo;</a>",
+            :size => "618x348" %>
+        </li>
         <% @actual.content['items'].reverse.each do |item| %>
           <li>
             <%= image_tag item.images.first.thumbnail.url,
@@ -10,11 +15,6 @@
               :size => "618x348" %>
           </li>
         <% end if @actual.content['items'].present? %>
-        <li>
-          <%= image_tag 'inotomsk.jpg',
-            :'data-title' => "<a href='http://inotomsk.ru/' target='_blank'>Инновационный портал Томской области<br />&laquo;ИНО ТОМСК: инновации, наука, образование&raquo;</a>",
-            :size => "618x348" %>
-        </li>
       </ul>
     </div>
 
