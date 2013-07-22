@@ -11,6 +11,7 @@ $ ->
   init_archive_collapser()          if $(".archive").length
   init_reports_list()               if $("div.reports").length
   init_colorbox()                   if $(".right_side .entry_image img").length
+  init_employees_colorbox()         if $(".inner .blue_pages .photo img").length
   init_uppod()                      if $("div.uppod").length
   init_flowplayer()                 if $("div.blasting").length
   init_stream_drifting()            if $(".content .article .river").length

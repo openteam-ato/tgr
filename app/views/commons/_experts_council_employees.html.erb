@@ -3,6 +3,7 @@
   <ul class='employees'>
     <% object.items.each do |item| %>
       <li>
+        <%= content_tag(:div, link_to(image_tag(item.image_url, size: '55x70'), item.image_url.gsub(/\/\d+-\d+\//, '/')), class: :photo) if item.image_url.present? %>
         <% if item.link %>
           <%= link_to item.person, item.link, :class => 'fio' %>
         <% else %>
