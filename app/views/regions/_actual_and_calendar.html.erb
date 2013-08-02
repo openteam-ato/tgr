@@ -7,7 +7,14 @@
             :'data-title' => "<a href='http://inotomsk.ru/' target='_blank'>Инновационный портал Томской области<br />&laquo;ИНО ТОМСК: инновации, наука, образование&raquo;</a>",
             :size => "618x348" %>
         </li>
-        <% @actual.content['items'].reverse.each do |item| %>
+        <% @actual.content['items'].reverse.each_with_index do |item, index| %>
+          <% if index == 2 %>
+            <li>
+              <%= image_tag 'construction_team.jpg',
+                :'data-title' => "<a href='/ru/studencheskie-stroitelnye-otryady-50-let/'>50 лет томским студенческим отрядам</a>",
+                :size => "618x348" %>
+            </li>
+          <% end %>
           <li>
             <%= image_tag item.images.first.thumbnail.url,
               :"data-title" => "<a href='#{item.link}'>#{item.title.gsub('–', '-').gilensize}</a>",
