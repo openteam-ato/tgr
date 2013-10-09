@@ -9,11 +9,6 @@
         </li>
         <% @actual.content['items'].reverse.each_with_index do |item, index| %>
           <% if index == 2 %>
-            <li>
-              <%= image_tag 'construction_team.jpg',
-                :'data-title' => "<a href='/ru/studencheskie-stroitelnye-otryady-50-let/'>50 лет томским студенческим отрядам</a>",
-                :size => "618x348" %>
-            </li>
           <% end %>
           <li>
             <%= image_tag item.images.first.thumbnail.url,
@@ -22,6 +17,16 @@
               :size => "618x348" %>
           </li>
         <% end if @actual.content['items'].present? %>
+        <li>
+          <%= image_tag 'kingdom_of_taste.jpg',
+            :'data-title' => "<a href='/ru/vi-oblastnoy-festival-kulinarov-tsarstvo-vkusa-2013-'>VI областной фестиваль кулинаров «Царство вкуса – 2013»</a>",
+            :size => "618x348" %>
+        </li>
+        <li>
+          <%= image_tag 'construction_team.jpg',
+            :'data-title' => "<a href='/ru/studencheskie-stroitelnye-otryady-50-let/'>50 лет томским студенческим отрядам</a>",
+            :size => "618x348" %>
+        </li>
       </ul>
     </div>
 
