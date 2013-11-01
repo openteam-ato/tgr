@@ -7,6 +7,11 @@
             :'data-title' => "<a href='http://inotomsk.ru/' target='_blank'>Инновационный портал Томской области<br />&laquo;ИНО ТОМСК: инновации, наука, образование&raquo;</a>",
             :size => "618x348" %>
         </li>
+        <li>
+          <%= image_tag 'mezhdunarodnye-sorevnovaniya-snezhnye-lasty.jpg',
+            :'data-title' => "<a href='/ru/mezhdunarodnye-sorevnovaniya-snezhnye-lasty-2013-'>Международные соревнования «Снежные ласты-2013»</a>",
+            :size => "618x348" %>
+        </li>
         <% @actual.content['items'].reverse.each_with_index do |item, index| %>
           <% if index == 1 %>
           <% end %>
