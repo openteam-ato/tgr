@@ -149,6 +149,7 @@ module ApplicationHelper
   end
 
   def extension(filename)
+    return if filename.blank?
     filename.match(/\.(\w+)$/).try(:[], 1)
   end
 end
