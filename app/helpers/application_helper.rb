@@ -150,6 +150,6 @@ module ApplicationHelper
 
   def extension(filename)
     return if filename.blank?
-    filename.match(/\.(\w+)$/).try(:[], 1)
+    filename.match(/\.(\w+)$/).try(:[], 1).downcase
   end
 end
