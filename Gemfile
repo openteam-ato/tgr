@@ -25,10 +25,14 @@ group :default do
 end
 
 group :development do
-  gem 'brakeman'
+  gem 'brakeman', :require => false
+  gem 'capistrano-unicorn', '0.1.7', :require => false
   gem 'debugger'
-  gem 'quiet_assets'
   gem 'openteam-capistrano'
-  gem 'capistrano-unicorn'
+  gem 'quiet_assets'
   gem 'thin'
+end
+
+group :production do
+  gem 'unicorn'
 end
