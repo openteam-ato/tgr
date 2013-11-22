@@ -23,6 +23,11 @@
           </li>
         <% end if @actual.content['items'].present? %>
         <li>
+          <%= image_tag 'constitution.jpg',
+            :'data-title' => "<a href='/ru/20-let-konstitutsii-rossiyskoy-federatsii'>20 лет Конституции Российской Федерации</a>",
+            :size => "618x348" %>
+        </li>
+        <li>
           <%= image_tag 'olympic-flame.jpg',
             :'data-title' => "<a href='/ru/estafeta-olimpiyskogo-ognya-tomskaya-oblast'>Эстафета Олимпийского огня - Томская область</a>",
             :size => "618x348" %>
