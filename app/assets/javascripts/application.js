@@ -23,5 +23,6 @@
  * = require uppod
  * = require flowplayer
  * = require stream_drifting
+ * = require blue_pages_pdf
  * = require main
  */
