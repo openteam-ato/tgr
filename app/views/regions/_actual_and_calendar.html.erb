@@ -18,6 +18,11 @@
           </li>
         <% end if @actual.content['items'].present? %>
         <li>
+          <%= image_tag 'good_new_year.jpg',
+            :'data-title' => "<a href=' /ru/aktsiya-dobryy-novyy-god- '>Акция &laquo;Добрый Новый год&raquo;</a>",
+            :size => "618x348" %>
+        </li>
+        <li>
           <%= image_tag 'constitution.jpg',
             :'data-title' => "<a href='/ru/20-let-konstitutsii-rossiyskoy-federatsii'>20 лет Конституции Российской Федерации</a>",
             :size => "618x348" %>
