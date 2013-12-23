@@ -22,6 +22,7 @@ group :default do
   gem 'sass-rails'
   gem 'stop_ie'
   gem 'uuid'
+  gem "simple-rss", "~> 1.3.1"
 end
 
 group :development do

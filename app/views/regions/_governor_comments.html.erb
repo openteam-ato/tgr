@@ -1,25 +1,26 @@
 <div class="governor_comments">
   <h2>
-    <%= link_to 'Комментарии Губернатора Томской области', @governor_comments.content.collection_link %>
-    <%= link_to "RSS", @governor_comments.content.rss_link, :class => 'rss' %>
+    <%= link_to 'Комментарии Губернатора Томской области', 'http://gubernator.tomsk.ru/words', :target => '_blank' %>
+    <%= link_to "RSS", 'http://gubernator.tomsk.ru/words/feed', :class => 'rss', :target => '_blank' %>
   </h2>
 
   <%= render_partial_for_region(@governor_message) if @governor_message %>
 
-  <% if @governor_comments.content.items.present? %>
-    <%= @governor_comments.content.items[0..5].each_slice(3) do |slice| %>
+  <%
+    entries = []
+    begin
+      rss = SimpleRSS.parse Curl.get('http://gubernator.tomsk.ru/words/feed').body_str
+      entries = rss.entries[0..5]
+    rescue Ecxeption => e
+    end
+  %>
+  <% if entries.any? %>
+    <%= entries.each_slice(3) do |slice| %>
       <ul class="<%= cycle("odd", "even") %>">
         <% slice.each_with_index do |item, index| %>
           <li <%= 'class=last' if (index+1)%3 == 0 %>>
-            <span class="date"><%= l Date.parse(item.since), :format => :long %></span>
-            <h5><%= link_to item.title.truncate(90, :separator => ' '), item.link, :title => item.title %></h5>
-            <% if item.annotation %>
-              <div class="annotation">
-                <p>
-                  <%= sanitize(item.annotation.html_safe, :tags => []).truncate(200, :separator => ' ').html_safe if item.annotation %>
-                </p>
-              </div>
-            <% end %>
+            <span class="date"><%= l item.pubDate, :format => :long %></span>
+            <h5><%= link_to item.title.mb_chars.html_safe.truncate(90, :separator => ' '), item.link, :title => item.title.mb_chars.html_safe, :target => '_blank' %></h5>
           </li>
         <% end %>
       </ul>
