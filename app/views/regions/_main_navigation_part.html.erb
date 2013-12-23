@@ -23,7 +23,11 @@
                 <ul>
                   <% second_group.each do |name, item| %>
                     <li>
-                      <%= link_to item['title'], item['path'] %>
+                      <% if item['path'].match(/ekspertnye-sovety\/$/) %>
+                        <%= link_to item['title'], 'http://expert.tomsk.gov.ru/', :target => '_blank' %>
+                      <% else %>
+                        <%= link_to item['title'], item['path'] %>
+                      <% end %>
                     </li>
                   <% end %>
                 </ul>
