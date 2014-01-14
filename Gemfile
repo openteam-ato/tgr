@@ -17,6 +17,7 @@ group :default do
   gem 'jquery-rails',           '2.1.4'
   gem 'kaminari'
   gem 'openteam-commons'
+  gem 'rack-utf8_sanitizer'
   gem 'rails',                  '~>3.2.12'
   gem 'russian'
   gem 'sass-rails'

@@ -1,4 +1,5 @@
 class MainController < ApplicationController
+
   helper_method :cms_address
 
   def index
@@ -10,7 +11,9 @@ class MainController < ApplicationController
 
     @page_title = page.title
 
-    render "templates/#{page.template}"
+    respond_to  do |format|
+      format.html { render "templates/#{page.template}" }
+    end
   end
 
   private
@@ -60,4 +63,5 @@ class MainController < ApplicationController
     def page_regions
       @page_regions ||= page.regions.keys
     end
+
 end
