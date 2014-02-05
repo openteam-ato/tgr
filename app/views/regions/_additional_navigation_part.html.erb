@@ -1,5 +1,7 @@
 <ul class='additional'>
   <% object.values.first['children'].each do |name, item| %>
-    <li><%= link_to item['title'], item['path'] %></li>
+    <li>
+      <%= render_link_for_navigation item %>
+    </li>
   <% end  %>
 </ul>

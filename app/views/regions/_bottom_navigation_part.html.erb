@@ -5,13 +5,13 @@
       <div <%= 'class=last' if index == 4 %>>
 
         <h3>
-          <%= link_to hash.last['title'], hash.last['path'] %>
+          <%= render_link_for_navigation hash.last %>
         </h3>
 
         <ul>
           <% hash.last['children'].each do |name, item| %>
             <li>
-              <%= link_to item['title'], item['path'] %>
+              <%= render_link_for_navigation item %>
             </li>
           <% end if hash.last['children'] %>
         </ul>

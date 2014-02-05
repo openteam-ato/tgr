@@ -10,6 +10,7 @@ class MainController < ApplicationController
     end
 
     @page_title = page.title
+    @link_to_json = remote_url
 
     respond_to  do |format|
       format.html { render "templates/#{page.template}" }
@@ -24,7 +25,7 @@ class MainController < ApplicationController
     def remote_url
       request_path, parts_params = request.fullpath.split('?')
 
-      "#{cms_address}#{request_path.split('/').compact.join('/')}.json?#{parts_params}"
+      ["#{cms_address}#{request_path.split('/').compact.join('/')}.json", parts_params].compact.join('?')
     end
 
     def page

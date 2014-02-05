@@ -6,9 +6,17 @@ module ApplicationHelper
     content_tag :ul do
       hash.map do |key, value|
         content_tag :li, :class => value['selected'] ? 'selected' : nil do
-          link_to(value['title'], value['path'])+render_navigation(value['children'])
+          render_link_for_navigation(value) + render_navigation(value['children'])
         end
       end.join.html_safe
+    end
+  end
+
+  def render_link_for_navigation(item)
+    if item['external_link'].present?
+      link_to item['title'], item['external_link'], :target => :_blank
+    else
+      link_to item['title'], item['path']
     end
   end
 

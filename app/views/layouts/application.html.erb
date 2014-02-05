@@ -132,6 +132,12 @@
     </div>
   </div>
 
+  <% if Rails.env.development? %>
+    <div class='development_tools'>
+      <%= link_to 'JSON from CMS', @link_to_json, :target => '_blank' %>
+    </div>
+  <% end %>
+
   <!-- <%= request.host %> -->
 
   <% if Rails.env.production? && request.host.eql?("tomsk.gov.ru") %>
