@@ -150,13 +150,9 @@ module ApplicationHelper
 
   def get_link(navigation, object)
     link = navigation.to_hash.to_s.match(/#{object.title.squish}\", \"path\"=>\"(.*?)\"/).try(:[], 1)
+    external_link = navigation.to_hash.to_s.match(/#{object.title.squish}\",.*?\"external_link\"=>\"(.*?)\"/).try(:[], 1)
 
-    if link.to_s.match(/ekspertnyy-sovet/)
-      expert_link = link.match(/ekspertnyy-sovet-(.+)/).try(:[], 1).to_s.gsub('pri-zamestitele-gubernatora-tomskoy-oblasti-', '')
-      return link_to(object.title, "http://expert.tomsk.gov.ru/ru/ekspertnye-sovety/ekspertnyy-sovet-#{expert_link}", :target => '_blank')
-    end
-
-    return link_to(object.title, link) if link
+    return render_link_for_navigation({ 'title' => object.title, 'path' => link, 'external_link' => external_link }) if link
 
     return object.title
   end
