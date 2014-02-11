@@ -74,8 +74,10 @@ module ApplicationHelper
     result += "<meta name='twitter:description' content='#{@page_meta.description.gilensize}' />\n" if @page_meta.description.present? && @page_meta.twitter_description.blank?
     result += "<meta name='twitter:domain' content='http://#{request.host}/' />\n"
     result += "<meta name='twitter:url' content='#{request.original_url}' />\n"
-    result += "<meta name='twitter:image' content='#{@page_meta.image_url}' />\n" if @page_meta.twitter_card.present? && @page_meta.twitter_card == 'summary'
-    result += "<meta name='twitter:image:src' content='#{@page_meta.image_url}' />\n" if @page_meta.twitter_card.present? && @page_meta.twitter_card == 'summary_large_image'
+    if @page_meta.image_url.present?
+      result += "<meta name='twitter:image' content='#{@page_meta.image_url}' />\n" if @page_meta.twitter_card.present? && @page_meta.twitter_card == 'summary'
+      result += "<meta name='twitter:image:src' content='#{@page_meta.image_url}' />\n" if @page_meta.twitter_card.present? && @page_meta.twitter_card == 'summary_large_image'
+    end
 
     result.html_safe
   end
