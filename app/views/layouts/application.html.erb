@@ -5,7 +5,6 @@
   <meta name='yandex-verification' content='5b82f8c9e9140b58' />
   <%= favicon_link_tag %>
   <title><%= content_for?(:page_title) ? yield(:page_title) : "#{@page_title} | #{strip_tags(@site_name.content.body)}".squish %></title>
-
   <%= meta_tags %>
   <% if Rails.env.production? && request.host.eql?("tomsk.gov.ru") %>
   <!-- Gosmonitor widget -->
