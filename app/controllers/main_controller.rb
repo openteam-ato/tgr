@@ -10,6 +10,7 @@ class MainController < ApplicationController
     end
 
     @page_title = page.title
+    @page_meta = page.meta
     @link_to_json = remote_url
 
     respond_to  do |format|
