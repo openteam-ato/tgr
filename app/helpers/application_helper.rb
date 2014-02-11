@@ -33,7 +33,7 @@ module ApplicationHelper
     return '' if @page_meta.blank?
 
     result =  ''
-    result += "<meta name='description' content='#{@page_meta.description.gilensize}' />\n" if @page_meta.description.present?
+    result += "<meta name='description' content='#{@page_meta.description}' />\n" if @page_meta.description.present?
     result += "<meta name='keywords' content='#{@page_meta.keywords}' />\n" if @page_meta.keywords.present?
     result += "\n"
 
@@ -44,12 +44,12 @@ module ApplicationHelper
       result += "<meta property='og:site_name' content='#{strip_tags(@site_name.content.body).squish}' />\n"
     end
     if @page_meta.og_title.present?
-      result += "<meta property='og:title' content='#{@page_meta.og_title.gilensize}' />\n"
+      result += "<meta property='og:title' content='#{@page_meta.og_title}' />\n"
     else
-      result += "<meta property='og:title' content='#{@page_title.gilensize}' />\n"
+      result += "<meta property='og:title' content='#{@page_title}' />\n"
     end
-    result += "<meta property='og:description' content='#{@page_meta.og_description.gilensize}' />\n" if @page_meta.og_description.present?
-    result += "<meta property='og:description' content='#{@page_meta.description.gilensize}' />\n" if @page_meta.description.present? && @page_meta.og_description.blank?
+    result += "<meta property='og:description' content='#{@page_meta.og_description}' />\n" if @page_meta.og_description.present?
+    result += "<meta property='og:description' content='#{@page_meta.description}' />\n" if @page_meta.description.present? && @page_meta.og_description.blank?
     result += "<meta property='og:type' content='#{@page_meta.og_type}' />\n" if @page_meta.og_type.present?
     if @page_meta.og_url.present?
       result += "<meta property='og:url' content='#{@page_meta.og_url}' />\n"
@@ -66,12 +66,12 @@ module ApplicationHelper
     result += "<meta name='twitter:site' content='#{@page_meta.twitter_site}' />\n" if @page_meta.twitter_site.present?
     result += "<meta name='twitter:creator' content='#{@page_meta.twitter_creator}' />\n"
     if @page_meta.twitter_title.present?
-      result += "<meta name='twitter:title' content='#{@page_meta.twitter_title.gilensize}' />\n"
+      result += "<meta name='twitter:title' content='#{@page_meta.twitter_title}' />\n"
     else
       result += "<meta name='twitter:title' content='#{strip_tags(@site_name.content.body).squish}' />\n"
     end
-    result += "<meta name='twitter:description' content='#{@page_meta.twitter_description.gilensize}' />\n" if @page_meta.twitter_description.present?
-    result += "<meta name='twitter:description' content='#{@page_meta.description.gilensize}' />\n" if @page_meta.description.present? && @page_meta.twitter_description.blank?
+    result += "<meta name='twitter:description' content='#{@page_meta.twitter_description}' />\n" if @page_meta.twitter_description.present?
+    result += "<meta name='twitter:description' content='#{@page_meta.description}' />\n" if @page_meta.description.present? && @page_meta.twitter_description.blank?
     result += "<meta name='twitter:domain' content='http://#{request.host}/' />\n"
     result += "<meta name='twitter:url' content='#{request.original_url}' />\n"
     if @page_meta.image_url.present?
