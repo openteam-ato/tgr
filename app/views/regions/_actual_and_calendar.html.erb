@@ -12,11 +12,6 @@
             :'data-title' => "<a href='http://gubernator.tomsk.ru/' target='_blank'>Сайт губернатора Томской области Сергея Жвачкина</a>",
             :size => "618x348" %>
         </li>
-        <li>
-          <%= image_tag 'maintained-own.jpg',
-            :'data-title' => "<a href='/ru/nashi-na-olimpiade'>Наши на Олимпиаде</a>",
-            :size => "618x348" %>
-        </li>
         <% @actual.content['items'].reverse.each_with_index do |item, index| %>
           <% if index == 1 %>
           <% end %>
