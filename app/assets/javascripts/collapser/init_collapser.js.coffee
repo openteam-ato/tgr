@@ -11,6 +11,8 @@ change_location_hash = (object) ->
   wrapper.click (event) ->
     $this = $(event.target)
 
+
+
     return false if $this.hasClass('busy')
 
     if $this.hasClass('slider')
@@ -20,12 +22,14 @@ change_location_hash = (object) ->
         $this.toggleClass 'open'
         window.location.hash = 'main' if !$this.hasClass('open') && $this.attr('id')?
         $this.removeClass 'busy'
+        $.scrollTo $this, 500, { offset: -15 }
       return false
 
 @hash_handler = ->
   hash = window.location.hash
   if hash.length
     target = $(hash)
-    window.scrollTo 0, target.offset().top
-    target.click()
-
+    setTimeout ->
+      target.click()
+      true
+    , 100

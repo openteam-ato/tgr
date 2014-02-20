@@ -27,12 +27,6 @@
   </div>
 <% end %>
 
-<% if @right_side_twitter %>
-  <div class="right_side_twitter">
-    <%= @right_side_twitter.content.body.html_safe %>
-  </div>
-<% end %>
-
 <% if @right_side_smi_publications && @right_side_smi_publications.content && @right_side_smi_publications.content.items.present? %>
   <div class="right_side_smi_publications">
     <h4><%= @right_side_smi_publications.content.title ? @right_side_smi_publications.content.title : 'Публикации в СМИ' %></h4>
@@ -65,5 +59,11 @@
         </li>
       <% end %>
     </ul>
+  </div>
+<% end %>
+
+<% if @right_side_twitter %>
+  <div class="right_side_twitter">
+    <%= @right_side_twitter.content.body.html_safe %>
   </div>
 <% end %>
