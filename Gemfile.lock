@@ -73,7 +73,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
-    columnize (0.3.6)
     compass (0.12.2)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
@@ -85,12 +84,6 @@ GEM
       multi_json (>= 1.1)
     curb (0.8.5)
     daemons (1.1.9)
-    debugger (1.6.2)
-      columnize (>= 0.3.1)
-      debugger-linecache (~> 1.2.0)
-      debugger-ruby_core_source (~> 1.2.3)
-    debugger-linecache (1.2.0)
-    debugger-ruby_core_source (1.2.3)
     el_vfs_client (0.4.1)
       configliere
       curb
@@ -248,7 +241,6 @@ DEPENDENCIES
   coffee-rails
   compass-rails
   curb
-  debugger
   el_vfs_client
   esp-commons
   formtastic
