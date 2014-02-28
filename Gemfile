@@ -21,9 +21,9 @@ group :default do
   gem 'rails',                  '~>3.2.12'
   gem 'russian'
   gem 'sass-rails'
+  gem 'simple-rss', '~> 1.3.1'
   gem 'stop_ie'
   gem 'uuid'
-  gem "simple-rss", "~> 1.3.1"
 end
 
 group :development do
