@@ -1,1 +1,1 @@
-<%= object.body.html_safe %>
+<%= object.try(:body).to_s.html_safe %>
