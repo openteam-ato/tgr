@@ -26,5 +26,6 @@
  * = require flowplayer
  * = require stream_drifting
  * = require blue_pages_pdf
+ * = require iframe_resizer
  * = require main
  */
