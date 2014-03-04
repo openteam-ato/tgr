@@ -9,6 +9,11 @@
         </li>
         <% @actual.content['items'].each_with_index do |item, index| %>
           <% if index == 1 %>
+            <li>
+              <%= image_tag 'gubernator.jpg',
+                :'data-title' => "<a href='http://gubernator.tomsk.ru/' target='_blank'>Сайт губернатора Томской области Сергея Жвачкина</a>",
+                :size => "618x348" %>
+            </li>
           <% end %>
           <li>
             <%= image_tag item.images.first.thumbnail.url,
@@ -17,11 +22,6 @@
               :size => "618x348" %>
           </li>
         <% end if @actual.content['items'].present? %>
-        <li>
-          <%= image_tag 'gubernator.jpg',
-            :'data-title' => "<a href='http://gubernator.tomsk.ru/' target='_blank'>Сайт губернатора Томской области Сергея Жвачкина</a>",
-            :size => "618x348" %>
-        </li>
         <li>
           <%= image_tag 'young-scientist.jpg',
             :'data-title' => "<a href='http://www.u-novus.ru/' target='_blank'>Первый форум молодых ученых России – 2014</a>",
