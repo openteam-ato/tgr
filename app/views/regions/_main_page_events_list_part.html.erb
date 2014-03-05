@@ -1,0 +1,17 @@
+<ul>
+  <% object.items.each do |item| %>
+    <li>
+        <% item.event_entry_properties.each do |event| %>
+      <div class="date">
+          <%= [interval_for(event), event.location].delete_if(&:blank?).join(', ').html_safe %>
+      </div>
+        <% end %>
+        <h5><%= link_to item.title, item.link %></h5>
+    </li>
+  <% end %>
+</ul>
+
+<div class='links'>
+  <%= link_to object.title, object.collection_link, :class => 'to_all' %>
+  <%= link_to 'RSS', object.rss_link, :class => 'rss' %>
+</div>

@@ -12,6 +12,7 @@
  * = require chart
  * = require jcarousel
  * = require galleria
+ * = require main_page_tabs
  * = require map_main_page
  * = require map_municipal_readiness
  * = require reports

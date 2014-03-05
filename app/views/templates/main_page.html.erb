@@ -21,7 +21,31 @@
           </div>
         </div>
       <% end %>
-      <%#= render_partial_for_region(@news) %>
+      <% if @main_page_schedule_administration || @main_page_news || @main_page_calendar %>
+        <div class='main_page_tabs'>
+          <% if @main_page_schedule_administration.try(:content).try(:gallery_pictures).try(:any?) %>
+            <%= link_to @main_page_schedule_administration.content.gallery_pictures.first.picture_url, :class => 'schedule_administration' do %>
+              <%= @main_page_schedule_administration.content.gallery_pictures.first.description %>
+            <% end %>
+          <% end %>
+          <% if @main_page_news || @main_page_calendar %>
+            <ul>
+              <%= content_tag :li, link_to('Новости', '#main_page_news') if @main_page_news %>
+              <%= content_tag :li, link_to('Календярь событий', '#main_page_calendar') if @main_page_calendar %>
+            </ul>
+            <% if @main_page_news %>
+              <div id='main_page_news' class='tab'>
+                <%= render_partial_for_region(@main_page_news, 'main_page') %>
+              </div>
+            <% end %>
+            <% if @main_page_calendar %>
+              <div id='main_page_calendar' class='tab'>
+                <%= render_partial_for_region(@main_page_calendar, 'main_page') %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
     <div class='right'>
     </div>

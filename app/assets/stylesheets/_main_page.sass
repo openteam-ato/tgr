@@ -11,6 +11,7 @@
 
 .main_page_actual
   font-size: 12px
+  margin-bottom: 25px
 
   h2
     margin-top: 0
@@ -87,3 +88,52 @@
       right: 0
       width: 419px
       height: 236px
+
+.main_page_tabs
+  font-size: 12px
+  position: relative
+
+  .schedule_administration
+    position: absolute
+    display: block
+    top: 0
+    right: 0
+    color: #fff
+    background-color: #4c9867
+    padding: 7px 10px 9px
+
+  .ui-tabs-nav
+    +clearfix
+    border-bottom: 1px solid #00763a
+
+    li
+      float: left
+
+      a
+        color: #000
+        display: block
+        padding: 10px 20px
+        text-decoration: none
+
+      &.ui-tabs-active a
+        color: #fff
+        background-color: #00763a
+
+  .ui-tabs-panel
+    margin: 15px 0
+
+    .date
+      margin-bottom: 5px
+
+    h5
+      margin: 0 0 20px 0
+
+    .links
+      a
+        +inline-block
+        float: none
+
+      .to_all
+        background-color: #ddd
+        padding: 8px 10px
+        margin-right: 5px

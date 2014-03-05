@@ -1,0 +1,13 @@
+<ul>
+  <% object.items.each do |item| %>
+    <li>
+      <div class="date"><%= l Date.parse(item.since), :format => :long %></div>
+      <h5><%= link_to item.title, item.link %></h5>
+    </li>
+  <% end %>
+</ul>
+
+<div class='links'>
+  <%= link_to object.title, object.collection_link, :class => 'to_all' %>
+  <%= link_to 'RSS', object.rss_link, :class => 'rss' %>
+</div>
