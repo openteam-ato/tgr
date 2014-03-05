@@ -4,15 +4,32 @@
 <% end %>
 
 <%= content_for :actual_and_calendar do %>
-  <%= render :partial => 'regions/actual_and_calendar' if @actual || @calendar %>
+  <%#= render :partial => 'regions/actual_and_calendar' if @actual || @calendar %>
 <% end %>
 
 <% content_for :content do %>
-  <%= render_partial_for_region(@news) if @news %>
+  <div class='columns'>
+    <div class='left'>
+      <% if @main_page_actual %>
+        <div class='main_page_actual'>
+          <h2><%= @main_page_actual.part_title %></h2>
+          <div class='actual'>
+            <div class='scroller'>
+              <%= render_partial_for_region(@main_page_actual) %>
+            </div>
+            <div class='images'></div>
+          </div>
+        </div>
+      <% end %>
+      <%#= render_partial_for_region(@news) %>
+    </div>
+    <div class='right'>
+    </div>
+  </div>
 <% end %>
 
 <% content_for :map_region do %>
-  <%= raw @map_region.content.body if @map_region %>
+  <%#= raw @map_region.content.body if @map_region %>
 <% end %>
 
 <%= render :template => 'layouts/application' %>
