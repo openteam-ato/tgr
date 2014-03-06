@@ -9,14 +9,13 @@
 
 <% content_for :content do %>
   <div class='columns'>
+
     <div class='left'>
       <% if @main_page_actual %>
         <div class='main_page_actual'>
           <h2><%= @main_page_actual.part_title %></h2>
           <div class='actual'>
-            <div class='scroller'>
-              <%= render_partial_for_region(@main_page_actual) %>
-            </div>
+            <div class='scroller'><%= render_partial_for_region(@main_page_actual) %></div>
             <div class='images'></div>
           </div>
         </div>
@@ -34,14 +33,10 @@
               <%= content_tag :li, link_to('Календярь событий', '#main_page_calendar') if @main_page_calendar %>
             </ul>
             <% if @main_page_news %>
-              <div id='main_page_news' class='tab'>
-                <%= render_partial_for_region(@main_page_news, 'main_page') %>
-              </div>
+              <div id='main_page_news' class='tab'><%= render_partial_for_region(@main_page_news, 'main_page') %></div>
             <% end %>
             <% if @main_page_calendar %>
-              <div id='main_page_calendar' class='tab'>
-                <%= render_partial_for_region(@main_page_calendar, 'main_page') %>
-              </div>
+              <div id='main_page_calendar' class='tab'><%= render_partial_for_region(@main_page_calendar, 'main_page') %></div>
             <% end %>
           <% end %>
         </div>
@@ -53,28 +48,29 @@
             <%= content_tag :li, link_to('Обсуждение проектов нормативно-правовых актов', '#main_page_projects_documents') if @main_page_projects_documents %>
           </ul>
           <% if @main_page_documents %>
-            <div id='main_page_documents' class='tab'>
-              <%= render_partial_for_region(@main_page_documents, 'main_page') %>
-            </div>
+            <div id='main_page_documents' class='tab'><%= render_partial_for_region(@main_page_documents, 'main_page') %></div>
           <% end %>
           <% if @main_page_projects_documents %>
-            <div id='main_page_projects_documents' class='tab'>
-              <%= render_partial_for_region(@main_page_projects_documents, 'main_page') %>
-            </div>
+            <div id='main_page_projects_documents' class='tab'><%= render_partial_for_region(@main_page_projects_documents, 'main_page') %></div>
           <% end %>
         </div>
       <% end %>
     </div>
+
     <div class='right'>
+      <div class='main_page_gubernator'>
+        <%= render :partial => 'regions/governor_position' %>
+      </div>
       <div class='main_page_right_side_links'>
         <%= render_partial_for_region(@main_page_right_side_links) %>
       </div>
     </div>
+
   </div>
 <% end %>
 
 <% content_for :map_region do %>
-  <%#= raw @map_region.content.body if @map_region %>
+  <%#= @map_region.content.body.html_safe if @map_region %>
 <% end %>
 
 <%= render :template => 'layouts/application' %>

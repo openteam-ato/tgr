@@ -21,7 +21,7 @@ group :default do
   gem 'rack-utf8_sanitizer'
   gem 'rails', '~> 3.2.12'
   gem 'russian'
-  gem 'simple-rss', '~> 1.3.1'
+  gem 'simple-rss'
   gem 'stop_ie'
   gem 'uuid'
 end

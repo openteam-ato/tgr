@@ -1,0 +1,37 @@
+<div class='post'>
+  <%= link_to 'Губернатор Томской области', 'http://gubernator.tomsk.ru', :target => '_blank' %>
+</div>
+
+<div class='name'>
+  <%= link_to 'Жвачкин Сергей Анатольевич', 'http://gubernator.tomsk.ru', :target => '_blank' %>
+</div>
+
+<div class='photo'>
+  <%= link_to image_tag('governor.jpg', :size => '205x205', :alt => 'Жвачкин Сергей Анатольевич'), 'http://gubernator.tomsk.ru', :target => '_blank' %>
+</div>
+
+<%
+  entries = []
+  begin
+    rss = SimpleRSS.parse(Curl.get('http://gubernator.tomsk.ru/words/feed').body_str)
+    entries = rss.items[0..4]
+  rescue
+  end
+%>
+
+<% if entries.any? %>
+  <% entries.each do |item| %>
+    <div class='item'>
+      <div class='date'><%= l item.pubDate, :format => '%d %B %Y' %></div>
+      <h5><%= link_to item.title.force_encoding('UTF-8'), item.link, :target => '_blank' %></h5>
+    </div>
+  <% end %>
+<% else %>
+  <div class='service_unavailable'>
+    Сервис временно недоступен
+  </div>
+<% end %>
+
+<div class='links'>
+  <%= link_to 'Все комментарии', 'http://gubernator.tomsk.ru/words', :target => '_blank', :class => 'to_all' %>
+</div>
