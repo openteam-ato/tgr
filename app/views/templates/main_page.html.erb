@@ -46,6 +46,24 @@
           <% end %>
         </div>
       <% end %>
+      <% if @main_page_documents || @main_page_projects_documents %>
+        <div class='main_page_tabs'>
+          <ul>
+            <%= content_tag :li, link_to('Нормативно-правовые акты', '#main_page_documents') if @main_page_documents %>
+            <%= content_tag :li, link_to('Обсуждение проектов нормативно-правовых актов', '#main_page_projects_documents') if @main_page_projects_documents %>
+          </ul>
+          <% if @main_page_documents %>
+            <div id='main_page_documents' class='tab'>
+              <%= render_partial_for_region(@main_page_documents, 'main_page') %>
+            </div>
+          <% end %>
+          <% if @main_page_projects_documents %>
+            <div id='main_page_projects_documents' class='tab'>
+              <%= render_partial_for_region(@main_page_projects_documents, 'main_page') %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
     <div class='right'>
     </div>

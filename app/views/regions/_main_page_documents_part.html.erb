@@ -1,0 +1,12 @@
+<ul class='documents'>
+  <% object.papers.each do |paper| %>
+    <li>
+      <%= render :partial => 'regions/paper', :object => paper %>
+    </li>
+  <% end %>
+</ul>
+
+<div class='links'>
+  <%= link_to object.title, object.collection_link, :class => 'to_all' %>
+  <%= link_to 'RSS', object.rss_link, :class => 'rss' %>
+</div>
