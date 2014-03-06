@@ -39,27 +39,37 @@ body
 
   a
     color: #fff
+    text-decoration: none
 
   .languages
     float: left
     font-size: 12px
-    margin: 9px 0 0 76px
+    margin: 9px 0 0 71px
 
     li
       float: left
-      margin: 0 14px 0 0
+      text-transform: uppercase
+      margin: 0 10px 0 0
 
-  .impaired
-    float: left
-    font-size: 16px
-    margin: 5px 0 0 145px
+      .selected
+        font-weight: bold
+
+      &.separator
+        width: 1px
+        background-color: #fff
+        height: 14px
+
+  .handicapped
+    float: right
+    font-size: 12px
+    border-right: 1px solid #fff
+    padding-right: 10px
+    margin: 7px 10px 0 0
 
     a
       display: block
-      background: image_url('goggles.png') no-repeat left 0
-      padding:  3px 0 0 61px
-      height: 21px
-      width: 230px
+      background: image_url('eye.png') no-repeat left 0
+      padding:  1px 0 1px 35px
 
   .information
     float: right

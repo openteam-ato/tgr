@@ -27,15 +27,20 @@
 
   <%= csrf_meta_tags %>
   <% if entry_date %>
-    <meta name="entry_date" content="<%= entry_date %>">
+    <meta name='entry_date' content='<%= entry_date %>'>
   <% end %>
 </head>
 <body>
-  <div class="top">
-    <div class="inner">
-      <a href="/ru/sitemap/" class='sitemap'>Карта сайта</a>
-      <div class="information">
-        <a target="_blank" href="http://old.tomsk.gov.ru/">Старая версия сайта</a>
+  <div class='top'>
+    <div class='inner'>
+      <ul class='languages'>
+        <li><a class='ru selected' href='/ru/'>Ру</a></li>
+        <li class='separator'></li>
+        <li><a class='en' href='#'>En</a></li>
+      </ul>
+      <a class='sitemap' href='/ru/sitemap/'>Карта сайта</a>
+      <div class='handicapped'>
+        <a href='#'>Версия для слабовидящих</a>
       </div>
     </div>
   </div>
@@ -47,10 +52,10 @@
         <%= link_to t("administration_of_tomsk_region"), "/", :title => t('administration_of_tomsk_region') %>
       </div>
       <div class="site_title">
-        <a href="/" title='<%= t('administration_of_tomsk_region') %>'>
+        <%= link_to '/', :title => t('administration_of_tomsk_region') do %>
           <%= t('administration_of_tomsk_region') %>
           <span class="desc"><%= t('official_information_internet_portal') %></span>
-        </a>
+        <% end %>
       </div>
       <div class="search_block invalid_link">
         <form action="/ru/search/">
