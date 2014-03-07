@@ -22,10 +22,10 @@
       <% end %>
       <% if @main_page_schedule_administration || @main_page_news || @main_page_calendar %>
         <div class='main_page_tabs'>
-          <% if @main_page_schedule_administration.try(:content).try(:gallery_pictures).try(:any?) %>
-            <%= link_to @main_page_schedule_administration.content.gallery_pictures.first.picture_url, :class => 'schedule_administration' do %>
-              <%= @main_page_schedule_administration.content.gallery_pictures.first.description %>
-            <% end %>
+          <% if @main_page_schedule_administration %>
+            <div class='schedule_administration'>
+              <%= render_partial_for_region(@main_page_schedule_administration) %>
+            </div>
           <% end %>
           <% if @main_page_news || @main_page_calendar %>
             <ul>
