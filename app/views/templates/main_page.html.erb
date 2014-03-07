@@ -30,7 +30,7 @@
           <% if @main_page_news || @main_page_calendar %>
             <ul>
               <%= content_tag :li, link_to('Новости', '#main_page_news') if @main_page_news %>
-              <%= content_tag :li, link_to('Календярь событий', '#main_page_calendar') if @main_page_calendar %>
+              <%= content_tag :li, link_to('Календарь событий', '#main_page_calendar') if @main_page_calendar %>
             </ul>
             <% if @main_page_news %>
               <div id='main_page_news' class='tab'><%= render_partial_for_region(@main_page_news, 'main_page') %></div>
