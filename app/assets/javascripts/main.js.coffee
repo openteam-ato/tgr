@@ -18,7 +18,7 @@ $ ->
   init_stream_drifting()            if $('.content .article .river').length
   init_stream_drifting_main_page()  if $('.actual_and_calendar .actual .river').length
   init_blue_pages_pdf()             if $('a[href*=\'blue-pages\']').length
-  init_iframe_resize()              if $('iframe.auto_resize').length
+  init_iframe_resize()              if $('#autoIframe').length
 
   if $('.need_collapser').length
     init_collapser()

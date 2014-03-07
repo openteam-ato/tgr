@@ -1,4 +1,4 @@
 /*
- * = require ./jquery.iframe.resizer.min.js
+ * = require ./iframeheight
  * = require ./init
  */
