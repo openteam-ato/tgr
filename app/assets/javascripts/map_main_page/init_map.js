@@ -150,7 +150,19 @@ function check_hash_exist(paper) {
   paper.getById(link.attr('id')).attr({'fill': '#8cc88c', 'stroke':'#378437'});
 };
 
+function reorganize_desc() {
+  if ($('.map_on_main_page').length > 0) {
+    desc_wrapper = $('.map_desc_wrapper');
+    third = $('<ul class="map_desc third"/>').appendTo(desc_wrapper);
+    first_three = $('.map_desc.left li', desc_wrapper).slice(-3);
+    first_three.prependTo('.map_desc.right', desc_wrapper);
+    last_six    = $('.map_desc.right li', desc_wrapper).slice(-6);
+    last_six.prependTo('.map_desc.third', desc_wrapper);
+  };
+};
+
 function init_map_main_page() {
+  reorganize_desc();
   var paper = draw_map_main_page();
   $('.map_desc li a').hover(
     function() {

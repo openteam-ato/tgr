@@ -41,18 +41,9 @@
           <% end %>
         </div>
       <% end %>
-      <% if @main_page_documents || @main_page_projects_documents %>
-        <div class='main_page_tabs'>
-          <ul>
-            <%= content_tag :li, link_to('Нормативно-правовые акты', '#main_page_documents') if @main_page_documents %>
-            <%= content_tag :li, link_to('Обсуждение проектов нормативно-правовых актов', '#main_page_projects_documents') if @main_page_projects_documents %>
-          </ul>
-          <% if @main_page_documents %>
-            <div id='main_page_documents' class='tab'><%= render_partial_for_region(@main_page_documents, 'main_page') %></div>
-          <% end %>
-          <% if @main_page_projects_documents %>
-            <div id='main_page_projects_documents' class='tab'><%= render_partial_for_region(@main_page_projects_documents, 'main_page') %></div>
-          <% end %>
+      <% if @map_region %>
+        <div class="map_on_main_page">
+          <%= @map_region.content.body.html_safe %>
         </div>
       <% end %>
     </div>
@@ -63,14 +54,13 @@
       </div>
       <div class='main_page_right_side_links'>
         <%= render_partial_for_region(@main_page_right_side_links) %>
+        <% if @main_page_documents || @main_page_projects_documents %>
+          <%= content_tag :p, link_to('Нормативно-правовые акты', '#main_page_documents') if @main_page_documents %>
+          <%= content_tag :p, link_to('Обсуждение проектов нормативно-правовых актов', '#main_page_projects_documents') if @main_page_projects_documents %>
+        <% end %>
       </div>
     </div>
-
   </div>
-<% end %>
-
-<% content_for :map_region do %>
-  <%#= @map_region.content.body.html_safe if @map_region %>
 <% end %>
 
 <%= render :template => 'layouts/application' %>

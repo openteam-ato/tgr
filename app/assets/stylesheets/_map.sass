@@ -19,23 +19,19 @@
   #map
     float: left
     margin: 31px 0 0 6px
-    height: 350px
-    width: 490px
 
   .map_desc_wrapper
     +clearfix
+    padding: 1px
 
     h3
       border-bottom: 3px solid #808080
       padding: 0 0 22px 0
       margin: 14px 20px 0 20px
 
-    .left
-      float: left
-      width: 228px
-
-    .right
+    .left, .right, .third
       +clearfix
+      float: left
 
     .map_desc
       +clearfix
@@ -56,6 +52,7 @@
 
         a
           display: block
+          line-height: 20px
           height: 20px
           padding: 0 20px
 
@@ -85,3 +82,16 @@
       background-image: image_url('municipal_readiness_kindly.png')
     &.adverse
       background-image: image_url('municipal_readiness_adverse.png')
+
+.map_on_main_page
+  #map
+    float: none
+    margin: 31px auto 0
+
+  .map_desc_wrapper
+    clear: both
+
+    .left, .right, .third
+      +clearfix
+      float: left
+      width: 226px
