@@ -54,10 +54,6 @@
       </div>
       <div class='main_page_right_side_links'>
         <%= render_partial_for_region(@main_page_right_side_links) %>
-        <% if @main_page_documents || @main_page_projects_documents %>
-          <%= content_tag :p, link_to('Нормативно-правовые акты', '#main_page_documents') if @main_page_documents %>
-          <%= content_tag :p, link_to('Обсуждение проектов нормативно-правовых актов', '#main_page_projects_documents') if @main_page_projects_documents %>
-        <% end %>
       </div>
     </div>
   </div>
