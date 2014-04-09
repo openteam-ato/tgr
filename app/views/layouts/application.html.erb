@@ -15,6 +15,10 @@
   <!-- / Gosmonitor widget -->
   <% end %>
 
+  <% if request.path.match(/\A\/ru\/?\z/) %>
+    <link rel='canonical' href='/' />
+  <% end %>
+
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= yield(:extend_javascripts) %>
@@ -148,7 +152,7 @@
 
   <!-- <%= request.host %> -->
 
-  <% if Rails.env.production? && request.host.eql?("tomsk.gov.ru") %>
+  <% if Rails.env.production? %>
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
   (function (d, w, c) {
