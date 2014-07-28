@@ -27,7 +27,7 @@ module MetaHelper
     if @page_meta.og_url.present?
       result += "<meta property='og:url' content='#{@page_meta.og_url}' />\n"
     else
-      result += "<meta property='og:url' content='#{request.original_url}' />\n"
+      result += "<meta property='og:url' content='#{request.original_url.to_s.force_encoding('UTF-8')}' />\n"
     end
     result += "<meta property='og:image' content='#{@page_meta.image_url}' />\n" if @page_meta.image_url.present?
     result += "<meta property='og:locale' content='#{@page_meta.og_locale}' />\n" if @page_meta.og_locale.present?
@@ -47,7 +47,7 @@ module MetaHelper
       result += "<meta name='twitter:description' content='#{@page_meta.twitter_description}' />\n" if @page_meta.twitter_description.present?
       result += "<meta name='twitter:description' content='#{@page_meta.description}' />\n" if @page_meta.description.present? && @page_meta.twitter_description.blank?
       result += "<meta name='twitter:domain' content='http://#{request.host}/' />\n"
-      result += "<meta name='twitter:url' content='#{request.original_url}' />\n"
+      result += "<meta name='twitter:url' content='#{request.original_url.to_s.force_encoding('UTF-8')}' />\n"
       if @page_meta.image_url.present?
         result += "<meta name='twitter:image' content='#{@page_meta.image_url}' />\n" if @page_meta.twitter_card.present? && @page_meta.twitter_card == 'summary'
         result += "<meta name='twitter:image:src' content='#{@page_meta.image_url}' />\n" if @page_meta.twitter_card.present? && @page_meta.twitter_card == 'summary_large_image'
