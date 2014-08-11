@@ -23,7 +23,7 @@
   <% entries.each do |item| %>
     <div class='item'>
       <div class='date'><%= l item.pubDate, :format => '%d %B %Y' %></div>
-      <h5><%= link_to item.title.force_encoding('UTF-8'), item.link, :target => '_blank' %></h5>
+      <h5><%= link_to item.title.force_encoding('UTF-8').html_safe, item.link, :target => '_blank' %></h5>
     </div>
   <% end %>
 <% else %>
