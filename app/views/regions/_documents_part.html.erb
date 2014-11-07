@@ -1,3 +1,10 @@
+<% if @page_slug == 'normativno-pravovye-akty' %>
+  <p class='large'>
+    <%= link_to 'Все нормативно-правовые акты', '/ru/dokumenty/normativno-pravovye-akty' %> |
+    <%= link_to 'Приказы', '/ru/dokumenty/normativno-pravovye-akty?utf8=✓&parts_params[documents][keywords]=приказ' %>
+  </p>
+<% end %>
+
 <%= link_to 'RSS', object.rss_link, :class => 'rss', :title => t('rss_documents') %>
 
 <div>

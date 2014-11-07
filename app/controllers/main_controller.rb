@@ -10,6 +10,7 @@ class MainController < ApplicationController
     end
 
     @page_title = page.title
+    @page_slug = page.slug
     @page_meta = page.meta
     @link_to_json = remote_url
 
