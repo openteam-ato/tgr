@@ -27,6 +27,8 @@ class MainController < ApplicationController
     def remote_url
       request_path, parts_params = request.fullpath.split('?')
 
+      request_path = '/ru/otkrytyy-region/otkrytye-dannye' if request_path.match(/\A\/opendata/)
+
       ["#{cms_address}#{request_path.split('/').compact.join('/')}.json", parts_params].compact.join('?')
     end
 
