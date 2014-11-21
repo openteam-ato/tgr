@@ -13,13 +13,15 @@
       </div>
     <% end %>
 
-    <%= render :partial => 'commons/experts_council_employees', :locals => { :object => @content_first.content } if @content_first.content.items %>
-    <% if @content_first.content.subdivisions %>
-      <h2>Подразделения</h2>
-      <%= render :partial => 'commons/subdivisions', :locals => { :object => @content_first.content } %>
+    <% if @content_first.present? %>
+      <%= render :partial => 'commons/experts_council_employees', :locals => { :object => @content_first.content } if @content_first.content.items %>
+      <% if @content_first.content.subdivisions %>
+        <h2>Подразделения</h2>
+        <%= render :partial => 'commons/subdivisions', :locals => { :object => @content_first.content } %>
+      <% end %>
     <% end %>
-    <%= render :partial => 'regions/reports_part', :locals => { :reports => @reports } if @reports %>
-    <%= render :partial => 'regions/dependent_subdivisions', :locals => { :object => @dependent_subdivisions } if @dependent_subdivisions %>
+    <%= render :partial => 'regions/reports_part', :locals => { :reports => @reports } if @reports.present? %>
+    <%= render :partial => 'regions/dependent_subdivisions', :locals => { :object => @dependent_subdivisions } if @dependent_subdivisions.present? %>
 
     <%= render 'commons/social_links' %>
   </div>
