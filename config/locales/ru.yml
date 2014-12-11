@@ -1,19 +1,21 @@
 ru:
-  administration_of_tomsk_region: Администрация Томской области
-  official_information_internet_portal: Официальный информационный интернет-портал
+  administration_of_tomsk_region: 'Администрация Томской области'
+  official_information_internet_portal: 'Официальный информационный интернет-портал'
+  sitemap: 'Карта сайта'
+  global_find: 'искать'
 
-  asserts: утверждает
-  cancels: отменяет
-  changes: изменяет
+  asserts: 'утверждает'
+  cancels: 'отменяет'
+  changes: 'изменяет'
 
-  canceled: утратил силу
+  canceled: 'утратил силу'
 
-  paper_of: от
-  published_on: опубликовано
+  paper_of: 'от'
+  published_on: 'опубликовано'
 
-  rss_documents: RSS нормативных документов
+  rss_documents: 'RSS нормативных документов'
 
-  find: Найти
+  find: 'Найти'
 
   documents:
     one: "%{count} документ"

@@ -1,30 +1,30 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang='ru'>
 <head>
-  <meta charset="UTF-8">
+  <meta charset='UTF-8'>
   <%= favicon_link_tag %>
   <title><%= content_for?(:page_title) ? yield(:page_title) : "#{@page_title} | #{strip_tags(@site_name.content.body)}".squish %></title>
   <%= meta_tags %>
   <% if Rails.env.production? && request.host.eql?('tomsk.gov.ru') %>
   <!-- Gosmonitor widget -->
-  <%= javascript_include_tag "http://www.google.com/jsapi" %>
-  <%= javascript_include_tag "http://gosmonitor.ru/widget.php?id=113&amp;clr1=8aa865" %>
-  <%= stylesheet_link_tag "http://dev.monitor.mer.gosbook.ru/widget/widget.css" %>
-  <%= stylesheet_link_tag "widget.css" %>
+  <%= javascript_include_tag 'http://www.google.com/jsapi' %>
+  <%= javascript_include_tag 'http://gosmonitor.ru/widget.php?id=113&amp;clr1=8aa865' %>
+  <%= stylesheet_link_tag 'http://dev.monitor.mer.gosbook.ru/widget/widget.css' %>
+  <%= stylesheet_link_tag 'widget.css' %>
   <!-- / Gosmonitor widget -->
   <% end %>
 
-  <% if request.path.match(/\A\/ru\/?\z/) %>
+  <% if request.path.match(/\A\/[ru|en]\/?\z/) %>
     <link rel='canonical' href='/' />
   <% end %>
 
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag    'application', :media => 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= yield(:extend_javascripts) %>
 
   <!--[if lte IE 7]>
-  <%= stylesheet_link_tag    "stop_ie/application" %>
-  <%= javascript_include_tag "stop_ie/application" %>
+  <%= stylesheet_link_tag    'stop_ie/application' %>
+  <%= javascript_include_tag 'stop_ie/application' %>
   <![endif]-->
 
   <%= csrf_meta_tags %>
@@ -36,13 +36,11 @@
   <div class='top'>
     <div class='inner'>
       <ul class='languages'>
-        <li><a class='ru selected' href='/ru/'>Ру</a></li>
-        <!--
+        <li><a class='ru<%= ' selected' if I18n.locale == :ru %>' href='/ru'>Ру</a></li>
         <li class='separator'></li>
-        <li><a class='en' href='#'>En</a></li>
-        -->
+        <li><a class='en<%= ' selected' if I18n.locale == :en %>' href='/en'>En</a></li>
       </ul>
-      <a class='sitemap' href='/ru/sitemap/'>Карта сайта</a>
+      <a class='sitemap' href='/<%= I18n.locale %>/sitemap'><%= t('sitemap') %></a>
       <!--
       <div class='handicapped'>
         <a href='#'>Версия для слабовидящих</a>
@@ -51,28 +49,28 @@
     </div>
   </div>
 
-  <div class="header">
-    <div class="inner">
+  <div class='header'>
+    <div class='inner'>
       <%= render "regions/additional_#{@main_bottom_navigation.type.underscore}", :object => @main_bottom_navigation.content if @main_bottom_navigation %>
-      <div class="logo">
-        <%= link_to t("administration_of_tomsk_region"), "/", :title => t('administration_of_tomsk_region') %>
+      <div class='logo'>
+        <%= link_to t('administration_of_tomsk_region'), '/', :title => t('administration_of_tomsk_region') %>
       </div>
-      <div class="site_title">
+      <div class='site_title'>
         <%= link_to '/', :title => t('administration_of_tomsk_region') do %>
           <%= t('administration_of_tomsk_region') %>
           <span class="desc"><%= t('official_information_internet_portal') %></span>
         <% end %>
       </div>
-      <div class="search_block invalid_link">
-        <form action="/ru/search/">
+      <div class='search_block invalid_link'>
+        <form action='/<%= I18n.locale %>/search'>
           <ul class='inputs'>
             <li>
-              <input type="text" name="parts_params[search][q]" value='<%= params[:parts_params].present? && params[:parts_params][:search].present? ? params[:parts_params][:search][:q] : nil %>'>
+              <input type='text' name='parts_params[search][q]' value='<%= params[:parts_params].present? && params[:parts_params][:search].present? ? params[:parts_params][:search][:q] : nil %>'>
             </li>
           </ul>
           <ul class='buttons'>
             <li>
-              <input type="submit" value="искать" />
+              <input type='submit' value='<%= t('global_find') %>' />
             </li>
           </ul>
         </form>
@@ -90,8 +88,8 @@
 
   <%= yield(:actual_and_calendar) %>
 
-  <div class="content index">
-    <div class="inner">
+  <div class='content index'>
+    <div class='inner'>
       <% if content_for?(:custom_page_title) %>
         <%= yield(:custom_page_title) %>
       <% else %>
@@ -119,25 +117,25 @@
 
   <%= render "regions/bottom_#{@secondary_navigation.type.underscore}", :object => @secondary_navigation.content if @secondary_navigation %>
 
-  <div class="footer">
-    <div class="inner">
-      <div class="contacts">
+  <div class='footer'>
+    <div class='inner'>
+      <div class='contacts'>
         <h5>Контакты</h5>
         <p>Администрация Томской области</p>
         <p>634050, г.Томск, пл. Ленина, 6</p>
         <p>Тел: +7 (382-2) 510-505, +7 (382-2) 510-001</p>
         <p>Факс: +7 (382-2) 510-730, <a href='mailto:ato@tomsk.gov.ru'>ato@tomsk.gov.ru</a></p>
       </div>
-      <div class="social_links">
+      <div class='social_links'>
         <ul>
-          <li><a href="http://www.facebook.com/pages/%D0%A2%D0%BE%D0%BC%D1%81%D0%BA%D0%B0%D1%8F-%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C/199936583388540" class='facebook' title='Наша страница Facebook'>Facebook</a></li>
-          <li><a href="https://twitter.com/#!/TomskRegion" class='twitter' title='Наш Twitter'>Twitter</a></li>
+          <li><a href='http://www.facebook.com/pages/%D0%A2%D0%BE%D0%BC%D1%81%D0%BA%D0%B0%D1%8F-%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C/199936583388540' class='facebook' title='Наша страница Facebook'>Facebook</a></li>
+          <li><a href='https://twitter.com/#!/TomskRegion' class='twitter' title='Наш Twitter'>Twitter</a></li>
         </ul>
       </div>
-      <div class="copyrights">
+      <div class='copyrights'>
         <ul>
-          <li>Разработка: <a href="http://znaigorod.ru">znaigorod</a></li>
-          <li>Дизайн: <a href="http://kutanaga.ru">Kutanaga.ru</a></li>
+          <li>Разработка: <a href='http://znaigorod.ru'>znaigorod</a></li>
+          <li>Дизайн: <a href='http://kutanaga.ru'>Kutanaga.ru</a></li>
         </ul>
       </div>
     </div>
@@ -153,7 +151,7 @@
 
   <% if Rails.env.production? %>
   <!-- Yandex.Metrika counter -->
-  <script type="text/javascript">
+  <script type='text/javascript'>
   (function (d, w, c) {
     (w[c] = w[c] || []).push(function() {
       try {
@@ -161,19 +159,19 @@
       } catch(e) {}
     });
 
-    var n = d.getElementsByTagName("script")[0],
-        s = d.createElement("script"),
+    var n = d.getElementsByTagName('script')[0],
+        s = d.createElement('script'),
         f = function () { n.parentNode.insertBefore(s, n); };
-    s.type = "text/javascript";
+    s.type = 'text/javascript';
     s.async = true;
-    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+    s.src = (d.location.protocol == 'https:' ? 'https:' : 'http:') + '//mc.yandex.ru/metrika/watch.js';
 
-    if (w.opera == "[object Opera]") {
-      d.addEventListener("DOMContentLoaded", f);
+    if (w.opera == '[object Opera]') {
+      d.addEventListener('DOMContentLoaded', f);
     } else { f(); }
-  })(document, window, "yandex_metrika_callbacks");
+  })(document, window, 'yandex_metrika_callbacks');
   </script>
-  <noscript><div><img src="//mc.yandex.ru/watch/14998279" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <noscript><div><img src='//mc.yandex.ru/watch/14998279' style='position:absolute; left:-9999px;' alt='' /></div></noscript>
   <!-- /Yandex.Metrika counter -->
   <% end %>
 

@@ -23,7 +23,7 @@ class MainController < ApplicationController
   private
 
     def prepare_locale
-      I18n.locale ||= request.path.split('/').delete_if(&:blank?).first.presence || 'ru'
+      I18n.locale = request.path.split('/').delete_if(&:blank?).first.presence || 'ru'
     end
 
     def cms_address
