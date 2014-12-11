@@ -3,3 +3,17 @@ en:
   official_information_internet_portal: 'Official information web portal'
   sitemap: 'Sitemap'
   global_find: 'search'
+
+  contacts:
+    header: 'Contacts'
+    address: 'Russia, 634050, Tomsk, Lenin Square, 6'
+    phone: 'Phones'
+    fax: 'Fax'
+
+  social_links:
+    facebook: 'Our Facebook page'
+    twitter: 'Our Twitter'
+
+  copyrights:
+    development: 'Development'
+    design: 'Design'

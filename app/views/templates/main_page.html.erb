@@ -8,53 +8,55 @@
 <% end %>
 
 <% content_for :content do %>
-  <div class='columns'>
+  <% if I18n.locale == :ru %>
+    <div class='columns'>
 
-    <div class='left'>
-      <% if @main_page_actual %>
-        <div class='main_page_actual'>
-          <h2><%= @main_page_actual.part_title %></h2>
-          <div class='actual'>
-            <div class='scroller'><%= render_partial_for_region(@main_page_actual) %></div>
-            <div class='images'></div>
-          </div>
-        </div>
-      <% end %>
-      <% if @main_page_schedule_administration || @main_page_news || @main_page_calendar %>
-        <div class='main_page_tabs'>
-          <% if @main_page_schedule_administration %>
-            <div class='schedule_administration'>
-              <%= render_partial_for_region(@main_page_schedule_administration) %>
+      <div class='left'>
+        <% if @main_page_actual %>
+          <div class='main_page_actual'>
+            <h2><%= @main_page_actual.part_title %></h2>
+            <div class='actual'>
+              <div class='scroller'><%= render_partial_for_region(@main_page_actual) %></div>
+              <div class='images'></div>
             </div>
-          <% end %>
-          <% if @main_page_news || @main_page_calendar %>
-            <ul>
-              <%= content_tag :li, link_to('Новости', '#main_page_news') if @main_page_news %>
-              <%= content_tag :li, link_to('Календарь событий', '#main_page_calendar') if @main_page_calendar %>
-            </ul>
-            <% if @main_page_news %>
-              <div id='main_page_news' class='tab'><%= render_partial_for_region(@main_page_news, 'main_page') %></div>
+          </div>
+        <% end %>
+        <% if @main_page_schedule_administration || @main_page_news || @main_page_calendar %>
+          <div class='main_page_tabs'>
+            <% if @main_page_schedule_administration %>
+              <div class='schedule_administration'>
+                <%= render_partial_for_region(@main_page_schedule_administration) %>
+              </div>
             <% end %>
-            <% if @main_page_calendar %>
-              <div id='main_page_calendar' class='tab'><%= render_partial_for_region(@main_page_calendar, 'main_page') %></div>
+            <% if @main_page_news || @main_page_calendar %>
+              <ul>
+                <%= content_tag :li, link_to('Новости', '#main_page_news') if @main_page_news %>
+                <%= content_tag :li, link_to('Календарь событий', '#main_page_calendar') if @main_page_calendar %>
+              </ul>
+              <% if @main_page_news %>
+                <div id='main_page_news' class='tab'><%= render_partial_for_region(@main_page_news, 'main_page') %></div>
+              <% end %>
+              <% if @main_page_calendar %>
+                <div id='main_page_calendar' class='tab'><%= render_partial_for_region(@main_page_calendar, 'main_page') %></div>
+              <% end %>
             <% end %>
-          <% end %>
-        </div>
-      <% end %>
-      <% if @map_region %>
-        <div class="map_on_main_page">
-          <%= @map_region.content.body.html_safe %>
-        </div>
-      <% end %>
-    </div>
+          </div>
+        <% end %>
+        <% if @map_region %>
+          <div class="map_on_main_page">
+            <%= @map_region.content.body.html_safe %>
+          </div>
+        <% end %>
+      </div>
 
-    <div class='right'>
-      <div class='main_page_gubernator'>
-        <%= render :partial => 'regions/governor_position' %>
-      </div>
-      <div class='main_page_right_side_links'>
-        <%= render_partial_for_region(@main_page_right_side_links) %>
+      <div class='right'>
+        <div class='main_page_gubernator'>
+          <%= render :partial => 'regions/governor_position' %>
+        </div>
+        <div class='main_page_right_side_links'>
+          <%= render_partial_for_region(@main_page_right_side_links) %>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 <% end %>

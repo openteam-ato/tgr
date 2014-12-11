@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang='ru'>
+<html lang='<%= I18n.locale %>'>
 <head>
   <meta charset='UTF-8'>
   <%= favicon_link_tag %>
   <title><%= content_for?(:page_title) ? yield(:page_title) : "#{@page_title} | #{strip_tags(@site_name.content.body)}".squish %></title>
+  <% if request.path.scan(/\A\/\z/).any? %>
+    <link rel='canonical' href='<%= request.protocol %><%= request.host %>/ru' />
+  <% end %>
   <%= meta_tags %>
   <% if Rails.env.production? && request.host.eql?('tomsk.gov.ru') %>
   <!-- Gosmonitor widget -->
@@ -12,10 +15,6 @@
   <%= stylesheet_link_tag 'http://dev.monitor.mer.gosbook.ru/widget/widget.css' %>
   <%= stylesheet_link_tag 'widget.css' %>
   <!-- / Gosmonitor widget -->
-  <% end %>
-
-  <% if request.path.match(/\A\/[ru|en]\/?\z/) %>
-    <link rel='canonical' href='/' />
   <% end %>
 
   <%= stylesheet_link_tag    'application', :media => 'all' %>
@@ -53,10 +52,10 @@
     <div class='inner'>
       <%= render "regions/additional_#{@main_bottom_navigation.type.underscore}", :object => @main_bottom_navigation.content if @main_bottom_navigation %>
       <div class='logo'>
-        <%= link_to t('administration_of_tomsk_region'), '/', :title => t('administration_of_tomsk_region') %>
+        <%= link_to t('administration_of_tomsk_region'), "/#{I18n.locale}", :title => t('administration_of_tomsk_region') %>
       </div>
       <div class='site_title'>
-        <%= link_to '/', :title => t('administration_of_tomsk_region') do %>
+        <%= link_to "/#{I18n.locale}", :title => t('administration_of_tomsk_region') do %>
           <%= t('administration_of_tomsk_region') %>
           <span class="desc"><%= t('official_information_internet_portal') %></span>
         <% end %>
@@ -120,22 +119,22 @@
   <div class='footer'>
     <div class='inner'>
       <div class='contacts'>
-        <h5>Контакты</h5>
-        <p>Администрация Томской области</p>
-        <p>634050, г.Томск, пл. Ленина, 6</p>
-        <p>Тел: +7 (382-2) 510-505, +7 (382-2) 510-001</p>
-        <p>Факс: +7 (382-2) 510-730, <a href='mailto:ato@tomsk.gov.ru'>ato@tomsk.gov.ru</a></p>
+        <h5><%= t('contacts.header') %></h5>
+        <p><%= t('administration_of_tomsk_region') %></p>
+        <p><%= t('contacts.address') %></p>
+        <p><%= t('contacts.phone') %>: +7 (382-2) 510-505, +7 (382-2) 510-001</p>
+        <p><%= t('contacts.fax') %>: +7 (382-2) 510-730, <a href='mailto:ato@tomsk.gov.ru'>ato@tomsk.gov.ru</a></p>
       </div>
       <div class='social_links'>
         <ul>
-          <li><a href='http://www.facebook.com/pages/%D0%A2%D0%BE%D0%BC%D1%81%D0%BA%D0%B0%D1%8F-%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C/199936583388540' class='facebook' title='Наша страница Facebook'>Facebook</a></li>
-          <li><a href='https://twitter.com/#!/TomskRegion' class='twitter' title='Наш Twitter'>Twitter</a></li>
+          <li><a href='http://www.facebook.com/pages/%D0%A2%D0%BE%D0%BC%D1%81%D0%BA%D0%B0%D1%8F-%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C/199936583388540' class='facebook' title='<%= t('social_links.facebook') %>'>Facebook</a></li>
+          <li><a href='https://twitter.com/#!/TomskRegion' class='twitter' title='<%= t('social_links.twitter') %>'>Twitter</a></li>
         </ul>
       </div>
       <div class='copyrights'>
         <ul>
-          <li>Разработка: <a href='http://znaigorod.ru'>znaigorod</a></li>
-          <li>Дизайн: <a href='http://kutanaga.ru'>Kutanaga.ru</a></li>
+          <li><%= t('copyrights.development') %>: <a href='http://znaigorod.ru'>ZnaiGorod</a></li>
+          <li><%= t('copyrights.design') %>: <a href='http://kutanaga.ru'>Kutanaga.ru</a></li>
         </ul>
       </div>
     </div>

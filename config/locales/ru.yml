@@ -4,6 +4,20 @@ ru:
   sitemap: 'Карта сайта'
   global_find: 'искать'
 
+  contacts:
+    header: 'Контакты'
+    address: '634050, г.Томск, пл. Ленина, 6'
+    phone: 'Тел.'
+    fax: 'Факс'
+
+  social_links:
+    facebook: 'Наша страница Facebook'
+    twitter: 'Наш Twitter'
+
+  copyrights:
+    development: 'Разработка'
+    design: 'Дизайн'
+
   asserts: 'утверждает'
   cancels: 'отменяет'
   changes: 'изменяет'
