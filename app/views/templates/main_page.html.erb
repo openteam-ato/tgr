@@ -62,7 +62,10 @@
   <% if I18n.locale == :en %>
     <div class='press_releases'>
       <% if @main_page_news %>
-        <h1><%= @main_page_news.part_title %></h1>
+        <h1>
+          <%= link_to @main_page_news.content.title, @main_page_news.content.collection_link, :class => 'to_all' %>
+          <%= link_to 'RSS', @main_page_news.content.rss_link, :class => 'rss' %>
+        </h1>
         <%= render_partial_for_region(@main_page_news) %>
       <% end %>
     </div>

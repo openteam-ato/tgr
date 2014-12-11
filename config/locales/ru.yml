@@ -18,6 +18,8 @@ ru:
     development: 'Разработка'
     design: 'Дизайн'
 
+  news_source: 'Источник'
+
   asserts: 'утверждает'
   cancels: 'отменяет'
   changes: 'изменяет'
