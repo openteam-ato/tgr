@@ -4,8 +4,8 @@
   <meta charset='UTF-8'>
   <%= favicon_link_tag %>
   <title><%= content_for?(:page_title) ? yield(:page_title) : "#{@page_title} | #{strip_tags(@site_name.content.body)}".squish %></title>
-  <% if request.path.scan(/\A\/\z/).any? %>
-    <link rel='canonical' href='<%= request.protocol %><%= request.host %>/ru' />
+  <% if request.path.scan(/\A\/ru\z/).any? %>
+    <link rel='canonical' href='<%= request.protocol %><%= request.host %>/' />
   <% end %>
   <%= meta_tags %>
   <% if Rails.env.production? && request.host.eql?('tomsk.gov.ru') %>
@@ -36,8 +36,10 @@
     <div class='inner'>
       <ul class='languages'>
         <li><a class='ru<%= ' selected' if I18n.locale == :ru %>' href='/ru'>Ру</a></li>
+        <!--
         <li class='separator'></li>
         <li><a class='en<%= ' selected' if I18n.locale == :en %>' href='/en'>En</a></li>
+        -->
       </ul>
       <a class='sitemap' href='/<%= I18n.locale %>/sitemap'><%= t('sitemap') %></a>
       <!--
@@ -52,10 +54,10 @@
     <div class='inner'>
       <%= render "regions/additional_#{@main_bottom_navigation.type.underscore}", :object => @main_bottom_navigation.content if @main_bottom_navigation %>
       <div class='logo'>
-        <%= link_to t('administration_of_tomsk_region'), "/#{I18n.locale}", :title => t('administration_of_tomsk_region') %>
+        <%= link_to t('administration_of_tomsk_region'), "/#{I18n.locale.to_s.gsub('ru', '')}", :title => t('administration_of_tomsk_region') %>
       </div>
       <div class='site_title'>
-        <%= link_to "/#{I18n.locale}", :title => t('administration_of_tomsk_region') do %>
+        <%= link_to "/#{I18n.locale.to_s.gsub('ru', '')}", :title => t('administration_of_tomsk_region') do %>
           <%= t('administration_of_tomsk_region') %>
           <span class="desc"><%= t('official_information_internet_portal') %></span>
         <% end %>
