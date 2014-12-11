@@ -1,5 +1,6 @@
 class MainController < ApplicationController
 
+  before_filter :prepare_locale
   helper_method :cms_address
 
   def index
@@ -20,6 +21,11 @@ class MainController < ApplicationController
   end
 
   private
+
+    def prepare_locale
+      I18n.locale ||= request.path.split('/').delete_if(&:blank?).first.presence || 'ru'
+    end
+
     def cms_address
       "#{Settings['cms.url']}/nodes/#{Settings['cms.site_slug']}"
     end
