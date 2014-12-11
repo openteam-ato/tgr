@@ -59,4 +59,12 @@
       </div>
     </div>
   <% end %>
+  <% if I18n.locale == :en %>
+    <div class='press_releases'>
+      <% if @main_page_news %>
+        <h1><%= @main_page_news.part_title %></h1>
+        <%= render_partial_for_region(@main_page_news) %>
+      <% end %>
+    </div>
+  <% end %>
 <% end %>
