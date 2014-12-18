@@ -1,5 +1,5 @@
 <p class='floatr'><%= link_to "<span class='icon'>&nbsp;</span>Скачать #{object.kind.mb_chars.downcase}".html_safe, object.attachment_url, :class => extension(object.attachment_url) %></p>
-<p><strong><%= object.authority %></strong>, <%= object.kind.mb_chars.downcase %><%= " №#{object.number}" if object.number %></p>
+<p><strong><%= object.authority %></strong>, <%= object.kind.uncapitalize %><%= " №#{object.number}" if object.number %></p>
 
 <% if object.approved_on? %>
   <p>
