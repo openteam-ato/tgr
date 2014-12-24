@@ -9,6 +9,18 @@ class Opendata < ActiveRecord::Base
 
   do_not_validate_attachment_file_type :list
 
+  after_save :convert_list
+
+  private
+
+  def convert_list
+    convert_command = <<-end_command
+      enca -c #{self.list.path}
+    end_command
+
+    system(convert_command)
+  end
+
 end
 
 # == Schema Information
