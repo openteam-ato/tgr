@@ -1,20 +1,10 @@
 class MainController < ApplicationController
 
   before_filter :prepare_locale
+  before_filter :prepare_cms
   helper_method :cms_address
 
   def index
-    render :file => "#{Rails.root}/public/404", :formats => [:html], :layout => false and return if request_status == 404
-
-    page_regions.each do |region|
-      eval "@#{region} = page.regions.#{region}"
-    end
-
-    @page_title = page.title
-    @page_slug = page.slug
-    @page_meta = page.meta
-    @link_to_json = remote_url
-
     respond_to  do |format|
       format.html { render "templates/#{page.template}" }
     end
@@ -23,7 +13,27 @@ class MainController < ApplicationController
   private
 
     def prepare_locale
-      I18n.locale = request.path.split('/').delete_if(&:blank?).first.presence || 'ru'
+      request_locale = request.path.split('/').delete_if(&:blank?).first
+      request_locale = 'ru' unless I18n.available_locales.include?(request_locale.to_sym)
+      I18n.locale = request_locale
+    end
+
+    def prepare_cms
+      render :file => "#{Rails.root}/public/404", :formats => [:html], :layout => false and return if request_status == 404
+
+      page_regions.each do |region|
+        eval "@#{region} = page.regions.#{region}"
+      end
+
+      @page_title = page.title
+      @page_slug = page.slug
+      @page_meta = page.meta
+      @link_to_json = remote_url
+
+    end
+
+    def template
+      "templates/#{page.template}"
     end
 
     def cms_address
@@ -33,7 +43,7 @@ class MainController < ApplicationController
     def remote_url
       request_path, parts_params = request.fullpath.split('?')
 
-      request_path = '/ru/otkrytyy-region/otkrytye-dannye' if request_path.match(/\A\/opendata/)
+      request_path = '/ru/otkrytyy-region/otkrytye-dannye/otkrytye-dannye-tomskoy-oblasti' if request_path.match(/\A\/opendata.*/)
 
       ["#{cms_address}#{request_path.split('/').compact.join('/')}.json", parts_params].compact.join('?')
     end

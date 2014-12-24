@@ -51,3 +51,10 @@ ru:
       previous: '&larr;'
       truncate: ...
 
+  activerecord:
+    models:
+      opendata: 'Открытые данные'
+
+    attributes:
+      opendata:
+        list: 'Реестр открытых данных'

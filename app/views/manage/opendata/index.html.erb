@@ -1,0 +1,5 @@
+<% if @opendata.present?  %>
+  <%= link_to 'открытые данные', manage_opendata_path %>
+<% else %>
+  <%= link_to 'добавить открытые данные', new_manage_opendata_path %>
+<% end %>

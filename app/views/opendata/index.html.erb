@@ -1,0 +1,9 @@
+<% content_for :content do %>
+  <div class='article'>
+    <%= render_partial_for_region(@content_first)  if @content_first %>
+    <p><%= link_to 'реестр открытых данных', @opendata.list.url %></p>
+    <%= render_partial_for_region(@content_third)  if @content_third %>
+    <%= yield :social_links %>
+  </div>
+<% end %>
+
