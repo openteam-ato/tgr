@@ -41,3 +41,7 @@ end
 group :production do
   gem 'unicorn'
 end
+
+group :test do
+  gem 'sqlite3'
+end
