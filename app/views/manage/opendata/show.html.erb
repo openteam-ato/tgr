@@ -2,3 +2,29 @@
   <%= link_to "Реестр открытых данных (#{@opendata.list_file_name})", @opendata.list.url %>
   <%= link_to 'изменить', edit_manage_opendata_path %>
 </p>
+
+<div class='need_collapser'>
+  <p><a href='#' class='collapser'>показать</a></p>
+  <div class='collapsible'>
+    <table>
+      <tr>
+        <% @list_table.headers.each do |header| %>
+          <th><%= header %></th>
+        <% end %>
+      </tr>
+      <% @list_table.each do |row| %>
+        <tr>
+          <% row.each do |element| %>
+            <td>
+              <% if element[1].to_s.scan(/\Ahttp/).any? %>
+                <%= link_to element[1], element[1] %>
+              <% else %>
+                <%= element[1] %>
+              <% end %>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

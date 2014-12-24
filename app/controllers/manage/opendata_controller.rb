@@ -6,7 +6,9 @@ class Manage::OpendataController < Manage::ApplicationController
 
   def show
     @opendata = Opendata.first
-    redirect_to manage_root_path unless @opendata.present?
+    redirect_to manage_root_path and return unless @opendata.present?
+    require 'csv'
+    @list_table = CSV.open(@opendata.list.path, :headers => true, :quote_char => '|', :col_sep => ';').read
   end
 
   def new
