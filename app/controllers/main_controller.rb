@@ -13,7 +13,7 @@ class MainController < ApplicationController
   private
 
     def prepare_locale
-      request_locale = request.path.split('/').delete_if(&:blank?).first
+      request_locale = request.path.split('/').delete_if(&:blank?).first.to_s
       request_locale = 'ru' unless I18n.available_locales.include?(request_locale.to_sym)
       I18n.locale = request_locale
     end

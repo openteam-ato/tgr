@@ -1,7 +1,8 @@
-<%= simple_form_for @opendata, :url => manage_opendata_path, :html => { :multipart => true } do |form| %>
-  <%= form.input :list %>
+<%= simple_form_for @opendata, :url => manage_opendata_path, :html => { :multipart => true } do |f| %>
+  <%= f.input :list %>
+
   <div class='actions'>
-    <%= form.submit 'Сохранить' %>
+    <%= f.submit 'Сохранить' %>
     <%= link_to 'Отмена', @opendata.new_record? ? manage_root_path : manage_opendata_path %>
   </div>
 <% end %>

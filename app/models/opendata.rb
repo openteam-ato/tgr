@@ -9,6 +9,8 @@ class Opendata < ActiveRecord::Base
 
   do_not_validate_attachment_file_type :list
 
+  has_many :datasets, :dependent => :destroy
+
   after_save :convert_list
 
   private

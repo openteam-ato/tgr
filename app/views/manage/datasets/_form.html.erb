@@ -1,0 +1,22 @@
+<%= simple_form_for [:manage, :opendata, @dataset], :html => { :multipart => true } do |f| %>
+  <%= f.input :opendata_id, :as => :hidden %>
+  <%= f.input :tracking_number %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :owner %>
+  <%= f.input :responsible %>
+  <%= f.input :phone %>
+  <%= f.input :email %>
+  <%= f.input :first_publish_date, :as => :datepicker %>
+  <%= f.input :last_update_date, :as => :datepicker %>
+  <%= f.input :last_update_description %>
+  <%= f.input :relevance_date, :as => :datepicker %>
+  <%= f.input :keywords %>
+  <%= f.input :version_guidelines %>
+  <%= f.input :meta %>
+
+  <div class='actions'>
+    <%= f.submit 'Сохранить' %>
+    <%= link_to 'Отмена', @dataset.new_record? ? manage_opendata_path : manage_opendata_dataset_path(@dataset) %>
+  </div>
+<% end %>

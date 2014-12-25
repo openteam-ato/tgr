@@ -11,7 +11,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141223103941) do
+ActiveRecord::Schema.define(:version => 20141225025649) do
+
+  create_table "datasets", :force => true do |t|
+    t.integer  "opendata_id"
+    t.string   "tracking_number"
+    t.text     "title"
+    t.text     "description"
+    t.text     "owner"
+    t.text     "responsible"
+    t.string   "phone"
+    t.string   "email"
+    t.date     "first_publish_date"
+    t.date     "last_update_date"
+    t.text     "last_update_description"
+    t.date     "relevance_date"
+    t.text     "keywords"
+    t.string   "version_guidelines"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+    t.string   "meta_file_name"
+    t.string   "meta_content_type"
+    t.integer  "meta_file_size"
+    t.datetime "meta_updated_at"
+  end
 
   create_table "opendata", :force => true do |t|
     t.datetime "created_at",        :null => false

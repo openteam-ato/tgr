@@ -2,7 +2,9 @@ Tgr::Application.routes.draw do
   mount ElVfsClient::Engine => '/'
 
   namespace :manage do
-    resource :opendata
+    resource :opendata do
+      resources :datasets
+    end
 
     root :to => 'opendata#index'
   end

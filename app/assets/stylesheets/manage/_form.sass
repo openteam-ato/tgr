@@ -3,6 +3,69 @@
   div.input
     margin-bottom: 10px
 
+    input,
+    textarea,
+    select
+      font-size: 12px
+      font-family: Verdana, Tahoma, sans-serif
+      border: 1px solid #ccc
+
+    label abbr
+      cursor: help
+      color: #880000
+
+    .error
+      font-size: 12px
+      color: #880000
+
+    &.field_with_errors
+      input,
+      textarea,
+      select
+        border-color: #880000
+
+  div.string
+    input
+      width: 500px
+      padding: 10px
+
+    label
+      display: block
+      margin-bottom: 5px
+
+  div.text
+    textarea
+      width: 500px
+      height: 150px
+      padding: 10px
+
+    label
+      display: block
+      margin-bottom: 5px
+
+  div.tel,
+  div.email
+    input
+      width: 250px
+      padding: 10px
+
+    label
+      display: block
+      margin-bottom: 5px
+
+  div.datepicker
+    input
+      width: 100px
+      padding: 10px
+
+    label
+      display: block
+      margin-bottom: 5px
+
+  div.file
+    input
+      border: 0
+
     label
       display: block
       margin-bottom: 5px
