@@ -1,0 +1,93 @@
+<% index = 0 %>
+
+<table>
+  <tr>
+    <th>№</th>
+    <th>Характеристика</th>
+    <th>Описание</th>
+  </tr>
+  <% %w[tracking_number title description owner responsible phone].each do |field|%>
+    <% index += 1 %>
+    <tr>
+      <td><%= index %></td>
+      <td><%= t("activerecord.attributes.dataset.#{field}") %></td>
+      <td><%= @dataset.send(field) %></td>
+    </tr>
+  <% end %>
+  <% index += 1 %>
+  <tr>
+    <td><%= index %></td>
+    <td><%= t("activerecord.attributes.dataset.email") %></td>
+    <td><%= mail_to @dataset.email %></td>
+  </tr>
+  <% index += 1 %>
+  <tr>
+    <td><%= index %></td>
+    <td>Гиперссылка (URL) на набор</td>
+    <td></td>
+  </tr>
+  <% index += 1 %>
+  <tr>
+    <td><%= index %></td>
+    <td>Формат данных</td>
+    <td></td>
+  </tr>
+  <% index += 1 %>
+  <tr>
+    <td><%= index %></td>
+    <td>Описание структуры набора данных</td>
+    <td></td>
+  </tr>
+  <% index += 1 %>
+  <tr>
+    <td><%= index %></td>
+    <td><%= t("activerecord.attributes.dataset.first_publish_date") %></td>
+    <td><%= l(@dataset.first_publish_date) if @dataset.first_publish_date.present? %></td>
+  </tr>
+  <% index += 1 %>
+  <tr>
+    <td><%= index %></td>
+    <td><%= t("activerecord.attributes.dataset.last_update_date") %></td>
+    <td><%= l(@dataset.last_update_date) if @dataset.last_update_date.present? %></td>
+  </tr>
+  <% index += 1 %>
+  <tr>
+    <td><%= index %></td>
+    <td><%= t("activerecord.attributes.dataset.last_update_description") %></td>
+    <td><%= @dataset.last_update_description %></td>
+  </tr>
+  <% index += 1 %>
+  <tr>
+    <td><%= index %></td>
+    <td><%= t("activerecord.attributes.dataset.relevance_date") %></td>
+    <td><%= l(@dataset.relevance_date) if @dataset.relevance_date.present? %></td>
+  </tr>
+  <% index += 1 %>
+  <tr>
+    <td><%= index %></td>
+    <td><%= t("activerecord.attributes.dataset.keywords") %></td>
+    <td><%= @dataset.keywords %></td>
+  </tr>
+  <% index += 1 %>
+  <tr>
+    <td><%= index %></td>
+    <td>Гиперссылки (URL) на версии набора данных</td>
+    <td></td>
+  </tr>
+  <% index += 1 %>
+  <tr>
+    <td><%= index %></td>
+    <td>Гиперссылки (URL) на версии структуры набора данных</td>
+    <td></td>
+  </tr>
+  <% index += 1 %>
+  <tr>
+    <td><%= index %></td>
+    <td><%= t("activerecord.attributes.dataset.version_guidelines") %></td>
+    <td><%= @dataset.version_guidelines %></td>
+  </tr>
+  <tr>
+    <td colspan='3'><%= link_to "Скачать #{t("activerecord.attributes.dataset.meta").mb_chars.downcase}", @dataset.meta.url %></td>
+  </tr>
+</table>
+

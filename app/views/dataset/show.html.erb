@@ -1,0 +1,13 @@
+<% @banners = nil %>
+<% @page_title = @dataset.title %>
+
+<% content_for :custom_page_title do %>
+  <h1><%= @dataset.title %></h1>
+<% end %>
+
+<% content_for :content do %>
+  <div class='article'>
+    <%= render :partial => '/dataset/table', :locals => { :dataset => @dataset } %>
+    <%= yield :social_links %>
+  </div>
+<% end %>

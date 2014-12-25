@@ -2,6 +2,13 @@
   <div class='article'>
     <%= render_partial_for_region(@content_first)  if @content_first %>
     <p><%= link_to 'реестр открытых данных', @opendata.list.url %></p>
+    <% if @opendata.datasets.any? %>
+      <ol>
+        <% @opendata.datasets.each do |dataset| %>
+          <li><%= link_to dataset.title, "/opendata/#{dataset.tracking_number}" %></li>
+        <% end %>
+      </ol>
+    <% end %>
     <%= render_partial_for_region(@content_third)  if @content_third %>
     <%= yield :social_links %>
   </div>
