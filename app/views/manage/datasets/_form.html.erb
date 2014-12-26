@@ -1,4 +1,4 @@
-<%= simple_form_for [:manage, :opendata, @dataset], :html => { :multipart => true } do |f| %>
+<%= simple_nested_form_for [:manage, :opendata, @dataset], :html => { :multipart => true } do |f| %>
   <%= f.input :opendata_id, :as => :hidden %>
   <%= f.input :tracking_number %>
   <%= f.input :title %>
@@ -13,7 +13,29 @@
   <%= f.input :relevance_date, :as => :datepicker %>
   <%= f.input :keywords %>
   <%= f.input :version_guidelines %>
-  <%= f.input :meta %>
+  <fieldset>
+    <legend><%= f.label :meta %></legend>
+    <%= content_tag :p do %>
+      <%= link_to "Скачать #{t("activerecord.attributes.dataset.meta").mb_chars.downcase} (#{f.object.meta_file_name})", f.object.meta.url %>
+    <% end if f.object.meta.present? %>
+    <%= f.input :meta, :label => false %>
+  </fieldset>
+
+  <fieldset>
+    <legend><%= f.label :attachments %></legend>
+    <%= f.fields_for :attachments do |attachment_form| %>
+      <%= content_tag :p do %>
+        <%= link_to "Скачать (#{attachment_form.object.data_file_name})", attachment_form.object.data.url %>
+      <% end if attachment_form.object.data.present? %>
+      <%= attachment_form.input :data %>
+      <%= content_tag :p do %>
+        <%= link_to "Скачать (#{attachment_form.object.structure_file_name})", attachment_form.object.structure.url %>
+      <% end if attachment_form.object.structure.present? %>
+      <%= attachment_form.input :structure %>
+      <%= attachment_form.link_to_remove 'Удалить' %>
+    <% end %>
+    <p><%= f.link_to_add 'Добавить файлы', :attachments %></p>
+  </fieldset>
 
   <div class='actions'>
     <%= f.submit 'Сохранить' %>

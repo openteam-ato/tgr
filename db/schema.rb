@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141225025649) do
+ActiveRecord::Schema.define(:version => 20141226030405) do
+
+  create_table "attachments", :force => true do |t|
+    t.integer  "dataset_id"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+    t.string   "data_file_name"
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.datetime "data_updated_at"
+    t.string   "structure_file_name"
+    t.string   "structure_content_type"
+    t.integer  "structure_file_size"
+    t.datetime "structure_updated_at"
+  end
 
   create_table "datasets", :force => true do |t|
     t.integer  "opendata_id"

@@ -3,7 +3,8 @@ class Dataset < ActiveRecord::Base
                   :owner, :responsible, :phone, :email,
                   :first_publish_date, :last_update_date,
                   :last_update_description, :relevance_date,
-                  :keywords, :version_guidelines, :meta
+                  :keywords, :version_guidelines, :meta,
+                  :attachments_attributes
 
   validates_presence_of :tracking_number, :title, :description,
                         :owner, :responsible, :phone, :email
@@ -16,6 +17,9 @@ class Dataset < ActiveRecord::Base
 
   belongs_to :opendata
 
+  has_many :attachments, :order => 'created_at DESC', :dependent => :destroy
+  accepts_nested_attributes_for :attachments, :allow_destroy => true
+
   default_value_for :version_guidelines, 'Версия 3.0'
 
   has_attached_file :meta, {
@@ -23,6 +27,17 @@ class Dataset < ActiveRecord::Base
     :url  => "/opendata/:tracking_number/:filename"
   }
   do_not_validate_attachment_file_type :meta
+
+  def attachments_formats
+    formats = []
+    formats << meta_file_name.split('.').last if meta.present?
+    attachments.each do |attachment|
+      formats << attachment.data_file_name.split('.').last if attachment.data.present?
+      formats << attachment.structure_file_name.split('.').last if attachment.structure.present?
+    end
+
+    formats.map(&:downcase).uniq.sort.join(', ')
+  end
 
 end
 
@@ -36,7 +51,7 @@ end
 #  title                   :text
 #  description             :text
 #  owner                   :text
-#  responsible             :string(255)
+#  responsible             :text
 #  phone                   :string(255)
 #  email                   :string(255)
 #  first_publish_date      :date

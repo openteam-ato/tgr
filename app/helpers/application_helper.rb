@@ -161,4 +161,8 @@ module ApplicationHelper
     return if filename.blank?
     filename.match(/\.(\w+)$/).try(:[], 1).downcase
   end
+
+  def full_url(path)
+    "#{request.protocol}#{request.host}#{request.port == 80 ? nil : ":#{request.port}"}#{path}".split('?').first
+  end
 end

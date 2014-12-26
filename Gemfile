@@ -19,6 +19,7 @@ group :default do
   gem 'gilenson'
   gem 'hashie'
   gem 'kaminari'
+  gem 'nested_form'
   gem 'openteam-commons'
   gem 'paperclip', '~> 4.2'
   gem 'pg'
