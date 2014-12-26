@@ -32,9 +32,9 @@
 <h2>Наборы открытых данных</h2>
 <p><%= link_to 'Добавить набор открытых данных', new_manage_opendata_dataset_path %></p>
 <% if @opendata.datasets.any? %>
-  <ul>
+  <ol>
     <% @opendata.datasets.each do |dataset| %>
       <li><%= link_to "#{dataset.tracking_number} &ndash; #{dataset.title}".html_safe, manage_opendata_dataset_path(dataset) %></li>
     <% end %>
-  </ul>
+  </ol>
 <% end %>
