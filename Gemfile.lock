@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/sgruhier/capistrano-db-tasks
+  revision: 396cbbfe0aa4bfe48c8edf2718f2af6163af42bf
+  ref: 396cbbf
+  specs:
+    capistrano-db-tasks (0.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -63,7 +70,6 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
-    capistrano-db-tasks (0.2)
     capistrano-ext (1.2.1)
       capistrano (>= 1.0.0)
     capistrano-unicorn (0.1.10)
@@ -117,7 +123,7 @@ GEM
     haml (4.0.5)
       tilt
     hashie (2.0.5)
-    highline (1.6.20)
+    highline (1.6.21)
     hike (1.2.3)
     i18n (0.7.0)
     journey (1.0.4)
@@ -137,14 +143,14 @@ GEM
     mime-types (1.25.1)
     multi_json (1.10.1)
     nested_form (0.3.2)
-    net-scp (1.1.2)
+    net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-sftp (2.1.2)
       net-ssh (>= 2.6.5)
-    net-ssh (2.7.0)
+    net-ssh (2.9.1)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
-    openteam-capistrano (0.0.13)
+    openteam-capistrano (0.0.14)
       capistrano-db-tasks
       capistrano-ext
       capistrano-unicorn
@@ -199,8 +205,8 @@ GEM
       sexp_processor (~> 4.1)
     russian (0.6.0)
       i18n (>= 0.5.0)
-    rvm-capistrano (1.5.1)
-      capistrano (~> 2.15.4)
+    rvm-capistrano (1.5.0)
+      capistrano (>= 2.15.4)
     sass (3.2.12)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -260,6 +266,8 @@ DEPENDENCIES
   annotate
   attribute_normalizer
   brakeman
+  capistrano (~> 2.15.5)
+  capistrano-db-tasks!
   capistrano-unicorn (~> 0.1.7)
   coffee-rails
   compass-rails
