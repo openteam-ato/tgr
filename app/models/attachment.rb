@@ -16,6 +16,28 @@ class Attachment < ActiveRecord::Base
   }
   do_not_validate_attachment_file_type :structure
 
+  after_save :decoding_data
+  after_save :decoding_structure
+
+  private
+
+  def decoding_data
+    return unless data.present?
+    convert_command = <<-end_command
+      enca -c #{data.path}
+    end_command
+
+    system(convert_command)
+  end
+
+  def decoding_structure
+    return unless structure.present?
+    convert_command = <<-end_command
+      enca -c #{structure.path}
+    end_command
+
+    system(convert_command)
+  end
 end
 
 # == Schema Information

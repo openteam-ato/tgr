@@ -1,23 +1,22 @@
 class Opendata < ActiveRecord::Base
   attr_accessible :list
-  validates_presence_of :list
 
   has_attached_file :list, {
     :path => ":rails_root/public/system/:class/:attachment/:id_partition/:style/:filename",
     :url  => "/opendata/:filename"
   }
-
   do_not_validate_attachment_file_type :list
+
+  after_save :decoding_list
 
   has_many :datasets, :dependent => :destroy
 
-  after_save :convert_list
-
   private
 
-  def convert_list
+  def decoding_list
+    return unless list.present?
     convert_command = <<-end_command
-      enca -c #{self.list.path}
+      enca -c #{list.path}
     end_command
 
     system(convert_command)

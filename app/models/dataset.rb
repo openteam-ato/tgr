@@ -28,6 +28,8 @@ class Dataset < ActiveRecord::Base
   }
   do_not_validate_attachment_file_type :meta
 
+  after_save :decoding_meta
+
   def attachments_formats
     formats = []
     formats << meta_file_name.split('.').last if meta.present?
@@ -37,6 +39,17 @@ class Dataset < ActiveRecord::Base
     end
 
     formats.map(&:downcase).uniq.sort.join(', ')
+  end
+
+  private
+
+  def decoding_meta
+    return unless meta.present?
+    convert_command = <<-end_command
+      enca -c #{meta.path}
+    end_command
+
+    system(convert_command)
   end
 
 end
