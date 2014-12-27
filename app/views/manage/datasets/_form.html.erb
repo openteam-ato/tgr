@@ -18,7 +18,7 @@
     <%= content_tag :p do %>
       <%= link_to "Скачать #{t("activerecord.attributes.dataset.meta").mb_chars.downcase} (#{f.object.meta_file_name})", f.object.meta.url %>
     <% end if f.object.meta.present? %>
-    <%= f.input :meta, :label => false %>
+    <%= f.input :meta, :label => false, :hint => 'имя файла должно быть meta.(csv|xml|json)' %>
   </fieldset>
 
   <fieldset>
@@ -27,11 +27,11 @@
       <%= content_tag :p do %>
         <%= link_to "Скачать (#{attachment_form.object.data_file_name})", attachment_form.object.data.url %>
       <% end if attachment_form.object.data.present? %>
-      <%= attachment_form.input :data %>
+      <%= attachment_form.input :data, :hint => 'имя файла должно быть data-20140101-structure-20140101.(csv|xml|json)' %>
       <%= content_tag :p do %>
         <%= link_to "Скачать (#{attachment_form.object.structure_file_name})", attachment_form.object.structure.url %>
       <% end if attachment_form.object.structure.present? %>
-      <%= attachment_form.input :structure %>
+      <%= attachment_form.input :structure, :hint => 'имя файла должно быть structure-20140101.(csv|xml|json)' %>
       <%= attachment_form.link_to_remove 'Удалить' %>
     <% end %>
     <p><%= f.link_to_add 'Добавить файлы', :attachments %></p>

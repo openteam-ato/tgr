@@ -8,12 +8,14 @@ class Attachment < ActiveRecord::Base
     :path => ":rails_root/public/system/:class/:attachment/:id_partition/:style/:filename",
     :url  => "/opendata/:tracking_number/:filename"
   }
+  validates_attachment_file_name :data, :matches => /\Adata-\d{8}-structure-\d{8}\..*\z/
   do_not_validate_attachment_file_type :data
 
   has_attached_file :structure, {
     :path => ":rails_root/public/system/:class/:attachment/:id_partition/:style/:filename",
     :url  => "/opendata/:tracking_number/:filename"
   }
+  validates_attachment_file_name :structure, :matches => /\Astructure-\d{8}\..*\z/
   do_not_validate_attachment_file_type :structure
 
   after_save :decoding_data

@@ -26,6 +26,7 @@ class Dataset < ActiveRecord::Base
     :path => ":rails_root/public/system/:class/:attachment/:id_partition/:style/:filename",
     :url  => "/opendata/:tracking_number/:filename"
   }
+  validates_attachment_file_name :meta, :matches => /\Ameta\..*\z/
   do_not_validate_attachment_file_type :meta
 
   after_save :decoding_meta
