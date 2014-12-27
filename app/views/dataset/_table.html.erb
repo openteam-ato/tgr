@@ -79,7 +79,7 @@
   <tr>
     <td><%= index %></td>
     <td><%= t("activerecord.attributes.dataset.last_update_description") %></td>
-    <td><%= dataset.last_update_description %></td>
+    <td><%= dataset.last_update_description.presence || 'нет' %></td>
   </tr>
   <% index += 1 %>
   <tr>
@@ -97,7 +97,7 @@
   <tr>
     <td><%= index %></td>
     <td><%= t("activerecord.attributes.dataset.keywords") %></td>
-    <td><%= dataset.keywords %></td>
+    <td><%= dataset.keywords.presence || 'нет' %></td>
   </tr>
   <% index += 1 %>
   <% attachments.shift %>

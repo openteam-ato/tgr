@@ -9,7 +9,7 @@ class Opendata < ActiveRecord::Base
 
   after_save :decoding_list
 
-  has_many :datasets, :dependent => :destroy
+  has_many :datasets, :order => 'created_at', :dependent => :destroy
 
   private
 
