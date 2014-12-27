@@ -18,7 +18,7 @@
   <tr>
     <td><%= index %></td>
     <td><%= t("activerecord.attributes.dataset.email") %></td>
-    <td><%= mail_to dataset.email %></td>
+    <td><%= dataset.email.split(',').map{ |email| mail_to email.squish }.join(', ').html_safe %></td>
   </tr>
   <% index += 1 %>
   <% attachments = dataset.attachments %>
