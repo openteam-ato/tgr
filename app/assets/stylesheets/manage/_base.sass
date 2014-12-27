@@ -1,3 +1,5 @@
+@import 'compass/utilities'
+
 body
   color: #000
   font-size: 14px
@@ -25,12 +27,21 @@ body
       text-decoration: none
 
   ol
-    list-style-type: decimal
-    list-style-position: inside
+    counter-reset: list
     margin: 20px 0
 
     li
+      +clearfix
+      position: relative
       margin: 15px 0
+
+      &:before
+        position: absolute
+        counter-increment: list
+        content: counter(list) '.'
+
+      div
+        margin-left: 35px
 
   table
     th, td
@@ -44,3 +55,6 @@ body
   .need_collapser
     .collapsible
       display: none
+
+  .error
+    color: #990000

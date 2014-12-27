@@ -34,7 +34,12 @@
 <% if @opendata.datasets.any? %>
   <ol>
     <% @opendata.datasets.each do |dataset| %>
-      <li><%= link_to "#{dataset.tracking_number} &ndash; #{dataset.title}".html_safe, manage_opendata_dataset_path(dataset) %></li>
+      <li>
+        <div><%= link_to "#{dataset.tracking_number} &ndash; #{dataset.title}".html_safe, manage_opendata_dataset_path(dataset) %></div>
+        <%= content_tag :div, 'отсутствует meta', :class => 'error' if dataset.meta.blank? %>
+        <%= content_tag :div, 'отсутствует data', :class => 'error' if dataset.attachments.map(&:data).empty? %>
+        <%= content_tag :div, 'отсутствует structure', :class => 'error' if dataset.attachments.map(&:structure).empty? %>
+      </li>
     <% end %>
   </ol>
 <% end %>
