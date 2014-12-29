@@ -15,7 +15,7 @@ class DatasetController < MainController
   def file
     file_name = "#{params[:file]}.#{params[:format]}"
     @dataset = Dataset.find_by_tracking_number(params[:id])
-    send_file @dataset.meta.path and return if @dataset.meta_file_name == file_name
+    send_file @dataset.meta.path and return if @dataset.present? && @dataset.meta_file_name == file_name
     raise ActionController::RoutingError.new('Not Found') unless @dataset.present?
     @dataset.attachments.each do |attachment|
       %w[data structure].each do |field|
