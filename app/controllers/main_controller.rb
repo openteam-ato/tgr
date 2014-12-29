@@ -43,12 +43,8 @@ class MainController < ApplicationController
     def remote_url
       request_path, parts_params = request.fullpath.split('?')
 
-      # TODO удалить после переноса открытых данных на клиент
-      request_path = '/ru/otkrytyy-region/otkrytye-dannye' if request_path.match(/\A\/opendata/)
-
-      # TODO раскоментировать после переноса открытых данных на клиент
-      #request_path = '/ru/otkrytyy-region/otkrytye-dannye/otkrytye-dannye-tomskoy-oblasti' if request_path.match(/\A\/opendata\z/)
-      #request_path = '/ru/otkrytyy-region/otkrytye-dannye/otkrytye-dannye-tomskoy-oblasti' if request_path.match(/\A\/opendata\/.*/)
+      request_path = '/ru/otkrytyy-region/otkrytye-dannye/otkrytye-dannye-tomskoy-oblasti' if request_path.match(/\A\/opendata\z/)
+      request_path = '/ru/otkrytyy-region/otkrytye-dannye/otkrytye-dannye-tomskoy-oblasti' if request_path.match(/\A\/opendata\/.*/)
 
       ["#{cms_address}#{request_path.split('/').compact.join('/')}.json", parts_params].compact.join('?')
     end
