@@ -108,7 +108,7 @@
     <td><%= index += 1 %></td>
     <td>Гиперссылки (URL) на версии структуры набора данных</td>
     <td>
-      <% if attachments.any? %>
+      <% if attachments.any? && attachments.map(&:structure_file_name).compact.many? %>
         <% attachments.each do |attachment| %>
           <%= content_tag :div, link_to(full_url(attachment.structure.url), attachment.structure.url) if attachment.structure.present? %>
         <% end %>
