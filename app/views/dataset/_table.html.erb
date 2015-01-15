@@ -39,8 +39,8 @@
     <td><%= index += 1 %></td>
     <td>Описание структуры набора данных</td>
     <td>
-      <% if attachments.any? && attachments.map(&:structure_file_name).compact.any? %>
-        <% last_structure = attachments.map{ |a| a.structure if a.structure_file_name.present? }.compact.first %>
+      <% if attachments.any? && attachments.map(&:structure).delete_if{ |structure| structure.blank? }.any? %>
+        <% last_structure = attachments.map(&:structure).delete_if{ |structure| structure.blank? }.first %>
         <%= link_to full_url(last_structure.url), last_structure.url %>
       <% else %>
         нет
@@ -90,13 +90,12 @@
     <td><%= t("activerecord.attributes.dataset.keywords") %></td>
     <td><%= dataset.keywords.presence || 'нет' %></td>
   </tr>
-  <% attachments.shift %>
   <tr>
     <td><%= index += 1 %></td>
     <td>Гиперссылки (URL) на версии набора данных</td>
     <td>
       <% if attachments.any? %>
-        <% attachments.each do |attachment| %>
+        <% attachments.drop(1).each do |attachment| %>
           <%= content_tag :div, link_to(full_url(attachment.data.url), attachment.data.url) if attachment.data.present? %>
         <% end %>
       <% else %>
@@ -108,8 +107,8 @@
     <td><%= index += 1 %></td>
     <td>Гиперссылки (URL) на версии структуры набора данных</td>
     <td>
-      <% if attachments.any? && attachments.map(&:structure_file_name).compact.many? %>
-        <% attachments.each do |attachment| %>
+      <% if attachments.any? && attachments.map(&:structure).delete_if{ |structure| structure.blank? }.many? %>
+        <% attachments.drop(1).each do |attachment| %>
           <%= content_tag :div, link_to(full_url(attachment.structure.url), attachment.structure.url) if attachment.structure.present? %>
         <% end %>
       <% else %>
