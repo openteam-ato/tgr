@@ -43,7 +43,7 @@
               <% item.subdivisions.each do |subdivision| %>
                 <li>
                   <h4><%= subdivision.title %></h4>
-                  <% if item.items %>
+                  <% if subdivision.items.present? %>
                     <h4>Сотрудники</h4>
                     <ul class='employees'>
                       <% subdivision.items.each do |item| %>

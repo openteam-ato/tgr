@@ -94,7 +94,7 @@
     <td><%= index += 1 %></td>
     <td>Гиперссылки (URL) на версии набора данных</td>
     <td>
-      <% if attachments.any? %>
+      <% if attachments.drop(1).any? %>
         <% attachments.drop(1).each do |attachment| %>
           <%= content_tag :div, link_to(full_url(attachment.data.url), attachment.data.url) if attachment.data.present? %>
         <% end %>
