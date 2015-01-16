@@ -108,8 +108,8 @@
     <td>Гиперссылки (URL) на версии структуры набора данных</td>
     <td>
       <% if attachments.any? && attachments.map(&:structure).delete_if{ |structure| structure.blank? }.many? %>
-        <% attachments.drop(1).each do |attachment| %>
-          <%= content_tag :div, link_to(full_url(attachment.structure.url), attachment.structure.url) if attachment.structure.present? %>
+        <% attachments.map(&:structure).delete_if{ |structure| structure.blank? }.drop(1).each do |structure| %>
+          <%= content_tag :div, link_to(full_url(structure.url), structure.url) %>
         <% end %>
       <% else %>
         нет
