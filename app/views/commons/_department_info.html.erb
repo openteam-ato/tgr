@@ -37,6 +37,17 @@
 
   <div class="dossier">
     <%= object.dossier.html_safe if object.dossier %>
+    <% if @regulation.try(&:content).try(&:gallery_pictures).present? && @regulation.try(&:content).try(&:gallery_pictures).many? %>
+      <div class="reports">
+        <ul>
+          <% @regulation.content.gallery_pictures.drop(1).each do |picture| %>
+            <li>
+              <%= link_to content_tag(:span, '', :class => 'icon') + picture.description, picture.picture_url, :class => picture.picture_url.match(/\.(\w+)$/).try(:[], 1) %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
   </div>
 </div>
 
