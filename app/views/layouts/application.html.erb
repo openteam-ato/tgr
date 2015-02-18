@@ -10,10 +10,10 @@
   <%= meta_tags %>
   <% if Rails.env.production? && request.host.eql?('tomsk.gov.ru') %>
   <!-- Gosmonitor widget -->
-  <%= javascript_include_tag 'http://www.google.com/jsapi' %>
-  <%= javascript_include_tag 'http://gosmonitor.ru/widget.php?id=113&amp;clr1=8aa865' %>
-  <%= stylesheet_link_tag 'http://dev.monitor.mer.gosbook.ru/widget/widget.css' %>
-  <%= stylesheet_link_tag 'widget.css' %>
+  <%#= javascript_include_tag 'http://www.google.com/jsapi' %>
+  <%#= javascript_include_tag 'http://gosmonitor.ru/widget.php?id=113&amp;clr1=8aa865' %>
+  <%#= stylesheet_link_tag 'http://dev.monitor.mer.gosbook.ru/widget/widget.css' %>
+  <%#= stylesheet_link_tag 'widget.css' %>
   <!-- / Gosmonitor widget -->
   <% end %>
 
