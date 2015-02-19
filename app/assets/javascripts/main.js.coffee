@@ -25,5 +25,5 @@ $ ->
     init_collapser()
     hash_handler()
 
-  $('a.invalid_link').click ->
+  $('a.invalid_link, a.disabled').click ->
     false

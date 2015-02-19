@@ -14,8 +14,18 @@ body
     color: #005fab
     outline: none
 
-  a:hover
-    text-decoration: none !important
+    &:hover
+      text-decoration: none !important
+
+    &.disabled
+      cursor: default !important
+      color: inherit !important
+      text-decoration: none !important
+
+      &:hover
+        cursor: default !important
+        color: inherit !important
+        text-decoration: none !important
 
   .rss
     background: image_url('rss.png') no-repeat
