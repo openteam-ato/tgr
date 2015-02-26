@@ -1,7 +1,8 @@
 <% if @page_slug == 'normativno-pravovye-akty' %>
   <p class='large'>
     <%= link_to 'Все нормативно-правовые акты', '/ru/dokumenty/normativno-pravovye-akty' %> |
-    <%= link_to 'Приказы', '/ru/dokumenty/normativno-pravovye-akty?utf8=✓&parts_params[documents][keywords]=приказ' %>
+    <%= link_to 'Приказы', '/ru/dokumenty/normativno-pravovye-akty?utf8=✓&parts_params[documents][keywords]=приказ' %> |
+    <%= link_to 'Официальное опубликование', 'http://publication.pravo.gov.ru/SignatoryAuthority/region70', :target => '_blank' %>
   </p>
 <% end %>
 
