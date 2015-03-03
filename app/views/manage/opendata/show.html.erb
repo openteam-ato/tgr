@@ -40,7 +40,7 @@
         <%= content_tag :div, 'отсутствует data', :class => 'error' if dataset.attachments.map(&:data).empty? %>
         <%= content_tag :div, 'отсутствует structure', :class => 'error' if dataset.attachments.map(&:structure).empty? %>
         <%= content_tag :div, 'нет указанны категории', :class => 'error' if dataset.opendata_categories.empty? %>
-        <%= content_tag :div, 'нет связанной организации', :class => 'error' if dataset.dataset_context_id.blank? %>
+        <%= content_tag :div, 'нет связанной организации', :class => 'error' if dataset.dataset_context.blank? %>
       </li>
     <% end %>
   </ol>
