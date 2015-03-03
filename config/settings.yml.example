@@ -2,20 +2,15 @@ app:
   secret:       SECRET
 
 errors:
+  url:          http://errors
   key:          KEY
-  url:          http://errors.openteam.ru
 
-#solr:
-#  url:          http://localhost:8982/solr
+cms:
+  url:          http://cms
+  site_slug:    SLUG
 
-#sso:
-#  key:          KEY
-#  secret:       SECRET
-#  url:          http://esp-sso.openteam.ru
+blue-pages:
+  url:          http://blue-pages
 
-#storage
-  #url:         http://esp-storage.openteam.ru
-
-unicorn:
-  workers:      2
-  timeout:      300
+storage:
+  url:          http://storage

@@ -1,10 +1,13 @@
 class Dataset < ActiveRecord::Base
-  attr_accessible :opendata_id, :tracking_number, :title, :description,
+  attr_accessible :opendata_category_ids, :dataset_context_id, :opendata_id,
+                  :tracking_number, :title, :description,
                   :owner, :responsible, :phone, :email,
                   :first_publish_date, :last_update_date,
                   :last_update_description, :relevance_date,
                   :keywords, :version_guidelines, :meta,
-                  :attachments_attributes, :opendata_category_ids
+                  :attachments_attributes
+
+  attr_accessor   :dataset_context
 
   validates_presence_of :tracking_number, :title, :description,
                         :owner, :responsible, :phone, :email,
@@ -45,6 +48,10 @@ class Dataset < ActiveRecord::Base
     formats.map(&:downcase).uniq.sort.join(', ')
   end
 
+  def dataset_context
+    DatasetContext.find(dataset_context_id)
+  end
+
   private
 
   def decoding_meta
@@ -83,4 +90,5 @@ end
 #  meta_content_type       :string(255)
 #  meta_file_size          :integer
 #  meta_updated_at         :datetime
+#  dataset_context_id      :integer
 #

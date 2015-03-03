@@ -8,4 +8,9 @@
   <%= @dataset.opendata_categories.join(', ') %>
 </p>
 
+<p>
+  <%= t("activerecord.attributes.dataset.dataset_context") %>:
+  <%= @dataset.dataset_context %>
+</p>
+
 <%= render :partial => '/dataset/table', :locals => { :dataset => @dataset } %>

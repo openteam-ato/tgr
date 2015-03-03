@@ -5,6 +5,13 @@
     </legend>
     <%= f.association :opendata_categories, :label => false, :as => :check_boxes %>
   </fieldset>
+  <fieldset>
+    <legend>
+      <%= f.label :dataset_context, :required => true %>
+    </legend>
+    <%= f.input :dataset_context_id, :as => :select, :collection => DatasetContext.all, :wrapper_html => { :class => :hidden } %>
+    <%= f.input :dataset_context, :label => false, :input_html => { :placeholder => 'Начните вводить название органа власти', :value => f.object.dataset_context } %>
+  </fieldset>
   <%= f.input :opendata_id, :as => :hidden %>
   <%= f.input :tracking_number %>
   <%= f.input :title %>

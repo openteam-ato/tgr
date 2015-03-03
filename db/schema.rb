@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150303061255) do
+ActiveRecord::Schema.define(:version => 20150303101320) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "dataset_id"
@@ -26,6 +26,17 @@ ActiveRecord::Schema.define(:version => 20150303061255) do
     t.integer  "structure_file_size"
     t.datetime "structure_updated_at"
   end
+
+  create_table "dataset_contexts", :force => true do |t|
+    t.string   "title"
+    t.string   "ancestry"
+    t.string   "weight"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "dataset_contexts", ["ancestry"], :name => "index_dataset_contexts_on_ancestry"
+  add_index "dataset_contexts", ["weight"], :name => "index_dataset_contexts_on_weight"
 
   create_table "datasets", :force => true do |t|
     t.integer  "opendata_id"
@@ -48,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20150303061255) do
     t.string   "meta_content_type"
     t.integer  "meta_file_size"
     t.datetime "meta_updated_at"
+    t.integer  "dataset_context_id"
   end
 
   create_table "datasets_opendata_categories", :id => false, :force => true do |t|

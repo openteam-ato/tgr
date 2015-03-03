@@ -10,5 +10,6 @@
  * = require jquery_nested_form
  * = require ./collapser
  * = require ./datepicker
+ * = require ./context_autocomplete
  * = require ./main
  */

@@ -161,6 +161,7 @@ GEM
       rails
       unicorn
       whenever
+    options (2.3.2)
     paperclip (4.2.0)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -168,6 +169,9 @@ GEM
       mime-types
     pg (0.17.1)
     polyglot (0.3.5)
+    progress_bar (1.0.3)
+      highline (~> 1.6.1)
+      options (~> 2.3.0)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.4.5)
@@ -239,6 +243,7 @@ GEM
       rack (>= 1.0.0)
     thor (0.19.1)
     tilt (1.4.1)
+    timecop (0.7.1)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -285,6 +290,7 @@ DEPENDENCIES
   openteam-commons
   paperclip (~> 4.2)
   pg
+  progress_bar
   quiet_assets
   rack-utf8_sanitizer
   rails (~> 3.2.12)
@@ -295,6 +301,7 @@ DEPENDENCIES
   sqlite3
   stop_ie
   thin
+  timecop
   turbo-sprockets-rails3
   uglifier
   unicorn (= 4.5.0)

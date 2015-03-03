@@ -23,6 +23,8 @@ group :default do
   gem 'openteam-commons'
   gem 'paperclip', '~> 4.2'
   gem 'pg'
+  gem 'timecop', :require => false
+  gem 'progress_bar', :require => false
   gem 'rack-utf8_sanitizer'
   gem 'rails', '~> 3.2.12'
   gem 'russian'
