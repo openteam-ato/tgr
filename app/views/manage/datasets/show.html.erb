@@ -3,4 +3,9 @@
   <%= link_to 'вернуться к наборам открытых данных', manage_opendata_path %>
 </p>
 
+<p>
+  <%= t("activerecord.attributes.dataset.opendata_categories") %>:
+  <%= @dataset.opendata_categories.join(', ') %>
+</p>
+
 <%= render :partial => '/dataset/table', :locals => { :dataset => @dataset } %>

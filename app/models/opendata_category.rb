@@ -6,6 +6,10 @@ class OpendataCategory < ActiveRecord::Base
   scope :ordered, -> { order('title') }
 
   normalize_attributes :title
+
+  def to_s
+    title
+  end
 end
 
 # == Schema Information

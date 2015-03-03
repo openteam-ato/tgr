@@ -4,10 +4,11 @@ class Dataset < ActiveRecord::Base
                   :first_publish_date, :last_update_date,
                   :last_update_description, :relevance_date,
                   :keywords, :version_guidelines, :meta,
-                  :attachments_attributes
+                  :attachments_attributes, :opendata_category_ids
 
   validates_presence_of :tracking_number, :title, :description,
-                        :owner, :responsible, :phone, :email
+                        :owner, :responsible, :phone, :email,
+                        :opendata_category_ids
 
   normalize_attributes  :tracking_number, :title, :description,
                         :owner, :responsible, :phone, :email,
@@ -28,6 +29,8 @@ class Dataset < ActiveRecord::Base
   }
   validates_attachment_file_name :meta, :matches => /\Ameta\..*\z/
   do_not_validate_attachment_file_type :meta
+
+  has_and_belongs_to_many :opendata_categories, :order => :title, :readonly => true
 
   after_save :decoding_meta
 

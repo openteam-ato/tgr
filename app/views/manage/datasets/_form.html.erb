@@ -1,4 +1,10 @@
 <%= simple_nested_form_for [:manage, :opendata, @dataset], :html => { :multipart => true } do |f| %>
+  <fieldset>
+    <legend>
+      <%= f.label :opendata_categories, :required => true %>
+    </legend>
+    <%= f.association :opendata_categories, :label => false, :as => :check_boxes %>
+  </fieldset>
   <%= f.input :opendata_id, :as => :hidden %>
   <%= f.input :tracking_number %>
   <%= f.input :title %>

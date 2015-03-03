@@ -75,6 +75,7 @@ ru:
         version_guidelines: 'Версия методических рекомендаций'
         meta: 'Паспорт набора открытых данных'
         attachments: 'Файлы'
+        opendata_categories: 'Категории набора данных'
 
       attachment:
         data: 'Файл набора открытых данных'
