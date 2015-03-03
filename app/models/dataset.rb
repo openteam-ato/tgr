@@ -9,7 +9,7 @@ class Dataset < ActiveRecord::Base
 
   attr_accessor   :dataset_context
 
-  validates_presence_of :tracking_number, :title, :description,
+  validates_presence_of :tracking_number, :dataset_context, :title, :description,
                         :owner, :responsible, :phone, :email,
                         :opendata_category_ids
 
