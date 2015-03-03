@@ -49,7 +49,7 @@ class Dataset < ActiveRecord::Base
   end
 
   def dataset_context
-    DatasetContext.find(dataset_context_id)
+    DatasetContext.find(dataset_context_id) if dataset_context_id.present?
   end
 
   private
