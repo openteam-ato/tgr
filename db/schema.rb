@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141226030405) do
+ActiveRecord::Schema.define(:version => 20150303051110) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "dataset_id"
@@ -57,6 +57,12 @@ ActiveRecord::Schema.define(:version => 20141226030405) do
     t.string   "list_content_type"
     t.integer  "list_file_size"
     t.datetime "list_updated_at"
+  end
+
+  create_table "opendata_categories", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

@@ -79,3 +79,6 @@ ru:
       attachment:
         data: 'Файл набора открытых данных'
         structure: 'Структура набора открытых данных'
+
+      opendata_category:
+        title: 'Наименование'

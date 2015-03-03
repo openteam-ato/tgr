@@ -6,6 +6,8 @@ Tgr::Application.routes.draw do
       resources :datasets
     end
 
+    resources :opendata_categories, :except => :show
+
     root :to => 'opendata#index'
   end
 

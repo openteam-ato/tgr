@@ -1,0 +1,16 @@
+<h2>Категории открытых данных</h2>
+<% if @opendata_categories.any? %>
+  <p><%= link_to 'добавить категорию', new_manage_opendata_category_path %></p>
+  <ul>
+    <% @opendata_categories.each do |category| %>
+      <li>
+        <%= category.title %>
+        <%= link_to 'изменить', edit_manage_opendata_category_path(category) %>
+      </li>
+    <% end %>
+  </ul>
+  <p><%= link_to 'добавить категорию', new_manage_opendata_category_path %></p>
+<% else %>
+  <p>данные отсутствуют</p>
+  <p><%= link_to 'добавить категорию', new_manage_opendata_category_path %></p>
+<% end %>
