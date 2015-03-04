@@ -1,4 +1,5 @@
 require 'openteam/capistrano/recipes'
+require 'whenever/capistrano'
 
 namespace :files do
   desc 'Synchronize your local files in public/system using remote files'
