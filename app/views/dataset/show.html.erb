@@ -7,6 +7,7 @@
 
 <% content_for :content do %>
   <div class='article'>
+    <p><%= link_to 'вернуться к списку наборов открытых данных', opendata_path %></p>
     <%= render :partial => '/dataset/table', :locals => { :dataset => @dataset } %>
     <table>
       <tr>
