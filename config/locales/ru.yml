@@ -52,6 +52,20 @@ ru:
       many: "%{count} просмотров"
       other: "%{count} просмотров"
 
+    downloads:
+      zero: "Не было скачиваний"
+      one: "%{count} скачивание"
+      few: "%{count} скачивания"
+      many: "%{count} скачиваний"
+      other: "%{count} скачиваний"
+
+    data_file:
+      zero: "набора"
+      one: "набора"
+      few: "наборов"
+      many: "наборов"
+      other: "наборов"
+
   views:
     pagination:
       next: '&rarr;'

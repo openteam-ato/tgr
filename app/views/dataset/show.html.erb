@@ -17,7 +17,16 @@
         <td>Последнее обновление <%= I18n.l @dataset.updated_at %></td>
       </tr>
       <tr>
-        <td><%= I18n.t 'dataset.visits', :count => @dataset.visits %> страницы набора открытых данных</td>
+        <td>
+          <%= I18n.t 'dataset.visits', :count => @dataset.visits %>
+          страницы набора открытых данных
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= I18n.t 'dataset.downloads', :count => @dataset.downloads.to_i %>
+          <%= I18n.t 'dataset.data_file', :count => @dataset.attachments.map(&:data).count %>
+          открытых данных</td>
       </tr>
     </table>
     <%= render 'commons/social_links' %>

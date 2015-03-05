@@ -22,7 +22,10 @@ class DatasetController < MainController
     raise ActionController::RoutingError.new('Not Found') unless @dataset.present?
     @dataset.attachments.each do |attachment|
       %w[data structure].each do |field|
-        send_file attachment.send(field).path and return if attachment.send("#{field}_file_name") == file_name
+        if attachment.send("#{field}_file_name") == file_name
+          @dataset.update_column(:downloads, @dataset.downloads.to_i + 1) if field == 'data'
+          send_file attachment.send(field).path and return
+        end
       end
     end
 
