@@ -41,6 +41,9 @@ class Dataset < ActiveRecord::Base
 
   paginates_per 10
 
+  scope :by_category, ->(category_id) { joins(:opendata_categories).where('opendata_categories.id = ?', category_id) }
+  scope :by_context, ->(context_id) { where(:dataset_context_id => context_id) }
+
   def attachments_formats
     formats = []
     formats << meta_file_name.split('.').last if meta.present?
@@ -60,6 +63,14 @@ class Dataset < ActiveRecord::Base
         nil
       end
     end
+  end
+
+  def self.search_categories
+    self.all.map(&:opendata_categories).flatten.uniq.sort{ |a, b| a.title <=> b.title }
+  end
+
+  def self.search_contexts
+    DatasetContext.find(self.pluck(:dataset_context_id).uniq).sort{ |a, b| a.title <=> b.title }
   end
 
   private

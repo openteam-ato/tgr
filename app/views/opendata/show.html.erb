@@ -8,6 +8,20 @@
 
   <div class='article'>
     <%= render_partial_for_region(@content_first) if @content_first %>
+    <%= simple_form_for :dataset, :method => :get, :html => { :class => :dataset_search_form } do |f| %>
+      <%= f.input :context, :label => 'Организация', :required => false,
+        :collection => Dataset.search_contexts,
+        :include_blank => '- Не выбрано -',
+        :selected => params['dataset'].try(:[], 'context') %>
+      <%= f.input :category, :label => 'Категория', :required => false,
+        :collection => Dataset.search_categories,
+        :include_blank => '- Не выбрано -',
+        :selected => params['dataset'].try(:[], 'category') %>
+      <div class='actions'>
+        <%= f.submit 'Найти', :name => nil %>
+        <%= link_to 'очистить', opendata_path %>
+      </div>
+    <% end %>
     <p><%= link_to 'реестр открытых данных', @opendata.list.url %></p>
     <% if @datasets.any? %>
       <table>
@@ -30,6 +44,8 @@
         <% end %>
       </table>
       <%= paginate @datasets %>
+    <% else %>
+      <p>По указанным параметрам ничего не найдено</p>
     <% end %>
     <%= render_partial_for_region(@content_third) if @content_third %>
     <%= yield :social_links %>
