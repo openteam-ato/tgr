@@ -7,16 +7,26 @@
                                                                                             @right_side_smi_publications %>
 
   <div class='article'>
-    <%= render_partial_for_region(@content_first)  if @content_first %>
+    <%= render_partial_for_region(@content_first) if @content_first %>
     <p><%= link_to 'реестр открытых данных', @opendata.list.url %></p>
-    <% if @opendata.datasets.any? %>
-      <ol>
-        <% @opendata.datasets.each do |dataset| %>
-          <li><%= link_to dataset.title, "/opendata/#{dataset.tracking_number}" %></li>
+    <% if @datasets.any? %>
+      <table>
+        <tr>
+          <th>№п/п</th>
+          <th>Название</th>
+          <th>Формат данных</th>
+        </tr>
+        <% @datasets.each_with_index do |dataset, index| %>
+          <tr>
+            <td><%= index + 1 + ((params[:page] || 1).to_i - 1) * 20 %></td>
+            <td><%= link_to dataset.title, "/opendata/#{dataset.tracking_number}" %></td>
+            <td><%= dataset.attachments_formats %></td>
+          </tr>
         <% end %>
-      </ol>
+      </table>
+      <%= paginate @datasets %>
     <% end %>
-    <%= render_partial_for_region(@content_third)  if @content_third %>
+    <%= render_partial_for_region(@content_third) if @content_third %>
     <%= yield :social_links %>
   </div>
 <% end %>

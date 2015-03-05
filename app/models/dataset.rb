@@ -37,6 +37,8 @@ class Dataset < ActiveRecord::Base
 
   after_save :decoding_meta
 
+  paginates_per 20
+
   def attachments_formats
     formats = []
     formats << meta_file_name.split('.').last if meta.present?
