@@ -12,14 +12,19 @@
     <% if @datasets.any? %>
       <table>
         <tr>
-          <th>№п/п</th>
+          <th>№ <span class='nobr'>п/п</span></th>
           <th>Название</th>
           <th>Формат данных</th>
         </tr>
         <% @datasets.each_with_index do |dataset, index| %>
           <tr>
-            <td><%= index + 1 + ((params[:page] || 1).to_i - 1) * 20 %></td>
-            <td><%= link_to dataset.title, "/opendata/#{dataset.tracking_number}" %></td>
+            <td><%= index + 1 + ((params[:page] || 1).to_i - 1) * 10 %></td>
+            <td>
+              <div><%= link_to dataset.title, "/opendata/#{dataset.tracking_number}" %></div>
+              <div><%= dataset.dataset_context %></div>
+              <div><%= dataset.opendata_categories.join(', ') %></div>
+              <div class='gray'>Последнее обновление <%= I18n.l dataset.updated_at %></div>
+            </td>
             <td><%= dataset.attachments_formats %></td>
           </tr>
         <% end %>

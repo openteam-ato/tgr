@@ -39,7 +39,7 @@ class Dataset < ActiveRecord::Base
 
   after_save :decoding_meta
 
-  paginates_per 20
+  paginates_per 10
 
   def attachments_formats
     formats = []
