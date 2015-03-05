@@ -8,6 +8,14 @@
 <% content_for :content do %>
   <div class='article'>
     <%= render :partial => '/dataset/table', :locals => { :dataset => @dataset } %>
-    <%= yield :social_links %>
+    <table>
+      <tr>
+        <th>Статистика</th>
+      </tr>
+      <tr>
+        <td><%= I18n.t 'dataset.visits', :count => @dataset.visits %> страницы набора открытых данных</td>
+      </tr>
+    </table>
+    <%= render 'commons/social_links' %>
   </div>
 <% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150303101320) do
+ActiveRecord::Schema.define(:version => 20150305034000) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "dataset_id"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20150303101320) do
     t.integer  "meta_file_size"
     t.datetime "meta_updated_at"
     t.integer  "dataset_context_id"
+    t.integer  "visits"
   end
 
   create_table "datasets_opendata_categories", :id => false, :force => true do |t|

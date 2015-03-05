@@ -4,6 +4,9 @@ class DatasetController < MainController
     respond_to do |format|
       format.html do
         @dataset = Dataset.find_by_tracking_number(params[:id])
+        if request.user_agent.present? && !request.user_agent.match(/http/)
+          @dataset.update_column(:visits, @dataset.visits.to_i + 1)
+        end
         raise ActionController::RoutingError.new('Not Found') unless @dataset.present?
       end
       format.any do

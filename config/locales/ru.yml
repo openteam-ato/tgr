@@ -45,6 +45,13 @@ ru:
     many: "%{count} проектов"
     other: "%{count} проекты"
 
+  dataset:
+    visits:
+      one: "%{count} просмотр"
+      few: "%{count} просмотра"
+      many: "%{count} просмотров"
+      other: "%{count} просмотров"
+
   views:
     pagination:
       next: '&rarr;'

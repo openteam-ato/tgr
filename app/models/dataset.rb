@@ -5,7 +5,7 @@ class Dataset < ActiveRecord::Base
                   :first_publish_date, :last_update_date,
                   :last_update_description, :relevance_date,
                   :keywords, :version_guidelines, :meta,
-                  :attachments_attributes
+                  :attachments_attributes, :visits
 
   attr_accessor   :dataset_context
 
@@ -25,6 +25,8 @@ class Dataset < ActiveRecord::Base
   accepts_nested_attributes_for :attachments, :allow_destroy => true
 
   default_value_for :version_guidelines, 'Версия 3.0'
+
+  default_value_for :visits, 0
 
   has_attached_file :meta, {
     :path => ":rails_root/public/system/:class/:attachment/:id_partition/:style/:filename",
@@ -99,4 +101,5 @@ end
 #  meta_file_size          :integer
 #  meta_updated_at         :datetime
 #  dataset_context_id      :integer
+#  visits                  :integer
 #
