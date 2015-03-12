@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html lang='ru'>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h3>Новое сообщение из раздела «Открытые данные»</h3>
+    <hr />
+    <p>Набор данных: <a href='<%= Settings['app.url'] %>/opendata/<%= @dataset.tracking_number %>'><%= "#{@dataset.title} (#{@dataset.tracking_number})" %></a></p>
+    <hr />
+    <p>Категория: <%= @dataset_params['message_kind'] %></p>
+    <p>Ф.И.О.: <%= @dataset_params['message_name'] %></p>
+    <p>Электронная почта: <%= mail_to @dataset_params['message_email'] %></p>
+    <p>Текст сообщения:</p>
+    <%= simple_format @dataset_params['message_text'] %>
+    <hr />
+    <p>Это письмо сформировано автоматически. Не нужно на него отвечать.</p>
+  </body>
+</html>

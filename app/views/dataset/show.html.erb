@@ -9,26 +9,57 @@
   <div class='article'>
     <p><%= link_to 'вернуться к списку наборов открытых данных', opendata_path %></p>
     <%= render :partial => '/dataset/table', :locals => { :dataset => @dataset } %>
-    <table>
-      <tr>
-        <th>Статистика</th>
-      </tr>
-      <tr>
-        <td>Последнее обновление <%= I18n.l @dataset.updated_at %></td>
-      </tr>
-      <tr>
-        <td>
-          <%= I18n.t 'dataset.visits', :count => @dataset.visits %>
-          страницы набора открытых данных
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <%= I18n.t 'dataset.downloads', :count => @dataset.downloads.to_i %>
-          <%= I18n.t 'dataset.data_file', :count => @dataset.attachments.map(&:data).count %>
-          открытых данных</td>
-      </tr>
-    </table>
+    <div class='dataset_two_columns'>
+      <div class='left'>
+        <table>
+          <tr>
+            <th>Обратная связь</th>
+          </tr>
+          <tr>
+            <td>
+              <%= simple_form_for :dataset, :url => dataset_path, :html => { :class => :dataset_message } do |f| %>
+                <% if flash[:notice] %>
+                  <p class='notice-message'><%= flash[:notice] %></p>
+                <% end %>
+                <%= f.input :message_kind, :label => 'Категория', :as => :select, :collection => ['Предложение', 'Ошибка'], :include_blank => true, :selected => params['dataset'].try(:[], 'message_kind') %>
+                <%= f.input :message_name, :label => 'Ф.И.О.', :input_html => { :value => params['dataset'].try(:[], 'message_name') } %>
+                <%= f.input :message_email, :label => 'Электронная почта', :input_html => { :value => params['dataset'].try(:[], 'message_email') } %>
+                <%= f.input :message_text, :label => 'Текст сообщения', :as => :text, :input_html => { :value => params['dataset'].try(:[], 'message_text') } %>
+                <%= recaptcha_tags :display => { :theme => 'clean' }, :ajax => true %>
+                <% if flash[:alert] %>
+                  <p class='recaptcha-alert'><%= flash[:alert] %></p>
+                <% end %>
+                <div class='actions'>
+                  <%= f.submit 'Отправить', :name => nil %>
+                </div>
+              <% end %>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class='right'>
+        <table>
+          <tr>
+            <th>Статистика</th>
+          </tr>
+          <tr>
+            <td>Последнее обновление <%= I18n.l @dataset.updated_at %></td>
+          </tr>
+          <tr>
+            <td>
+              <%= I18n.t 'dataset.visits', :count => @dataset.visits %>
+              страницы набора открытых данных
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= I18n.t 'dataset.downloads', :count => @dataset.downloads.to_i %>
+              <%= I18n.t 'dataset.data_file', :count => @dataset.attachments.map(&:data).count %>
+              открытых данных</td>
+          </tr>
+        </table>
+      </div>
+    </div>
     <%= render 'commons/social_links' %>
   </div>
 <% end %>

@@ -14,6 +14,7 @@ Tgr::Application.routes.draw do
   get '/opendata' => 'opendata#show'
   get '/opendata/:id' => 'dataset#show'
   get '/opendata/:id/:file' => 'dataset#file'
+  post '/opendata/:id' => 'dataset#send_message', :as => :dataset
 
   get '/(*path)', :to => 'main#index'
 end

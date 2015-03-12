@@ -32,4 +32,16 @@ class DatasetController < MainController
     raise ActionController::RoutingError.new('Not Found')
   end
 
+  def send_message
+    if verify_recaptcha
+      DatasetMailer.new_dataset_message(params).deliver
+      flash[:notice] = 'Ваши обращение принято к сведению. Спасибо за Ваше участие!'
+      redirect_to dataset_path
+    else
+      @dataset = Dataset.find_by_tracking_number(params[:id])
+      flash.now[:alert] = 'Текст с картинки введен неправильно'
+      render :show
+    end
+  end
+
 end

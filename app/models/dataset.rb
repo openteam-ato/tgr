@@ -9,6 +9,8 @@ class Dataset < ActiveRecord::Base
 
   attr_accessor   :dataset_context
 
+  attr_accessor   :message_kind, :message_name, :message_email, :message_text
+
   validates_presence_of :tracking_number, :dataset_context, :title, :description,
                         :owner, :responsible, :phone, :email,
                         :opendata_category_ids

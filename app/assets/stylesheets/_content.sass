@@ -209,6 +209,77 @@
         input
           margin-right: 7px
 
+  .dataset_two_columns
+    +clearfix
+
+    .left
+      float: left
+      width: 460px
+      margin-right: 20px
+
+      table
+        width: 100%
+
+      .dataset_message
+
+        .notice-message
+          color: #008800
+          font-size: 14px
+          font-weight: bold
+          margin-bottom: 10px
+
+        label
+          display: block
+          margin-bottom: 5px
+
+          abbr
+            cursor: help
+            color: #880000
+
+        div.input
+          margin-bottom: 10px
+
+          input
+            width: 442px
+
+          select
+            width: 446px
+            background-color: #fff
+            padding: 1px 0
+
+          textarea
+            width: 440px
+
+        .recaptcha-alert
+          color: #880000
+          font-size: 14px
+          font-weight: bold
+          margin-bottom: 10px
+
+        #dynamic_recaptcha
+          margin-bottom: 10px
+
+          .recaptchatable #recaptcha_image
+            border: 0 !important
+
+          .recaptchatable #recaptcha_response_field
+            font-size: 12px
+            border: 1px solid #e1e1e1 !important
+            padding: 5px
+
+          #recaptcha_logo
+            display: none
+
+        div.actions
+          margin-bottom: 10px
+
+    .right
+      float: left
+      width: 460px
+
+      table
+        width: 100%
+
   .addthis_toolbox
     border: 1px dotted #aaa
     border-left: none

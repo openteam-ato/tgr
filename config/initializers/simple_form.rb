@@ -41,8 +41,8 @@ SimpleForm.setup do |config|
 
     ## Inputs
     b.use :label_input
-    b.use :hint,  :wrap_with => { :tag => :div, :class => :hint }
-    b.use :error, :wrap_with => { :tag => :div, :class => :error }
+    b.use :hint,  :wrap_with => { :tag => :span, :class => :hint }
+    b.use :error, :wrap_with => { :tag => :span, :class => :error }
   end
 
   # The default wrapper to be used by the FormBuilder.
@@ -108,7 +108,7 @@ SimpleForm.setup do |config|
 
   # Tell browsers whether to use default HTML5 validations (novalidate option).
   # Default is enabled.
-  config.browser_validations = false
+  config.browser_validations = true
 
   # Collection of methods to detect if a file type was given.
   # config.file_methods = [ :mounted_as, :file?, :public_filename ]

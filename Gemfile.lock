@@ -38,6 +38,7 @@ GEM
     activesupport (3.2.21)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
+    addressable (2.3.6)
     airbrake (3.1.15)
       builder
       multi_json
@@ -135,6 +136,10 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     kgio (2.9.2)
+    launchy (2.4.3)
+      addressable (~> 2.3)
+    letter_opener (1.2.0)
+      launchy (~> 2.2)
     macaddr (1.6.1)
       systemu (~> 2.5.0)
     mail (2.5.4)
@@ -202,6 +207,7 @@ GEM
     rake (10.4.2)
     rdoc (3.12.2)
       json (~> 1.4)
+    recaptcha (0.3.6)
     ruby2ruby (2.0.7)
       ruby_parser (~> 3.1)
       sexp_processor (~> 4.0)
@@ -285,6 +291,7 @@ DEPENDENCIES
   hashie
   jquery-rails (= 2.1.4)
   kaminari
+  letter_opener
   nested_form
   openteam-capistrano
   openteam-commons
@@ -294,6 +301,7 @@ DEPENDENCIES
   quiet_assets
   rack-utf8_sanitizer
   rails (~> 3.2.12)
+  recaptcha
   russian
   sass-rails
   simple-rss

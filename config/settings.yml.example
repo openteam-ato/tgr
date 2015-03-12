@@ -1,4 +1,5 @@
 app:
+  url:          http://domain.com
   secret:       SECRET
 
 errors:
@@ -14,3 +15,16 @@ blue-pages:
 
 storage:
   url:          http://storage
+
+recaptcha:
+  public:       KEY
+  private:      KEY
+
+mail:
+  domain:       domain.com
+  smtp:         smtp.domain.com
+  port:         25
+
+  opendata:
+    sender:     sender@domain.com
+    recipient:  recipient@domain.com
