@@ -31,9 +31,9 @@
 
 <h2>Наборы открытых данных</h2>
 <p><%= link_to 'Добавить набор открытых данных', new_manage_opendata_dataset_path %></p>
-<% if @opendata.datasets.any? %>
-  <ol>
-    <% @opendata.datasets.each do |dataset| %>
+<% if @datasets.any? %>
+  <ol<%= " start='#{(params['page'].to_i - 1) * 15 + 1}'".html_safe if params['page'].present? %>>
+    <% @datasets.each do |dataset| %>
       <li>
         <div><%= link_to "#{dataset.tracking_number} &ndash; #{dataset.title}".html_safe, manage_opendata_dataset_path(dataset) %></div>
         <%= content_tag :div, 'отсутствует meta', :class => 'error' if dataset.meta.blank? %>
@@ -44,4 +44,5 @@
       </li>
     <% end %>
   </ol>
+  <%= paginate @datasets %>
 <% end %>
