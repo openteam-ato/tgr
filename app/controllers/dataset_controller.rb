@@ -4,6 +4,7 @@ class DatasetController < MainController
     respond_to do |format|
       format.html do
         @dataset = Dataset.find_by_tracking_number(params[:id])
+        redirect_to opendata_path and return unless @dataset.present?
         if request.user_agent.present? && !request.user_agent.match(/http/)
           @dataset.update_column(:visits, @dataset.visits.to_i + 1)
         end
