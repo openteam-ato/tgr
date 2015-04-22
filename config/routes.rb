@@ -1,4 +1,7 @@
 Tgr::Application.routes.draw do
+
+  put '/ali.txt' => redirect('http://alihack.com')
+
   mount ElVfsClient::Engine => '/'
 
   namespace :manage do
