@@ -8,7 +8,6 @@ class Manage::OpendataController < Manage::ApplicationController
     @opendata = Opendata.first
     redirect_to manage_root_path and return unless @opendata.present?
     require 'csv'
-    @list_table = CSV.open(@opendata.list.path, :headers => true, :quote_char => '|', :col_sep => ';').read
     @datasets = @opendata.datasets.page(params[:page]).per(15)
   end
 
