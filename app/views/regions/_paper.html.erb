@@ -4,15 +4,26 @@
 <% end %>
 
 <p class="title">
-  <%= paper.authority %>,
-
-  <% if paper.approved_on %>
-    <span class="kind"><%= paper.kind.uncapitalize %></span>
-    <%= "#{t('paper_of')} #{l(paper.approved_on.to_date)}" %>
-    <%= "№ #{paper.number}" if paper.number %>
+  <% if paper.kind.match(/Закон/) %>
+    <% if paper.approved_on %>
+      <span class="kind"><%= paper.kind %></span>
+      <%= "#{t('paper_of')} #{l(paper.approved_on.to_date)}" %>
+      <%= "№ #{paper.number}" if paper.number %>
+    <% else %>
+      <span class="kind"><%= paper.kind %></span>,
+      <%= "#{t('published_on')} #{l(paper.published_on.to_date)}" %>
+    <% end %>
   <% else %>
-    <span class="kind"><%= paper.kind.uncapitalize %></span>,
-    <%= "#{t('published_on')} #{l(paper.published_on.to_date)}" %>
+    <%= "#{paper.authority}," %>,
+
+    <% if paper.approved_on %>
+      <span class="kind"><%= paper.kind.uncapitalize %></span>
+      <%= "#{t('paper_of')} #{l(paper.approved_on.to_date)}" %>
+      <%= "№ #{paper.number}" if paper.number %>
+    <% else %>
+      <span class="kind"><%= paper.kind.uncapitalize %></span>,
+      <%= "#{t('published_on')} #{l(paper.published_on.to_date)}" %>
+    <% end %>
   <% end %>
 </p>
 
