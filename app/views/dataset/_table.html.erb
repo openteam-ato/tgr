@@ -121,6 +121,14 @@
     <td><%= t("activerecord.attributes.dataset.version_guidelines") %></td>
     <td><%= dataset.version_guidelines %></td>
   </tr>
+  <% if dataset.link_to_visual.present? %>
+    <tr>
+      <td><%= index += 1 %></td>
+      <td colspan='2'>
+        <%= link_to 'Визуализация набора данных', dataset.link_to_visual, :target => '_blank' %>
+      </td>
+    </tr>
+  <% end %>
   <% if dataset.meta.present? %>
     <tr>
       <td colspan='3'><%= link_to "Скачать #{t("activerecord.attributes.dataset.meta").mb_chars.downcase}", dataset.meta.url %></td>

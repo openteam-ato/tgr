@@ -5,7 +5,8 @@ class Dataset < ActiveRecord::Base
                   :first_publish_date, :last_update_date,
                   :last_update_description, :relevance_date,
                   :keywords, :version_guidelines, :meta,
-                  :attachments_attributes, :visits, :downloads
+                  :attachments_attributes, :visits, :downloads,
+                  :link_to_visual
 
   attr_accessor   :dataset_context
 
@@ -19,7 +20,9 @@ class Dataset < ActiveRecord::Base
                         :owner, :responsible, :phone, :email,
                         :first_publish_date, :last_update_date,
                         :last_update_description, :relevance_date,
-                        :keywords, :version_guidelines
+                        :keywords, :version_guidelines, :link_to_visual
+
+  validates :link_to_visual, :url => { :allow_blank => true, :message => 'Неверный адрес' }
 
   belongs_to :opendata
 
@@ -118,4 +121,5 @@ end
 #  dataset_context_id      :integer
 #  visits                  :integer
 #  downloads               :integer
+#  link_to_visual          :string(255)
 #
