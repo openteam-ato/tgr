@@ -88,6 +88,28 @@
           position: relative
           width: 0
 
+    ol
+      counter-reset: item
+
+      li
+        position: relative
+        line-height: 19px
+        padding: 0 0 12px 28px
+
+        &:before
+          position: absolute
+          left: 0
+          counter-increment: item
+          content: counter(item) '.'
+
+  .subdivision_information .dossier
+    h3
+      margin-bottom: 20px
+
+    ul, ol
+      li
+        margin-bottom: 0
+
   .links
     +clearfix
     +single-box-shadow(#ccc, 0px, -3px, 10px, -1px)
